@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="org.brewingupacure.buacmobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Brewing Up A Cure Mobile</name>
+    <name>Brewing Up A Cure</name>
     <description>
        Mobile app for displaying BUAC brewers and other relevant information.
     </description>

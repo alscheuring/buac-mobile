@@ -1,3 +1,6 @@
 .ui-header-fixed {
   padding-top:5px;
 }
+
+/*Fixes flashes between pages */
+.ui-page { -webkit-backface-visibility: hidden; }

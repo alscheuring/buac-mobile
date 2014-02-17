@@ -12,7 +12,7 @@ $(document).on("pageinit", "#info-page", function () {
         //note the use of += in the variable
         //meaning I'm adding to the existing data. not replacing it.
         //store index value in array as id of the <a> tag
-        li += '<li><a href="#" id="' + i + '" class="info-go"><h3>' + name.Brewer.name + '</h3><p><strong>' + name.Brewer.brewery + '</strong></p></a></li>';
+        li += '<li><a href="#" id="' + i + '" class="info-go" data-transition="slide"><h3>' + name.Brewer.name + '</h3><p><strong>' + name.Brewer.brewery + '</strong></p></a></li>';
     });
     //append list to ul
     $("#brewerList").append(li).promise().done(function () {
@@ -45,18 +45,13 @@ $(document).on("pagebeforeshow", "#details-page", function () {
     //string to put HTML in
     var info_view = "";
     //use for..in to iterate through object
-    for (var key in info.Brewer) {
-        //Im using grid layout here.
-        //use any kind of layout you want.
-        //key is the key of the property in the object 
-        //if obj = {name: 'k'}
-        //key = name, value = k
-       // info_view += '<div class="ui-grid-a"><div class="ui-block-a"><div class="ui-bar field" style="font-weight : bold; text-align: left;">' + key + '</div></div><div class="ui-block-b"><div class="ui-bar value" style="width : 75%">' + info[key] + '</div></div></div>';
+
+
     
-    }
-    
-    info_view += '<h1>' + info.Brewer.name +'</h1>';
-    info_view += '<h2>' + info.Brewer.brewery +'</h2>';
+    info_view += '<h2>' + info.Brewer.name +'</h1>';
+    info_view += '<h3>' + info.Brewer.brewery +'</h2>';
+    info_view += '<p>' + info.Brewer.story +'</p>';
+
     //add this to html
    // alert(info_view);
     $(this).find("[data-role=content]").html(info_view);
@@ -125,7 +120,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
     
     info_view += '<h1>' + info.Beer.name +'</h1>';
     info_view += '<h2>' + info.Beer.style +'</h2>';
-    info_view += '<h3> by ' + brewerName +'</h3>';
+    info_view += '<a href="#info-page" data-role="button"><h3> by ' + brewerName +'</h3></a>';
     info_view += '<p>' + info.Beer.description +'</p>';
     //add this to html
    // alert(info_view);

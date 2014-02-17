@@ -109,7 +109,7 @@ $(document).on("pageinit", "#beerStyles", function () {
 //DONT USE PAGEINIT! 
 //the reason is you want this to happen every single time
 //pageinit will happen only once
-$(document).on("pagebeforeshow", "#details-page", function () {
+$(document).on("pagebeforeshow", "#beer-detail", function () {
     //get from data - you put this here when the "a" wa clicked in the previous page
     var info = $(this).data("info");
     //string to put HTML in
@@ -126,7 +126,8 @@ $(document).on("pagebeforeshow", "#details-page", function () {
     }
     
     info_view += '<h1>' + info.Beer.name +'</h1>';
-    info_view += '<h2>' + info.Brewer.style +'</h2>';
+    info_view += '<h2>' + info.Beer.style +'</h2>';
+    info_view += '<p>' + info.Beer.description +'</p>';
     //add this to html
    // alert(info_view);
     $(this).find("[data-role=content]").html(info_view);

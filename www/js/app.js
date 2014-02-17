@@ -2,7 +2,10 @@
 //triggers only once
 //write all your on-load functions and event handlers pertaining to page1
 $(document).on("pageinit", "#info-page", function () {
-
+      $.mobile.defaultPageTransition = 'none';
+      $.mobile.defaultDialogTransition = 'none';
+      $.mobile.useFastClick = true;
+      
           $.getJSON('http://brewingupacure.org/Brewers/index.json', function(info) {
     //set up string for adding <li/>
     var li = "";

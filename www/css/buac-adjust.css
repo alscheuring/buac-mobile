@@ -4,3 +4,11 @@
 
 /*Fixes flashes between pages */
 .ui-page { -webkit-backface-visibility: hidden; }
+
+.detailBanner {
+-moz-box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+-webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+background-color:#F2C43D;
+padding:10px;
+}

@@ -38,9 +38,12 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
     $.getJSON(buacurl, function(info) {
          	
        
+    info_view += '<div class="detailBanner">';
 
     info_view += '<h2>' + info.Brewer.name +'</h1>';
     info_view += '<h3>' + info.Brewer.brewery +'</h2>';
+        info_view += '</div>';
+
     info_view += '<p>' + info.Brewer.story +'</p>';
 
 	$("#brewerDetailDiv").html(info_view);
@@ -100,9 +103,15 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
         var brewerName = info.Brewer.brewery;
         if(!info.Brewer.brewery){brewerName = name.Brewer.name;}
 
+    info_view += '<div class="detailBanner">';
+
     info_view += '<h1>' + info.Beer.name +'</h1>';
     info_view += '<h2>' + info.Beer.style +'</h2>';
+    
     info_view += '<a href="#brewer-detail" class="info-go" onclick="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
+        info_view += '</div>';
+
+    
     info_view += '<p>' + info.Beer.description +'</p>';
     //add this to html
     $("#beerDetailDiv").html(info_view);

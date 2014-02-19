@@ -25,7 +25,8 @@
 	<a href="#event-details" data-role='button'>Event Details</a>		
 	<a href="#sponsors" data-role='button'>Sponsors</a>	-->
 	<h3>Welcome to the 8th Annual Brewing Up A Cure</h3>
-	
+		
+
 	</div><!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
@@ -45,6 +46,9 @@
 </div><!-- /Home page -->
 <!------------------------------------------------------>	
 
+
+
+
 <!------------------------------------------------------>	
 <div data-role="page" id="info-page" data-theme="a" data-add-back-btn="true" data-add-back-btn="true"><!-- Home Page -->
 
@@ -56,12 +60,44 @@
 
 	<div role="main" class="ui-content">
 
-	  
 		<ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview" id="brewerList">
 		<!--List of brewers will be populated here -->
 		</ul>		
 		
 	</div><!-- /content -->
+
+	<div data-role="footer" data-position="fixed">
+	  <div data-role="navbar">
+		<ul>
+		
+		
+	<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
+	<li><a href="#beerStyles">Beers</a></li>
+	<li><a href="#event-details">Event Details</a></li>		
+	
+		
+		</ul>
+		</div>
+   
+   </div><!-- /footer -->
+
+</div><!-- / page -->
+<!------------------------------------------------------>	
+
+<!---------------------------Brewer detail from beer detail--------------------------->	
+<div data-role="page" id="brewer-detail" data-theme="a" data-add-back-btn="true" data-add-back-btn="true"><!-- Home Page -->
+
+	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
+		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
+		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
+			</div><!-- /header -->
+		
+
+	<!--BREWER DETAIL CONTENT -->
+	 <div role="main" class="ui-content">
+	 <div id='brewerDetailDiv'></div>
+	 </div>
+	<!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
@@ -118,28 +154,27 @@
 </div><!-- /Home page -->
 <!------------------------------------------------------>	
 
-<!------------------------------------------------------>	
-<div data-role="page" id="beerStyles" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
 
-		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
+<!--------------List of BEERS------------------------>	
+<div data-role="page" id="beerStyles" data-theme="a" data-add-back-btn="true">
 
+    <!-- /header -->
+    <div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" />
 		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
 		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
+	</div>
+	<!-- /header -->
 		
-	</div><!-- /header -->
-		
-
+	<!--CONTENT--->	
 	<div role="main" class="ui-content">
-
-	  
 		<ul data-role="listview" data-inset="true" data-filter="true" data-input="#filter-for-listview" id="beerList">
-		<!--List of brewers will be populated here -->
-
-
+		<!--List of beers will be populated here -->
 		</ul>		
-		
-	</div><!-- /content -->
+	</div>
+	<!-- /content -->
 
+	
+	<!--////////FOOTER//////////-->
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
 		<ul>
@@ -148,14 +183,14 @@
 	<li><a href="#event-details" >Event Details</a></li>		
 		</ul>
 		</div>
+	</div>
+	<!-- /footer -->
 
-</div><!-- /footer -->
+</div>
+<!--------END LIST OF BEERS---------------------------------------------->	
 
-</div><!-- /Home page -->
-<!------------------------------------------------------>	
-
-<!------------------------------------------------------>	
-<div data-role="page" id="sponsors" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
+<!-----------------SPONSORS------------------------------------->	
+<div data-role="page" id="sponsors" data-theme="a" data-add-back-btn="true">
 
 		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
 		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
@@ -188,9 +223,7 @@
 		</div><!-- /footer -->
 
 </div><!-- /Home page -->
-<!------------------------------------------------------>	
-
-
+<!-----------------/SPONSORS------------------------------------->	
 
 <!------------BEER---DETAILS PAGE ------------------------------->
 <div data-role="page" id="beer-detail" data-theme="a" data-add-back-btn="true"><!-- Detail Page --> 
@@ -203,8 +236,9 @@
 	
 	
 	<div role="main" class="ui-content">
-			 <div data-role="content"></div>
-
+			 <div data-role="content" id='beerDetailDiv'></div>
+			 
+			<!--Beer Details go here -->
 			</div><!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
@@ -255,7 +289,11 @@
 
 
 
-    <script type="text/javascript" src="phonegap.js"></script>
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>	

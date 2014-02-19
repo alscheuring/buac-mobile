@@ -2,3 +2,8 @@ platforms
 merges
 merges/android
 plugins
+plugins/org.apache.cordova.splashscreen
+plugins/android.json
+plugins/ios.json
+www/.DS_Store
+.DS_Store

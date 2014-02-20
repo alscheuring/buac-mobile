@@ -1,10 +1,14 @@
-$(document).bind("mobileinit", function() {
+/*$(document).bind("mobileinit", function() {
       $.mobile.defaultPageTransition = 'none';
       $.mobile.defaultDialogTransition = 'none';
       $.mobile.useFastClick = true;
 
+});*/
+$(document).bind("mobileinit", function(){
+  $.extend(  $.mobile , {
+   defaultPageTransition: 'none'
+  });
 });
-
 
 //pageinit event for first page
 //triggers only once

@@ -45,13 +45,26 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
     info_view += '<div class="detailBanner">';
 
     info_view += '<h2>' + info.Brewer.name +'</h1>';
-    info_view += '<h3>' + info.Brewer.brewery +'</h2>';
-        info_view += '</div>';
+    info_view += '<h3>' + info.Brewer.brewery +'</h3>';
+    info_view += '</div>';
 
-    info_view += '<p>' + info.Brewer.story +'</p>';
+	var info_view2 = "";
+     info_view2 += '<p>' + info.Brewer.story +'</p>';
+     
+	var info_view3 = "";
+	    var li = "";
 
+    $.each(info.Beer, function (i, name) {
+       li += '<li><a href="#beer-detail" id="' + i + '" class="info-go"  onclick="sessionStorage.ParameterID='+ name.id +'"><h3>' + name.name + '</h3></a></li>';
+    });
+    
+    
 	$("#brewerDetailDiv").html(info_view);
          	
+	$("#brewerStory").html(info_view2);
+    $("#brewerBeers").html(li).promise().done(function () {
+        $(this).listview("refresh");
+    });	
          });
    
     	

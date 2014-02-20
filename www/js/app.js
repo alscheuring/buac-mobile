@@ -44,8 +44,8 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
        
     info_view += '<div class="detailBanner">';
 
-    info_view += '<h2>' + info.Brewer.name +'</h1>';
-    info_view += '<h3>' + info.Brewer.brewery +'</h3>';
+    info_view += '<h3>' + info.Brewer.name +'</h3>';
+    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
     info_view += '</div>';
 
 	var info_view2 = "";
@@ -122,8 +122,11 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 
     info_view += '<div class="detailBanner">';
 
-    info_view += '<h1>' + info.Beer.name +'</h1>';
-    info_view += '<h2>' + info.Beer.style +'</h2>';
+    info_view += '<h2>' + info.Beer.name +'</h2>';
+    info_view += '<p><i>' + info.Beer.style +'</i></p>';
+    info_view += '<p><i>O.G.: ' + info.Beer.og +'</i></p>';
+    info_view += '<p><i>ABV: ' + info.Beer.abv +'</i></p>';
+    info_view += '<p><i>IBU: ' + info.Beer.ibu +'</i></p>';
     
     info_view += '<a href="#brewer-detail" class="info-go" onclick="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
         info_view += '</div>';

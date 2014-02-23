@@ -7,15 +7,7 @@
 
 
 
-    function onLoad() {
-        document.addEventListener("deviceready", onDeviceReady, false);
-    }
 
-    // device APIs are available
-    //
-    function onDeviceReady() {
-        // Now safe to use device APIs
-        
     
 function getBeers(){
     var buacurl = "http://brewingupacure.org/Beers/index.json";
@@ -37,10 +29,6 @@ function getBrewers(){
 
 });
 }
-
-        
-    }
-    
     
 
 
@@ -112,9 +100,11 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 //triggers only once
 //write all your on-load functions and event handlers pertaining to page1
 $(document).on("pagebeforeshow", "#beerStyles", function () {
-   	alert(window.localStorage.getItem(beers));
-     $.getJSON('http://brewingupacure.org/Beers/index.json', function(info) {
+  // 	alert(window.localStorage.getItem(beers));
+    // $.getJSON('http://brewingupacure.org/Beers/index.json', function(info) {
     //set up string for adding <li/>
+  
+  var info = JSON.parse(window.localStorage.getItem("beers"));
     var li = "";
     //container for $li to be added
     $.each(info, function (i, name) {
@@ -134,7 +124,7 @@ $(document).on("pagebeforeshow", "#beerStyles", function () {
         //add the click event for the redirection to happen to #details-page
         //refresh list to enhance its styling.
         $(this).listview("refresh");
-    });
+   // });
 });
 });
 
@@ -150,9 +140,9 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		var beerID = sessionStorage.ParameterID;
    		console.log(beerID);
  		var buacurl = 'http://brewingupacure.org/Beers/view/'+ beerID + '.json';
-
-         $.getJSON(buacurl, function(info) {
-         console.log(info);
+    var info = JSON.parse(localStorage.getItem('beers'));
+      //   $.getJSON(buacurl, function(info) {
+       //  console.log(info);
         var brewerName = info.Brewer.brewery;
         if(!info.Brewer.brewery){brewerName = name.Brewer.name;}
 
@@ -173,6 +163,6 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
     $("#beerDetailDiv").html(info_view);
 
     
-	});
+//	});
 });
 /////////////////////////////////////////////////////////

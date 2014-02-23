@@ -35,9 +35,8 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         getBeers();
-        getBrewers();
         
-           	alert(window.localStorage.getItem("beers"));
+          // 	alert(window.localStorage.getItem("beers"));
     
         
     },

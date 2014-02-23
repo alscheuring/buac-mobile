@@ -18,7 +18,7 @@ function getBeers(){
     var buacurl = "http://brewingupacure.org/Beers/index.json";
     $.getJSON(buacurl, function(data){
     var beers = JSON.stringify(data);
-    localStorage.setItem('beers', beers);
+    window.localStorage.setItem('beers', beers);
 
 });
 }
@@ -27,7 +27,7 @@ function getBrewers(){
     var buacurl = "http://brewingupacure.org/Brewers/index.json";
     $.getJSON(buacurl, function(data){
     var brewers = JSON.stringify(data);
-    localStorage.setItem('brewers', brewers);
+    window.localStorage.setItem('brewers', brewers);
 
 });
 }
@@ -99,7 +99,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 //triggers only once
 //write all your on-load functions and event handlers pertaining to page1
 $(document).on("pagebeforeshow", "#beerStyles", function () {
-   var info = JSON.parse(localStorage.getItem("beers"));
+   var info = JSON.parse(window.localStorage.getItem("beers"));
    //alert(info);
     //set up string for adding <li/>
     var li = "";
@@ -132,7 +132,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
     //get from data - you put this here when the "a" wa clicked in the previous page
     //string to put HTML in
     //use for..in to iterate through object
-       var beers = JSON.parse(localStorage.getItem("beers"));
+       var beers = JSON.parse(window.localStorage.getItem("beers"));
 
 		var beerID = sessionStorage.ParameterID;
    		//console.log(beerID);       

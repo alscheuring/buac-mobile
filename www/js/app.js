@@ -10,27 +10,8 @@ $(document).bind("mobileinit", function(){
   });
   
  
-alert('mobile init fired');
-      
-});
-
-function getBeers(){
-    var buacurl = "http://brewingupacure.org/Beers/index.json";
-    $.getJSON(buacurl, function(data){
-    var beers = JSON.stringify(data);
-    window.localStorage.setItem('beers', beers);
 
 });
-}
-
-function getBrewers(){
-    var buacurl = "http://brewingupacure.org/Brewers/index.json";
-    $.getJSON(buacurl, function(data){
-    var brewers = JSON.stringify(data);
-    window.localStorage.setItem('brewers', brewers);
-
-});
-}
 
 //pageinit event for first page
 //triggers only once
@@ -99,8 +80,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 //triggers only once
 //write all your on-load functions and event handlers pertaining to page1
 $(document).on("pagebeforeshow", "#beerStyles", function () {
-   var info = JSON.parse(window.localStorage.getItem("beers"));
-   //alert(info);
+     $.getJSON('http://brewingupacure.org/Beers/index.json', function(info) {
     //set up string for adding <li/>
     var li = "";
     //container for $li to be added
@@ -123,6 +103,7 @@ $(document).on("pagebeforeshow", "#beerStyles", function () {
         $(this).listview("refresh");
     });
 });
+});
 
 
 
@@ -132,23 +113,13 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
     //get from data - you put this here when the "a" wa clicked in the previous page
     //string to put HTML in
     //use for..in to iterate through object
-       var beers = JSON.parse(window.localStorage.getItem("beers"));
-
-		var beerID = sessionStorage.ParameterID;
-   		//console.log(beerID);       
-    
-    //Look through the object for the correct ID
-    $.each(beers, function (i, info) {
-        if(info.Beer.id == beerID){
-        	
-        	    
    	    var info_view = "";
-	//	var beerID = sessionStorage.ParameterID;
-   	//	console.log(beerID);
- 		//var buacurl = 'http://brewingupacure.org/Beers/view/'+ beerID + '.json';
+		var beerID = sessionStorage.ParameterID;
+   		console.log(beerID);
+ 		var buacurl = 'http://brewingupacure.org/Beers/view/'+ beerID + '.json';
 
-   //      $.getJSON(buacurl, function(info) {
-    //     console.log(info);
+         $.getJSON(buacurl, function(info) {
+         console.log(info);
         var brewerName = info.Brewer.brewery;
         if(!info.Brewer.brewery){brewerName = name.Brewer.name;}
 
@@ -168,7 +139,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
     //add this to html
     $("#beerDetailDiv").html(info_view);
 
-   }
+    
 	});
 });
 /////////////////////////////////////////////////////////

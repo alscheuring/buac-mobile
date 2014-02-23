@@ -34,8 +34,11 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        getBeers();
-        getBrewers();
+        
+    $.mobile.defaultPageTransition = "none";
+    $.mobile.defaultDialogTransition = 'none';
+    $.mobile.useFastClick = true; 
+    $.mobile.touchOverflowEnabled = true;
         
     },
     // Update DOM on a Received Event

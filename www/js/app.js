@@ -4,14 +4,46 @@
       $.mobile.useFastClick = true;
 
 });*/
-$(document).bind("mobileinit", function(){
-  $.extend(  $.mobile , {
-   defaultPageTransition: 'none'
-  });
-  
- 
+
+
+
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+    }
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+        // Now safe to use device APIs
+        
+    
+function getBeers(){
+    var buacurl = "http://brewingupacure.org/Beers/index.json";
+    $.getJSON(buacurl, function(data){
+    var beers = JSON.stringify(data);
+  ///  intel.xdk.cache.setCookie("beers",beers,"-1");
+    window.localStorage.setItem('beers', beers);
 
 });
+}
+
+function getBrewers(){
+	
+    var buacurl = "http://brewingupacure.org/Brewers/index.json";
+    $.getJSON(buacurl, function(data){
+    var brewers = JSON.stringify(data);
+  ///  intel.xdk.cache.setCookie("beers",beers,"-1");
+    window.localStorage.setItem('brewers', brewers);
+
+});
+}
+
+        
+    }
+    
+    
+
+
 
 //pageinit event for first page
 //triggers only once
@@ -80,6 +112,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 //triggers only once
 //write all your on-load functions and event handlers pertaining to page1
 $(document).on("pagebeforeshow", "#beerStyles", function () {
+   	alert(window.localStorage.getItem(beers));
      $.getJSON('http://brewingupacure.org/Beers/index.json', function(info) {
     //set up string for adding <li/>
     var li = "";

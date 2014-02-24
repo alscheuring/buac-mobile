@@ -45,7 +45,7 @@ $(document).on("pagebeforeshow", "#info-page", function () {
     var li = "";
     //step through info and add to li
     $.each(info, function (i, name) {
-        li += '<li><a href="#brewer-detail" id="' + i + '" class="info-go"  onclick="sessionStorage.ParameterID='+ name.Brewer.id +'"><h3>' + name.Brewer.name + '</h3><p><strong>' + name.Brewer.brewery + '</strong></p></a></li>';
+        li += '<li><a href="#brewer-detail" id="' + i + '" class="info-go"  ontouchstart="sessionStorage.ParameterID='+ name.Brewer.id +'"><h3>' + name.Brewer.name + '</h3><p><strong>' + name.Brewer.brewery + '</strong></p></a></li>';
     });
     //append list to ul
     $("#brewerList").append(li).promise().done(function () {
@@ -78,7 +78,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 			    var li = "";
 		
 		    $.each(info.Beer, function (i, name) {
-		       li += '<li><a href="#beer-detail" id="' + i + '" class="info-go"  onclick="sessionStorage.ParameterID='+ name.id +'"><h3>' + name.name + '</h3></a></li>';
+		       li += '<li><a href="#beer-detail" id="' + i + '" class="info-go"  ontouchstart="sessionStorage.ParameterID='+ name.id +'"><h3>' + name.name + '</h3></a></li>';
 		    });
     
    
@@ -116,7 +116,7 @@ $(document).on("pagebeforeshow", "#beerStyles", function () {
         var brewerName = name.Brewer.brewery;
         if(!name.Brewer.brewery){brewerName = name.Brewer.name;}
         //console.log(name.Beer);
-        li += '<li><a href="#beer-detail" id="' + i + '" class="info-go" onclick="sessionStorage.ParameterID='+ name.Beer.id +'"><h3>' + name.Beer.name + '</h3><p><i>'+ name.Beer.style +' by '+ brewerName + '</i></p></a></li>';
+        li += '<li><a href="#beer-detail" id="' + i + '" class="info-go" ontouchstart="sessionStorage.ParameterID='+ name.Beer.id +'"><h3>' + name.Beer.name + '</h3><p><i>'+ name.Beer.style +' by '+ brewerName + '</i></p></a></li>';
     });
     //append list to ul
     $("#beerList").append(li).promise().done(function () {
@@ -150,7 +150,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		    info_view += '<p><i>O.G.: ' + info.Beer.og +'</i></p>';
 		    info_view += '<p><i>ABV: ' + info.Beer.abv +'</i></p>';
 		    info_view += '<p><i>IBU: ' + info.Beer.ibu +'</i></p>';
-		    info_view += '<a href="#brewer-detail" class="info-go" onclick="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
+		    info_view += '<a href="#brewer-detail" class="info-go" ontouchstart="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
 		    info_view += '</div>';
 		    info_view += '<p>' + info.Beer.description +'</p>';
 	    

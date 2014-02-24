@@ -51,7 +51,7 @@
 
 
 <!------------------------------------------------------>	
-<div data-role="page" id="info-page" data-theme="a" data-add-back-btn="true" data-add-back-btn="true"><!-- Home Page -->
+<div data-role="page" id="info-page" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
 
 	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
 		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
@@ -86,7 +86,7 @@
 <!------------------------------------------------------>	
 
 <!---------------------------Brewer detail from beer detail--------------------------->	
-<div data-role="page" id="brewer-detail" data-theme="a" data-add-back-btn="true" data-add-back-btn="true"><!-- Home Page -->
+<div data-role="page" id="brewer-detail" data-theme="a"  data-add-back-btn="true"><!-- Home Page -->
 
 	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
 		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
@@ -102,7 +102,7 @@
     <div data-role="collapsible" data-collapsed="false">
         <h3>Beers</h3>
         	
-		<ul data-role="listview" data-inset="false" id="brewerBeers">
+		<ul data-role="listview" data-inset="false" data-filter="true" data-input="#filter-for-listview" id="brewerBeers">
 		<!--List of beers will be populated here -->
 		</ul>	        	
         	

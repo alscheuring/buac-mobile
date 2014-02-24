@@ -1,14 +1,4 @@
-/*$(document).bind("mobileinit", function() {
-      $.mobile.defaultPageTransition = 'none';
-      $.mobile.defaultDialogTransition = 'none';
-      $.mobile.useFastClick = true;
 
-});*/
-
-
-
-
-    
 function getBeers(){
     var buacurl = "http://brewingupacure.org/Beers/index.json";
     $.getJSON(buacurl, function(data){

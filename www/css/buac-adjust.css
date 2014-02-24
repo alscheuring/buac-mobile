@@ -3,7 +3,7 @@
 }
 
 /*Fixes flashes between pages */
-.ui-page { backface-visibility: hidden;
+.ui-page {
            -webkit-backface-visibility: hidden; /* Chrome and Safari */
            -moz-backface-visibility: hidden; /* Firefox */ 
            }
@@ -19,3 +19,7 @@ background-color:#F2C43D;
 padding:10px;
 }
 
+.in, .out {
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 350ms !important;
+}

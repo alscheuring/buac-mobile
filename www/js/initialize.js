@@ -8,3 +8,8 @@
     getBeers();
     getBrewers();
     }
+    
+	
+	$(function() {
+	    FastClick.attach(document.body);
+	});

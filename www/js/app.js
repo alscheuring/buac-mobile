@@ -39,8 +39,9 @@ function getBrewers(){
 $(document).on("pagebeforeshow", "#info-page", function () {
  
    //Go get the JSON from the site     
-    $.getJSON('http://brewingupacure.org/Brewers/index.json', function(info) {
    //empty out li
+  var info = JSON.parse(window.localStorage.getItem("brewers"));
+
     var li = "";
     //step through info and add to li
     $.each(info, function (i, name) {
@@ -49,7 +50,6 @@ $(document).on("pagebeforeshow", "#info-page", function () {
     //append list to ul
     $("#brewerList").append(li).promise().done(function () {
         $(this).listview("refresh");
-    });
 });
 });
 
@@ -61,26 +61,27 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 
 	var info_view = "";
 	var brewerid = sessionStorage.ParameterID;
-	var buacurl = 'http://brewingupacure.org/Brewers/view/'+ brewerid + '.json';
-    $.getJSON(buacurl, function(info) {
+    var beers = JSON.parse(window.localStorage.getItem("brewers"));
          	
-       
-    info_view += '<div class="detailBanner">';
+    $.each(beers, function (i, info) {
+        if(info.Brewer.id == brewerid){
+        	
+            info_view += '<div class="detailBanner">';
+		    info_view += '<h3>' + info.Brewer.name +'</h3>';
+		    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
+		    info_view += '</div>';
 
-    info_view += '<h3>' + info.Brewer.name +'</h3>';
-    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
-    info_view += '</div>';
-
-	var info_view2 = "";
-     info_view2 += '<p>' + info.Brewer.story +'</p>';
-     
-	var info_view3 = "";
-	    var li = "";
-
-    $.each(info.Beer, function (i, name) {
-       li += '<li><a href="#beer-detail" id="' + i + '" class="info-go"  onclick="sessionStorage.ParameterID='+ name.id +'"><h3>' + name.name + '</h3></a></li>';
-    });
+			var info_view2 = "";
+		     info_view2 += '<p>' + info.Brewer.story +'</p>';
+		     
+			var info_view3 = "";
+			    var li = "";
+		
+		    $.each(info.Beer, function (i, name) {
+		       li += '<li><a href="#beer-detail" id="' + i + '" class="info-go"  onclick="sessionStorage.ParameterID='+ name.id +'"><h3>' + name.name + '</h3></a></li>';
+		    });
     
+   
     
 	$("#brewerDetailDiv").html(info_view);
          	
@@ -88,8 +89,8 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
     $("#brewerBeers").html(li).promise().done(function () {
         $(this).listview("refresh");
     });	
-         });
-   
+    }
+    });
     	
         $(this).find("[data-role=content]").html(brewerDetailDiv);	
 
@@ -133,32 +134,28 @@ $(document).on("pagebeforeshow", "#beerStyles", function () {
 //BEER DETAIL PAGE////////////////////////////////
 $(document).on("pagebeforeshow", "#beer-detail", function () {
 	
-    //get from data - you put this here when the "a" wa clicked in the previous page
-    //string to put HTML in
-    //use for..in to iterate through object
    	    var info_view = "";
 		var beerID = sessionStorage.ParameterID;
-   		console.log(beerID);
- 		var buacurl = 'http://brewingupacure.org/Beers/view/'+ beerID + '.json';
-    var info = JSON.parse(localStorage.getItem('beers'));
-      //   $.getJSON(buacurl, function(info) {
-       //  console.log(info);
+  	    var beers = JSON.parse(localStorage.getItem('beers'));
+
+    $.each(beers, function (i, info) {
+        if(info.Beer.id == beerID){
+                
         var brewerName = info.Brewer.brewery;
         if(!info.Brewer.brewery){brewerName = name.Brewer.name;}
-
-    info_view += '<div class="detailBanner">';
-
-    info_view += '<h2>' + info.Beer.name +'</h2>';
-    info_view += '<p><i>' + info.Beer.style +'</i></p>';
-    info_view += '<p><i>O.G.: ' + info.Beer.og +'</i></p>';
-    info_view += '<p><i>ABV: ' + info.Beer.abv +'</i></p>';
-    info_view += '<p><i>IBU: ' + info.Beer.ibu +'</i></p>';
-    
-    info_view += '<a href="#brewer-detail" class="info-go" onclick="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
-        info_view += '</div>';
-
-    
-    info_view += '<p>' + info.Beer.description +'</p>';
+	
+		    info_view += '<div class="detailBanner">';
+		    info_view += '<h2>' + info.Beer.name +'</h2>';
+		    info_view += '<p><i>' + info.Beer.style +'</i></p>';
+		    info_view += '<p><i>O.G.: ' + info.Beer.og +'</i></p>';
+		    info_view += '<p><i>ABV: ' + info.Beer.abv +'</i></p>';
+		    info_view += '<p><i>IBU: ' + info.Beer.ibu +'</i></p>';
+		    info_view += '<a href="#brewer-detail" class="info-go" onclick="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
+		    info_view += '</div>';
+		    info_view += '<p>' + info.Beer.description +'</p>';
+	    
+		    }
+		    });
     //add this to html
     $("#beerDetailDiv").html(info_view);
 

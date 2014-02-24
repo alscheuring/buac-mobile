@@ -3,7 +3,13 @@
 }
 
 /*Fixes flashes between pages */
-.ui-page { -webkit-backface-visibility: hidden; }
+.ui-page { backface-visibility: hidden;
+           -webkit-backface-visibility: hidden; /* Chrome and Safari */
+           -moz-backface-visibility: hidden; /* Firefox */ 
+           }
+
+
+
 
 .detailBanner {
 -moz-box-shadow: 0 4px 8px rgba(0,0,0,0.5);
@@ -12,3 +18,4 @@ box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 background-color:#F2C43D;
 padding:10px;
 }
+

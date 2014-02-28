@@ -104,7 +104,7 @@ $(document).on("pagebeforeshow", "#beerStyles", function () {
         //meaning I'm adding to the existing data. not replacing it.
         //store index value in array as id of the <a> tag
         var brewerName = name.Brewer.brewery;
-        if(!name.Brewer.brewery){brewerName = name.Brewer.name;}
+        if(name.Brewer.brewery == 'Homebrewer'){brewerName = name.Brewer.name;}
         //console.log(name.Beer);
         li += '<li><a href="#beer-detail" id="' + i + '" class="info-go" ontouchstart="sessionStorage.ParameterID='+ name.Beer.id +'"><h3>' + name.Beer.name + '</h3><p><i>'+ name.Beer.style +' by '+ brewerName + '</i></p></a></li>';
     });
@@ -130,17 +130,27 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 
     $.each(beers, function (i, info) {
         if(info.Beer.id == beerID){
-                
+               
         var brewerName = info.Brewer.brewery;
-        if(!info.Brewer.brewery){brewerName = name.Brewer.name;}
+        if(info.Brewer.brewery == 'Homebrewer'){brewerName = info.Brewer.name;}
 	
 		    info_view += '<div class="detailBanner">';
 		    info_view += '<h2>' + info.Beer.name +'</h2>';
 		    info_view += '<p><i>' + info.Beer.style +'</i></p>';
-		    info_view += '<p><i>O.G.: ' + info.Beer.og +'</i></p>';
-		    info_view += '<p><i>ABV: ' + info.Beer.abv +'</i></p>';
-		    info_view += '<p><i>IBU: ' + info.Beer.ibu +'</i></p>';
-		    info_view += '<a href="#brewer-detail" class="info-go" ontouchstart="sessionStorage.ParameterID='+ info.Brewer.id +'"><h3> by ' + brewerName +'</h3></a>';
+		  
+		  if(info.Beer.og ){
+		    info_view += '<a href="#ogDescription" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">OG: '+ info.Beer.og +'</a>';
+		  }
+		  
+		  if(info.Beer.abv ){
+		    info_view += '<a href="#abvDescription" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">ABV: '+ info.Beer.abv +'</a>';
+		  }
+		  
+		  if(info.Beer.ibu ){
+		    info_view += '<a href="#ibuDescription" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">IBU: '+ info.Beer.ibu +'</a>';
+		  }
+		  
+		    info_view += '<a href="#brewer-detail" data-role="button" data-mini="true" ontouchstart="sessionStorage.ParameterID='+ info.Brewer.id +'">by ' + brewerName +'</a>';
 		    info_view += '</div>';
 		    info_view += '<p>' + info.Beer.description +'</p>';
 	    
@@ -148,6 +158,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		    });
     //add this to html
     $("#beerDetailDiv").html(info_view);
+    $("#beerDetailDiv").trigger("create");
 
     
 //	});

@@ -16,10 +16,20 @@
 -webkit-box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 box-shadow: 0 4px 8px rgba(0,0,0,0.5);
 background-color:#F2C43D;
-padding:10px;
+padding: 3px 0 3px 0;
 }
 
 .in, .out {
     -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-duration: 350ms !important;
+}
+
+
+.ui-content{
+	padding:5px;
+}
+
+.infoButton{
+	padding-right:7px;
+	padding-left:7px;
 }

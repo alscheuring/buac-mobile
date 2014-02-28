@@ -1,15 +1,19 @@
-    document.addEventListener("deviceready", onDeviceReady, false);
+// We use an "Immediate Function" to initialize the application to avoid leaving anything behind in the global scope
+(function () {
+	
+	document.addEventListener("deviceready", onDeviceReady, false);
 
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
         // Now safe to use the PhoneGap API
-    
+    FastClick.attach(document.body);
+
     getBeers();
     getBrewers();
     }
     
 	
-	$(function() {
-	    FastClick.attach(document.body);
-	});
+	
+
+}());

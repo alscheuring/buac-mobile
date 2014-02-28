@@ -14,6 +14,10 @@
     }
     
 	
-	
+	/*Fixes overlap on front page header */
+$(window).on('load', function () {
+    $(this).trigger('resize');
+});
+
 
 }());

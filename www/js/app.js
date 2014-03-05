@@ -59,6 +59,10 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
             info_view += '<div class="detailBanner">';
 		    info_view += '<h3>' + info.Brewer.name +'</h3>';
 		    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
+   
+   		  if(info.Brewer.untappd_id){
+            info_view += '<a href="untappd:///?beer='+ info.Brewer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+			}
 		    info_view += '</div>';
 
 			var info_view2 = "";
@@ -150,15 +154,11 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		    info_view += '<a href="#ibuDescription" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">IBU: '+ info.Beer.ibu +'</a>';
 		  }
 		  
-		  
-		  if(info.Beer.untappd_id){
-		  	  info_view += '<a href="https://untappd.com/b/brickhouse-brewing-illegal-smile-ipa/475696" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+	
 
-		  	
-		  }
 		  
 		  if(info.Beer.untappd_id){
-		  	  info_view += '<a href="untappd:///?beer=475696" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+		  	  info_view += '<a href="untappd:///?beer='+ info.Beer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 
 		  	
 		  }

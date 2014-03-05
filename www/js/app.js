@@ -61,7 +61,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 		    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
    
    		  if(info.Brewer.untappd_id){
-            info_view += '<a href="untappd:///?beer='+ info.Brewer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+            info_view += '<a href="untappd:///?brewery='+ info.Brewer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 			}
 		    info_view += '</div>';
 

@@ -158,7 +158,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		  }
 		  
 		  if(info.Beer.untappd_id){
-		  	  info_view += '<a href="untappd:///?checkin_id=475696" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+		  	  info_view += '<a href="untappd:///?beer=475696" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 
 		  	
 		  }

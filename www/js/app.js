@@ -3,8 +3,8 @@ function getBeers(){
     var buacurl = "http://brewingupacure.org/Beers/index.json";
     $.getJSON(buacurl, function(data){
     var beers = JSON.stringify(data);
-  ///  intel.xdk.cache.setCookie("beers",beers,"-1");
     window.localStorage.setItem('beers', beers);
+
 
 });
 }

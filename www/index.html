@@ -2,109 +2,78 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
 
 	<title>Brewing Up A Cure</title>
-
 	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="css/buac.min.css">
 	<link rel="stylesheet" href="css/buac-adjust.css">
-
-
-
-  
 </head>
 
 <body>
 	
-
-	
-<!------------------------------------------------------>	
+<!-----------------------HOME PAGE------------------------------->	
 <div data-role="page" id="home-page" data-theme="a"><!-- Home Page -->
-
 	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /></div><!-- /header -->
+	
 	<div role="main" class="ui-content" align="center">
-
-	
-	<div class="detailBanner">
-	<h3>Welcome to the 8th Annual Brewing Up A Cure!</h3>
-	
-	<p>Please enjoy the beer, food, and entertainment! All proceeds go towards the Cystic Fibrosis Foundation.</p>
-	
-
-
-
-
-	</div>
-
+		<div class="detailBanner">
+		<h3>Welcome to the 8th Annual Brewing Up A Cure!</h3>
+		<p>Please enjoy the beer, food, and entertainment! All proceeds go towards the Cystic Fibrosis Foundation.</p>
+		</div>
 	</div><!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
-		<ul>
-		
-	<li><a href="#info-page" data-role='button'>Brewers</a></li>		
-	<li><a href="#beerStyles" data-role='button'>Beers</a></li>
-	<li><a href="#event-details" data-role='button'>Event Details</a></li>		
-	
-		
-		</ul>
-		</div>		
-		
+		  <ul>
+			<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>		
+			<li><a href="#info-page" data-role='button'>Brewers</a></li>		
+			<li><a href="#beerStyles" data-role='button'>Beers</a></li>
+			<li><a href="#event-details" data-role='button'>Event Details</a></li>		
+		  </ul>
+	  </div>		
 	</div><!-- /footer -->
 
 </div><!-- /Home page -->
+<!---------/HOME PAGE--------------------------------------------->	
 
 
 
-
-<!------------------------------------------------------>	
-
-
-
-<!-------------------------------------->	
+<!------------BREWER LIST-------------------------->	
 <div data-role="page" id="info-page" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
-
 	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-			</div><!-- /header -->
+		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
+	</div><!-- /header -->
 		
 
 	<div role="main" class="ui-content">
-
 		<ul data-role="listview" data-inset="false" data-filter="false" data-input="#filter-for-listview" id="brewerList">
 		<!--List of brewers will be populated here -->
 		</ul>		
-		
 	</div><!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
+    <div data-role="navbar">
 		<ul>
-		
-		
-	<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
-	<li><a href="#beerStyles">Beers</a></li>
-	<li><a href="#event-details">Event Details</a></li>		
-	
-		
+			<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>		
+			<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
+			<li><a href="#beerStyles">Beers</a></li>
+			<li><a href="#event-details">Event Details</a></li>		
 		</ul>
-		</div>
+	 </div>
    
    </div><!-- /footer -->
 
 </div><!-- / page -->
-<!------------------------------------------------------>	
+<!--------------/BREWER LIST---------------------------------------->	
 
-<!---------------------------Brewer detail from beer detail--------------------------->	
+<!--------------BREWER DETAIL------------------------>	
 <div data-role="page" id="brewer-detail" data-theme="a"  data-add-back-btn="true"><!-- Home Page -->
 
 	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-			</div><!-- /header -->
+		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
+	</div><!-- /header -->
 		
 
 	<!--BREWER DETAIL CONTENT -->
@@ -119,77 +88,30 @@
 		<ul data-role="listview" data-inset="false" id="brewerBeers">
 		<!--List of beers will be populated here -->
 		</ul>	        	
-        	
-        	
     </div>
     <div data-role="collapsible">
         <h3>About</h3>
         <div id='brewerStory'></div>
     </div>
-
-
-
-</div>
-	 
-	 
-	 
+    </div>
 	 </div>
 	<!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
 		<ul>
-		
-		
-	<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
-	<li><a href="#beerStyles">Beers</a></li>
-	<li><a href="#event-details">Event Details</a></li>		
-	
-		
+			<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>		
+			<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
+			<li><a href="#beerStyles">Beers</a></li>
+			<li><a href="#event-details">Event Details</a></li>		
 		</ul>
-		</div>
+	  </div>
    
    </div><!-- /footer -->
 
 </div><!-- /Home page -->
-<!------------------------------------------------------>	
+<!-----------/BREWER DETAIL------------------------------------------->	
 
-<!------------------------------------------------------>	
-<div data-role="page" id="event-details" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
-
-		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-
-	</div><!-- /header -->
-		
-
-	<div role="main" class="ui-content">
-
-	  
-	<h2>Event Details</h2>
-	<p>Basically we'll invite your mom over, have a few beers and see what happens</p>		
-	
-		
-	</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		<ul>
-		
-		
-	<li><a href="#info-page">Brewers</a></li>		
-	<li><a href="#beerStyles">Beers</a></li>
-	<li><a href="#event-details" class="ui-btn-active ui-state-persist">Event Details</a></li>		
-	
-		
-		</ul>
-		</div>
-
-</div><!-- /footer -->
-
-</div><!-- /Home page -->
-<!------------------------------------------------------>	
 
 
 <!--------------List of BEERS------------------------>	
@@ -197,8 +119,7 @@
 
     <!-- /header -->
     <div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" />
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
+		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
 	</div>
 	<!-- /header -->
 		
@@ -215,9 +136,10 @@
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
 		<ul>
-	<li><a href="#info-page">Brewers</a></li>		
-	<li><a href="#beerStyles"class="ui-btn-active ui-state-persist">Beers</a></li>
-	<li><a href="#event-details" >Event Details</a></li>		
+			<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>		
+			<li><a href="#info-page">Brewers</a></li>		
+			<li><a href="#beerStyles"class="ui-btn-active ui-state-persist">Beers</a></li>
+			<li><a href="#event-details" >Event Details</a></li>		
 		</ul>
 		</div>
 	</div>
@@ -226,48 +148,12 @@
 </div>
 <!--------END LIST OF BEERS---------------------------------------------->	
 
-<!-----------------SPONSORS------------------------------------->	
-<div data-role="page" id="sponsors" data-theme="a" data-add-back-btn="true">
-
-		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-		
-	</div><!-- /header -->
-		
-
-	<div role="main" class="ui-content">
-
-	  
-		<ul data-role="listview" data-inset="false"  id="beerList">
-		<!--List of brewers will be populated here -->
-		
-		<li>Sponsors</li>
-		<li>Sponsor</li>
-		<li>hush money, whoops I mean Sponsors</li>
-		</ul>		
-		
-	</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		<ul>
-	<li><a href="#info-page">Brewers</a></li>		
-	<li><a href="#beerStyles">Beers</a></li>
-	<li><a href="#event-details" class="ui-btn-active ui-state-persist">Event Details</a></li>		
-		</ul>
-		</div>
-		</div><!-- /footer -->
-
-</div><!-- /Home page -->
-<!-----------------/SPONSORS------------------------------------->	
 
 <!------------BEER---DETAILS PAGE ------------------------------->
 <div data-role="page" id="beer-detail" data-theme="a" data-add-back-btn="true"><!-- Detail Page --> 
 
 		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
+		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
 		
 	</div><!-- /header -->
 	
@@ -303,9 +189,10 @@
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
 		<ul>
-	<li><a href="#info-page">Brewers</a></li>		
-	<li><a href="#beerStyles" class="ui-btn-active ui-state-persist">Beers</a></li>
-	<li><a href="#event-details">Event Details</a></li>		
+		<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>		
+		<li><a href="#info-page">Brewers</a></li>		
+		<li><a href="#beerStyles" class="ui-btn-active ui-state-persist">Beers</a></li>
+		<li><a href="#event-details">Event Details</a></li>		
 		</ul>
 		</div>	
 
@@ -314,34 +201,40 @@
 </div><!-- /Detail page -->
 <!--------------- END BEER DETAILS PAGE ------------------------------->
 
-<!---------------DETAILS PAGE ------------------------------->
-<div data-role="page" id="details-page" data-theme="a" data-add-back-btn="true"><!-- Detail Page --> 
+
+
+<!------------------------------------------------------>	
+<div data-role="page" id="event-details" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
 
 		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#home-page" class="ui-btn-left" data-icon="home" data-iconpos="notext"  data-direction="reverse">Home</a>
-		<a href="#" data-rel="back" class="ui-btn-right" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-		
-	</div><!-- /header -->
-	
-	
-	<div role="main" class="ui-content">
-			 <div data-role="content"></div>
+		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
 
+	</div><!-- /header -->
+		
+
+	<div role="main" class="ui-content">
+
+	  
+	<h2>Event Details</h2>
+	<p>Basically we'll invite your mom over, have a few beers and see what happens</p>		
+	
+		
 	</div><!-- /content -->
 
 	<div data-role="footer" data-position="fixed">
-    <div data-role="navbar">
+	  <div data-role="navbar">
 		<ul>
-	<li><a href="#info-page" class="ui-btn-active ui-state-persist">Brewers</a></li>		
-	<li><a href="#beerStyles">Beers</a></li>
-	<li><a href="#event-details">Event Details</a></li>		
+		<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>		
+		<li><a href="#info-page">Brewers</a></li>		
+		<li><a href="#beerStyles">Beers</a></li>
+		<li><a href="#event-details" class="ui-btn-active ui-state-persist">Event Details</a></li>		
 		</ul>
-		</div>	
+		</div>
 
-	</div><!-- /footer -->
-</div><!-- /Detail page -->
-<!--------------- END DETAILS PAGE ------------------------------->
+</div><!-- /footer -->
 
+</div><!-- /Home page -->
+<!------------------------------------------------------>	
 
 
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>

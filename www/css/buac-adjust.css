@@ -1,5 +1,6 @@
 .ui-header-fixed {
-  padding-top:5px;
+ /* padding-top:20px; */
+  padding-bottom:7px;
 }
 
 /*Fixes flashes between pages */
@@ -8,21 +9,25 @@
            -moz-backface-visibility: hidden; /* Firefox */ 
            }
 
-
-
-
 .detailBanner {
-
-
 background-color:#F2C43D;
 padding: 3px 0 3px 0;
+}
+
+.detailBanner h3{
+	padding:0px;
+	margin:5px;
+}
+
+.detailBanner h4{
+	padding:0px;
+	margin:10px;
 }
 
 .in, .out {
     -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-duration: 350ms !important;
 }
-
 
 .ui-content{
 	padding:5px;

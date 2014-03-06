@@ -8,11 +8,12 @@
     function onDeviceReady() {
         // Now safe to use the PhoneGap API
   
-    var updateStatusBar = navigator.userAgent.match(/iphone|ipad|ipod/i) &&
+ /*   var updateStatusBar = navigator.userAgent.match(/iphone|ipad|ipod/i) &&
         parseInt(navigator.appVersion.match(/OS (\d)/)[1], 10) >= 7;
     if (updateStatusBar) {
         document.body.style.webkitTransform = 'translate3d(0, 20px, 0)';
-    }       
+    }
+    */       
     FastClick.attach(document.body);
 
     getBeers();

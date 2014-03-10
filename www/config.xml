@@ -8,6 +8,11 @@
         BUAC Team
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
+	    
+	<plugin name="WebIntent" value="com.borismus.webintent.WebIntent" />  
+	<gap:plugin name="com.phonegap.plugins.pushplugin" />
+	
+	
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />

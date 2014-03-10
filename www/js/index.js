@@ -33,6 +33,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        initPushwoosh();
         app.receivedEvent('deviceready');
         
         
@@ -44,8 +45,32 @@ var app = {
         ///////////////////////////////////////////////////
 
 		////////REGISTER Push notifications//////////////
-        var pushNotification = window.plugins.pushNotification;
-        pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"509023216724","ecb":"app.onNotificationGCM"});
+function initPushwoosh()
+{
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.onDeviceReady();
+ 
+    pushNotification.registerDevice({ projectid: "buac-2014", appid : "3C2AE-AEC40" },
+        function(status) {
+            var pushToken = status;
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            console.warn(JSON.stringify(['failed to register ', status]));
+        }
+    );
+ 
+    document.addEventListener('push-notification', function(event) {
+        var title = event.notification.title;
+            var userData = event.notification.userdata;
+                                 
+            if(typeof(userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+                                     
+        navigator.notification.alert(title);
+    });
+}
 		///////////////////////////////////////////////////
     },
     // Update DOM on a Received Event
@@ -60,36 +85,7 @@ var app = {
         console.log('Received Event: ' + id);
     },
     // result contains any message sent from the plugin call
-    successHandler: function(result) {
-        alert('Callback Success! Result = '+result)
-    },
-    errorHandler:function(error) {
-        alert(error);
-    },
-    onNotificationGCM: function(e) {
-        switch( e.event )
-        {
-            case 'registered':
-                if ( e.regid.length > 0 )
-                {
-                    console.log("Regid " + e.regid);
-                    alert('registration id = '+e.regid);
-                }
-                break;
 
-            case 'message':
-                // this is the actual push notification. its format depends on the data model from the push server
-                alert('message = '+e.message+' msgcnt = '+e.msgcnt);
-                break;
 
-            case 'error':
-                alert('GCM error = '+e.msg);
-                break;
-
-            default:
-                alert('An unknown GCM event has occurred');
-                break;
-        }
-    }
 
 };

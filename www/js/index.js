@@ -33,13 +33,16 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        FastClick.attach(document.body);
+ 	    getBeers();
+    	getBrewers();
+    	
+    	
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"509023216724","ecb":"app.onNotificationGCM"});
        
-        FastClick.attach(document.body);
- 	    getBeers();
-    	getBrewers();
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -67,7 +70,7 @@ var app = {
          {
              // Your GCM push server needs to know the regID before it can push to this device
              // here is where you might want to send it the regID for later use.
-             PushWoosh.appCode = "YOUR_PUSHWOOSH_APP_ID";
+             PushWoosh.appCode = "3C2AE-AEC40";
              PushWoosh.register(e.regid, function(data) {
                          alert("PushWoosh register success: " + JSON.stringify(data));
                      }, function(errorregistration) {

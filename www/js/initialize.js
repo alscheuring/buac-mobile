@@ -41,7 +41,7 @@ else
 
 // result contains any message sent from the plugin call
 function successHandler (result) {
-    alert('Successhandleer result = ' + result);
+  //  alert('Successhandleer result = ' + result);
 }
 
 // result contains any error description text returned from the plugin call
@@ -81,7 +81,6 @@ function onNotificationAPN (event) {
 // Android
 function onNotificationGCM(e) {
 //    $("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-
         switch( e.event )
         {
             case 'registered':
@@ -93,13 +92,8 @@ function onNotificationGCM(e) {
              PushWoosh.appCode = "3C2AE-AEC40";
             //  console.log(PushWoosh);
              console.log("Regid " + e.regid);
-                    
-                    
-                    alert('registration id = '+e.regid);
-                    
-                       
+			//alert('registration id = '+e.regid);
              PushWoosh.register(e.regid, function(data) {
-             	
                          alert("PushWoosh register success: " + JSON.stringify(data));
                      }, function(errorregistration) {
                          alert("Couldn't register with PushWoosh" +  errorregistration);

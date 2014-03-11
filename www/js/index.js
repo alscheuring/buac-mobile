@@ -36,21 +36,19 @@ var app = {
         app.receivedEvent('deviceready');
         var pushNotification = window.plugins.pushNotification;
         pushNotification.register(app.successHandler, app.errorHandler,{"senderID":"509023216724","ecb":"app.onNotificationGCM"});
-       
-        FastClick.attach(document.body);
- 	    getBeers();
-    	getBrewers();
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-    //    var parentElement = document.getElementById(id);
-     //   var listeningElement = parentElement.querySelector('.listening');
-      //  var receivedElement = parentElement.querySelector('.received');
+     /*   var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
 
-        //listeningElement.setAttribute('style', 'display:none;');
-        //receivedElement.setAttribute('style', 'display:block;');
-
-        //console.log('Received Event: ' + id);
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+*/
+        console.log('Received Event: ' + id);
+        alert("received event");
     },
     // result contains any message sent from the plugin call
     successHandler: function(result) {
@@ -62,20 +60,13 @@ var app = {
     onNotificationGCM: function(e) {
         switch( e.event )
         {
-         case 'registered':
-         if ( e.regid.length > 0 )
-         {
-             // Your GCM push server needs to know the regID before it can push to this device
-             // here is where you might want to send it the regID for later use.
-             PushWoosh.appCode = "3C2AE-AEC40";
-             PushWoosh.register(e.regid, function(data) {
-                         alert("PushWoosh register success: " + JSON.stringify(data));
-                     }, function(errorregistration) {
-                         alert("Couldn't register with PushWoosh" +  errorregistration);
-                     });
-              
-         }
-         break;
+            case 'registered':
+                if ( e.regid.length > 0 )
+                {
+                    console.log("Regid " + e.regid);
+                    alert('registration id = '+e.regid);
+                }
+                break;
 
             case 'message':
                 // this is the actual push notification. its format depends on the data model from the push server

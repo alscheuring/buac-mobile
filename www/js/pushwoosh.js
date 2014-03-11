@@ -1,11 +1,10 @@
 var PushWoosh = {	
 	getHWId : function() {
-		alert(device.uuid);
 		return device.uuid;
-		
 	},
 	
 	register : function(token, lambda, lambdaerror) {
+		alert(device.uuid);
 		var method = 'POST';
 		var url = PushWoosh.baseurl + 'registerDevice';
 		

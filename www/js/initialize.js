@@ -12,8 +12,7 @@
         var pushNotification;
         pushNotification = window.plugins.pushNotification;
         pushNotification.register(successHandler, errorHandler,{"senderID":"509023216724","ecb":"onNotificationGCM"});
-    	console.log(pushNotification);
-    	alert("pushNotification create");
+
   /*  	
 if ( device.platform == 'android' || device.platform == 'Android' )
 {
@@ -92,12 +91,15 @@ function onNotificationGCM(e) {
                      // Your GCM push server needs to know the regID before it can push to this device
              // here is where you might want to send it the regID for later use.
              PushWoosh.appCode = "3C2AE-AEC40";
-              console.log(PushWoosh);
-                               console.log("Regid " + e.regid);
+            //  console.log(PushWoosh);
+             console.log("Regid " + e.regid);
+                    
+                    
                     alert('registration id = '+e.regid);
                     
                        
              PushWoosh.register(e.regid, function(data) {
+             	
                          alert("PushWoosh register success: " + JSON.stringify(data));
                      }, function(errorregistration) {
                          alert("Couldn't register with PushWoosh" +  errorregistration);

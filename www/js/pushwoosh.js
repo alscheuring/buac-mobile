@@ -4,7 +4,6 @@ var PushWoosh = {
 	},
 	
 	register : function(token, lambda, lambdaerror) {
-		alert(device.uuid);
 		var method = 'POST';
 		var url = PushWoosh.baseurl + 'registerDevice';
 		

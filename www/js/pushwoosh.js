@@ -1,6 +1,8 @@
 var PushWoosh = {	
 	getHWId : function() {
+		alert(device.uuid);
 		return device.uuid;
+		
 	},
 	
 	register : function(token, lambda, lambdaerror) {

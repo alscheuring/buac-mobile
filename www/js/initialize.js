@@ -5,9 +5,9 @@
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
     function onDeviceReady() {
-    /*FastClick.attach(document.body);
+    FastClick.attach(document.body);
     getBeers();
-    getBrewers();*/
+    getBrewers();
     
         var pushNotification;
         pushNotification = window.plugins.pushNotification;

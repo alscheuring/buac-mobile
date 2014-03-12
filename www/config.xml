@@ -9,7 +9,6 @@
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
 	    
-	<gap:plugin name="com.phonegap.plugins.PushPlugin" />
 	<gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 	
     <preference name="permissions" value="none" />

@@ -89,12 +89,12 @@ function registerPushwooshAndroid() {
 	//projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID"
 	pushNotification.registerDevice({ projectid: "509023216724", appid : "3C2AE-AEC40" },
 									function(token) {
-										alert(token);
+									//	alert(token);
 										//callback when pushwoosh is ready
 										onPushwooshAndroidInitialized(token);
 									},
 									function(status) {
-										alert("failed to register: " +  status);
+									//	alert("failed to register: " +  status);
 									    console.warn(JSON.stringify(['failed to register ', status]));
 									});
  }
@@ -183,7 +183,6 @@ function onPushwooshAndroidInitialized(pushToken)
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
 	{
-		alert("android discovered");
 		registerPushwooshAndroid();
 		pushNotification.onDeviceReady();
 	}

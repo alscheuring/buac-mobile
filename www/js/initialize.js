@@ -16,11 +16,13 @@
 	
 function initPushwoosh()
 {
+	alert("pushwoosh called");
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
  
     pushNotification.registerDevice({ projectid: "509023216724", appid : "3C2AE-AEC40" },
         function(status) {
+        	alert("pushnotification status " + status);
             var pushToken = status;
             console.warn('push token: ' + pushToken);
         },

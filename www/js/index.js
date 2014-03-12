@@ -183,6 +183,7 @@ function onPushwooshAndroidInitialized(pushToken)
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
 	{
+		alert("android discovered");
 		registerPushwooshAndroid();
 		pushNotification.onDeviceReady();
 	}

@@ -183,7 +183,7 @@ function intentTest(){
 	alert('intent launched');
 window.plugins.webintent.startActivity({
 	action: WebIntent.ACTION_VIEW,
-	url: 'com.untappdllc.app'}, 
+	url: 'geo:0, 0?q=' + 'dummy address'},
 	function() {}, 
 	function(e) {alert('Failed to open URL via Android Intent');}
 );

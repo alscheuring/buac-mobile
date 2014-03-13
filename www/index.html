@@ -42,12 +42,9 @@
 <script>
 function intentTest(){
 	alert("intent called");
-window.plugins.webintent.startActivity({
-    action: window.plugins.webintent.ACTION_VIEW,
-    url: 'geo:0,0?q=' + address}, 
-    function() {}, 
-    function() {alert('Failed to open URL via Android Intent')};
-);
+
+}
+
 </script>
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">

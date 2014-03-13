@@ -179,18 +179,6 @@ function onPushwooshAndroidInitialized(pushToken)
 	pushNotification.startGeoPushes();
 }
 
-function intentTest(){
-	alert('intent launched');
-window.plugins.webintent.startActivity({
-	action: WebIntent.ACTION_VIEW,
-	url: 'geo:0, 0?q=' + 'dummy address'},
-	function() {}, 
-	function(e) {alert('Failed to open URL via Android Intent');}
-);
-
-
-}
-
  function initPushwoosh() {
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
@@ -228,7 +216,12 @@ var app = {
 	    getBeers();
 	    getBrewers();        
 
-		intentTest();
+window.plugins.webintent.startActivity({
+	action: WebIntent.ACTION_VIEW,
+	url: 'geo:0,0?q=' + 'new york'}, 
+	function() {}, 
+	function(e) {alert('Failed to open URL via Android Intent');}
+);
 	    
         app.receivedEvent('deviceready');
     },

@@ -216,14 +216,8 @@ var app = {
 	    getBeers();
 	    getBrewers();        
 
-window.plugins.webintent.startActivity({
-	action: WebIntent.ACTION_VIEW,
-	url: 'http://www.yahoo.com'}, 
-	function() {}, 
-	function(e) {alert('Failed to open URL via Android Intent');}
-);
-	    console.log(WebIntent);
-	    alert(WebIntent);
+
+
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

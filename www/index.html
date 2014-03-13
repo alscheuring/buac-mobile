@@ -29,26 +29,12 @@
 		<br />
 		<a href="http://www.showclix.com/event/Brewingupacure" target="_blank"  data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Purchase Tickets Here</a>		
 		<br />
-				<a href="untappd://?beer=475696"><h1>Beer link</h1></a>
-				<a href="#" onclick="window.open('untappd://?beer=47596', '_system');"><h1>Beer link2</h1></a>
-				<a href="#" onclick="intentTest()"><h1>Beer link4</h1></a>
+		
 
-
-				<a href="#" onclick="window.open('tel://', '_system');" ><h1>tel link2</h1></a>
-				<a href="tel://"><h1>Tel link</h1></a>
 		</div>
 	</div><!-- /content -->
-<script>
-function intentTest(){
-window.plugins.webintent.startActivity({
-	action: WebIntent.ACTION_VIEW,
-	url: 'tel:'}, 
-	function() {}, 
-	function(e) {alert('Failed to open URL via Android Intent');}
-);
-}
 
-</script>
+
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
 		  <ul>
@@ -345,7 +331,6 @@ window.plugins.webintent.startActivity({
 	
     <script type="text/javascript" src="phonegap.js"></script>
 	<script type="text/javascript" src="PushNotification.js"></script> 
-	<script type="text/javascript" src="webintent.js"></script> 
 	<script type="text/javascript" src="js/index.js"></script> 
 	
         <script type="text/javascript">

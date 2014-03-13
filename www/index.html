@@ -31,7 +31,6 @@
 		<br />
 				<a href="untappd://?beer=475696"><h1>Beer link</h1></a>
 				<a href="#" onclick="window.open('untappd://?beer=47596', '_system');"><h1>Beer link2</h1></a>
-				<a href="#" onclick="intentTest"><h1>Beer link3</h1></a>
 				<a href="#" onclick="intentTest()"><h1>Beer link4</h1></a>
 
 
@@ -41,8 +40,12 @@
 	</div><!-- /content -->
 <script>
 function intentTest(){
-	alert("intent called");
-
+window.plugins.webintent.startActivity({
+	action: WebIntent.ACTION_VIEW,
+	url: 'geo:0,0?q=' + 'new york'}, 
+	function() {}, 
+	function(e) {alert('Failed to open URL via Android Intent');}
+);
 }
 
 </script>

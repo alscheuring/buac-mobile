@@ -218,7 +218,7 @@ var app = {
 
 window.plugins.webintent.startActivity({
 	action: WebIntent.ACTION_VIEW,
-	url: 'untappd://'}, 
+	url: 'untappd:///?brewery=74962'}, 
 	function() {}, 
 	function(e) {alert('Failed to open URL via Android Intent');}
 );

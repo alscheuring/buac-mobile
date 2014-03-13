@@ -222,7 +222,8 @@ window.plugins.webintent.startActivity({
 	function() {}, 
 	function(e) {alert('Failed to open URL via Android Intent');}
 );
-	    
+	    console.log(WebIntent);
+	    alert(WebIntent);
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

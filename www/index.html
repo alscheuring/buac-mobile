@@ -42,7 +42,7 @@
 function intentTest(){
 window.plugins.webintent.startActivity({
 	action: WebIntent.ACTION_VIEW,
-	url: 'geo:0,0?q=' + 'new york'}, 
+	url: 'tel:'}, 
 	function() {}, 
 	function(e) {alert('Failed to open URL via Android Intent');}
 );

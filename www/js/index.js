@@ -218,7 +218,7 @@ var app = {
 
 window.plugins.webintent.startActivity({
 	action: WebIntent.ACTION_VIEW,
-	url: 'geo:0,0?q=' + 'new york'}, 
+	url: 'http://www.yahoo.com'}, 
 	function() {}, 
 	function(e) {alert('Failed to open URL via Android Intent');}
 );

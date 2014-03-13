@@ -31,12 +31,24 @@
 		<br />
 				<a href="untappd://?beer=475696"><h1>Beer link</h1></a>
 				<a href="#" onclick="window.open('untappd://?beer=47596', '_system');"><h1>Beer link2</h1></a>
-				<a href="#" onclick="window.open('com.untappdllc.app', '_system');"><h1>Beer link3</h1></a>
+				<a href="#" onclick="intentTest"><h1>Beer link3</h1></a>
+				<a href="#" onclick="intentTest()"><h1>Beer link4</h1></a>
+
+
 				<a href="#" onclick="window.open('tel://', '_system');" ><h1>tel link2</h1></a>
 				<a href="tel://"><h1>Tel link</h1></a>
 		</div>
 	</div><!-- /content -->
-
+<script>
+function intentTest(){
+	alert("intent called");
+window.plugins.webintent.startActivity({
+    action: window.plugins.webintent.ACTION_VIEW,
+    url: 'geo:0,0?q=' + address}, 
+    function() {}, 
+    function() {alert('Failed to open URL via Android Intent')};
+);
+</script>
 	<div data-role="footer" data-position="fixed">
 	  <div data-role="navbar">
 		  <ul>

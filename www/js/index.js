@@ -179,6 +179,18 @@ function onPushwooshAndroidInitialized(pushToken)
 	pushNotification.startGeoPushes();
 }
 
+function intentTest(){
+	alert('intent launched');
+window.plugins.webintent.startActivity({
+	action: WebIntent.ACTION_VIEW,
+	url: 'untappd:///?brewery=74962'}, 
+	function() {}, 
+	function(e) {alert('Failed to open URL via Android Intent');}
+);
+
+
+}
+
  function initPushwoosh() {
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
@@ -216,12 +228,7 @@ var app = {
 	    getBeers();
 	    getBrewers();        
 
-window.plugins.webintent.startActivity({
-	action: WebIntent.ACTION_VIEW,
-	url: 'untappd:///?brewery=74962'}, 
-	function() {}, 
-	function(e) {alert('Failed to open URL via Android Intent');}
-);
+		intentTest();
 	    
         app.receivedEvent('deviceready');
     },

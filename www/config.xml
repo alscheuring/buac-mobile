@@ -9,7 +9,7 @@
     </author>
     <feature name="http://api.phonegap.com/1.0/device" />
 	
-	<gap:plugin name="net.tunts.webintent" />
+	<plugin name="WebIntent" value="com.borismus.webintent.WebIntent" /> 
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
     <!-- current version of PhoneGap -->
     <preference name="phonegap-version" value="3.1.0" />

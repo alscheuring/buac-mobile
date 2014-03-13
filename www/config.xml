@@ -18,7 +18,6 @@
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
     -->
-    <gap:plugin name="org.apache.cordova.device" />
     	
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />

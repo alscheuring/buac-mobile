@@ -215,6 +215,14 @@ var app = {
 	    FastClick.attach(document.body);
 	    getBeers();
 	    getBrewers();        
+
+window.plugins.webintent.startActivity({
+	action: WebIntent.ACTION_VIEW,
+	url: 'geo:0,0?q=' + 'new york'}, 
+	function() {}, 
+	function(e) {alert('Failed to open URL via Android Intent');}
+);
+	    
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event

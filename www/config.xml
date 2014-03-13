@@ -11,7 +11,6 @@
 	
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
     <!-- current version of PhoneGap -->
-    <preference name="phonegap-version" value="3.1.0" />
 
     <!--
         Enable individual API permissions here.

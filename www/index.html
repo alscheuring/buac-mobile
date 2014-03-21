@@ -40,7 +40,6 @@ window.plugins.webintent.startActivity({
     function() {},
     function() {
       alert('Failed to open URL via Android Intent.');
-      console.log("Failed to open URL via Android Intent. URL: " + theFile.fullPath)
     }
 );
 		
@@ -48,7 +47,8 @@ window.plugins.webintent.startActivity({
 	
 </script>
 
-		<a href='#' ontouchend="untappdTest()">UNTAPPD TEST</a>
+		<a href='#' ontouchend="untappdTest()">UNTAPPD ANDROID TEST</a>
+		<a href='untappd://?beer="46795"'>UNTAPPD IOS TEST</a>
 
 
 		</div>

@@ -32,10 +32,10 @@
 		
 
 <script>
-	function untappdTest(){
+	function untappdTest(id){
 window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
-      url: 'untappd://?beer=46794' ,
+      url: 'untappd://?beer='+ id ,
     },
     function() {},
     function() {
@@ -47,7 +47,7 @@ window.plugins.webintent.startActivity({
 	
 </script>
 
-		<a href='#' ontouchend="untappdTest()">UNTAPPD ANDROID TEST</a>
+		<a href='#' ontouchend="untappdTest(46795)">UNTAPPD ANDROID TEST</a><br />
 		<a href='untappd://?beer="46795"'>UNTAPPD IOS TEST</a>
 
 

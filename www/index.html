@@ -31,26 +31,6 @@
 		<br />
 		
 
-<script>
-	function untappdTest(id){
-window.plugins.webintent.startActivity({
-      action: window.plugins.webintent.ACTION_VIEW,
-      url: 'untappd://?beer='+ id ,
-    },
-    function() {},
-    function() {
-      alert('Failed to open URL via Android Intent.');
-    }
-);
-		
-	}
-	
-</script>
-
-		<a href='#' ontouchend="untappdTest(46795)">UNTAPPD ANDROID TEST</a><br />
-		<a href='untappd://?beer="46795"'>UNTAPPD IOS TEST</a>
-
-
 		</div>
 	</div><!-- /content -->
 
@@ -351,7 +331,6 @@ window.plugins.webintent.startActivity({
 	
     <script type="text/javascript" src="phonegap.js"></script>
 	<script type="text/javascript" src="PushNotification.js"></script> 
-    <script type="text/javascript" src="webintent.js"</script>
 	<script type="text/javascript" src="js/index.js"></script> 
 	
         <script type="text/javascript">

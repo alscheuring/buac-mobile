@@ -10,7 +10,7 @@
     <feature name="http://api.phonegap.com/1.0/device" />
 	
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
-	<gap:plugin name="com.borismus.webintent" />
+	<gap:plugin name="net.tunts.webintent" />
     <!--
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.

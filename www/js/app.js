@@ -20,6 +20,7 @@ function getBrewers(){
 });
 }
     
+    /*
 	function untappdLaunch(id){
 window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
@@ -32,7 +33,7 @@ window.plugins.webintent.startActivity({
 );
 		
 	}
-
+*/
 
 //pageinit event for first page
 //triggers only once

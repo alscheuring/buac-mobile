@@ -30,6 +30,21 @@
 		<a href="http://www.showclix.com/event/Brewingupacure" target="_blank"  data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Purchase Tickets Here</a>		
 		<br />
 		
+		<a href='#' ontouchend="untappdTest()">UNTAPPD TEST</a>
+
+<script>
+	function untappdTest(){
+		alert("Hey it fucking launched you are a genius")
+  window.plugins.webintent.startActivity({
+    action: WebIntent.ACTION_VIEW,
+    url: 'tel:',
+  }, function () {}, function () {
+    alert('Failed to open URL via Android Intent');
+  });	
+		
+	}
+	
+</script>
 
 		</div>
 	</div><!-- /content -->
@@ -331,6 +346,7 @@
 	
     <script type="text/javascript" src="phonegap.js"></script>
 	<script type="text/javascript" src="PushNotification.js"></script> 
+	<script type="text/javascript" src="js/webintent.js"</script>
 	<script type="text/javascript" src="js/index.js"></script> 
 	
         <script type="text/javascript">

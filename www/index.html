@@ -27,8 +27,25 @@
 		<h4>Presented by The Tree Rivers Underground Brewers (TRUB)</h4>
 		<img src="images/trub-logo.jpg">
 		<br />
+		<a href="http://www.showclix.com/event/Brewingupacure" target="_blank"  data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Purchase Tickets Here</a>		
+		<br />
+		
 
-
+<script>
+	function untappdTest(id){
+window.plugins.webintent.startActivity({
+      action: window.plugins.webintent.ACTION_VIEW,
+      url: 'untappd://?beer='+ id ,
+    },
+    function() {},
+    function() {
+      alert('Failed to open URL via Android Intent.');
+    }
+);
+		
+	}
+	
+</script>
 
 		<a href='#' ontouchend="untappdTest(46795)">UNTAPPD ANDROID TEST</a><br />
 		<a href='untappd://?beer="46795"'>UNTAPPD IOS TEST</a>

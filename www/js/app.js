@@ -20,20 +20,8 @@ function getBrewers(){
 });
 }
     
-    /*
-	function untappdLaunch(id){
-window.plugins.webintent.startActivity({
-      action: window.plugins.webintent.ACTION_VIEW,
-      url: 'untappd://?beer='+ id ,
-    },
-    function() {},
-    function() {
-      alert('Failed to open URL via Android Intent.');
-    }
-);
-		
-	}
-*/
+
+
 
 //pageinit event for first page
 //triggers only once
@@ -73,15 +61,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 		    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
    
    		  if(info.Brewer.untappd_id){
-        //	if(device.platform == "Android"){
-
-           //info_view += '<a href="#" ontouchend("untappdLaunch('+ info.Brewer.untappd_id + '')" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
-			//}
-			//if(device.platform == "iPhone" || device.platform == "iOS"){
-           //info_view += '<a href="untappd://?brewery='+ info.Brewer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
-		
-			//}
-		
+          //  info_view += '<a href="http://untappd.com/://?brewery='+ info.Brewer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 			}
 		    info_view += '</div>';
 

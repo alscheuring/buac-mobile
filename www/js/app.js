@@ -20,7 +20,7 @@ function getBrewers(){
 });
 }
     
-	function untappdLaunch(id){
+	function untappdLaunchBeer(id){
 window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
       url: 'untappd:///?beer=74962' ,
@@ -32,6 +32,9 @@ window.plugins.webintent.startActivity({
 );
 		
 	}
+
+
+
 
 
 //pageinit event for first page
@@ -71,17 +74,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 		    info_view += '<h3>' + info.Brewer.name +'</h3>';
 		    info_view += '<h4><i>' + info.Brewer.brewery +'</i></h4>';
    
-   		/*  if(info.Brewer.untappd_id){
-        	if(device.platform == "Android"){
 
-		    info_view += '<a href="#brewer-detail" data-role="button" data-mini="true" ontouchstart="untappdLaunch('+ info.Brewer.id +')">by ' + brewerName +'</a>';
-			}
-			if(device.platform == "iPhone" || device.platform == "iOS"){
-           info_view += '<a href="untappd://?brewery=BrickhouseBrewing" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
-		
-			}
-		
-			}*/
 		    info_view += '</div>';
 
 			var info_view2 = "";
@@ -177,8 +170,17 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 
 		  
 		  if(info.Beer.untappd_id){
-		  info_view += '<a href="untappd:///?beer='+ info.Beer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+        	if(device.platform == "Android"){
 
+		    info_view += '<a href="#brewer-detail" data-role="button" data-mini="true" ontouchstart="untappdLaunchBeer('+ info.Beer.untappd_id +')"Untappd</a>';
+			}		
+		
+			if(device.platform == "iPhone" || device.platform == "iOS"){
+		
+		  info_view += '<a href="untappd:///?beer='+ info.Beer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+			}
+			
+			
 		  }
 		  
 		  		  

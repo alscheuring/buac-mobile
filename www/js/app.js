@@ -73,7 +73,8 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
    
    		  if(info.Brewer.untappd_id){
         	if(device.platform == "Android"){
-           info_view += '<a href="#" onclick="untappdLaunch(info.Brewer.untappd_id)" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Android Checkin on UNTAPPD</a>';
+//           info_view += '<a href="#" onclick="untappdLaunch(info.Brewer.untappd_id)" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Android Checkin on UNTAPPD</a>';
+		    info_view += '<a href="#" data-role="button" data-mini="true" ontouchstart="untappdLaunch('+ info.Brewer.id +')">IOS Untappd </a>';
 
        //    info_view += '<a href="#" ontouchend("untappdLaunch('+ info.Brewer.untappd_id + '')" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 			}

@@ -23,7 +23,7 @@ function getBrewers(){
 	function untappdLaunchBeer(id){
 window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
-      url: 'untappd:///?beer=74962' ,
+      url: 'untappd:///?beer='+ id ,
     },
     function() {},
     function() {

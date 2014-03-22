@@ -21,7 +21,7 @@ function getBrewers(){
 }
     
 	function untappdLaunch(id){
-window.plugins.webintent.startActivity({
+	window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
       url: 'untappd://?beer='+ id ,
     },
@@ -73,7 +73,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
    
    		  if(info.Brewer.untappd_id){
         	if(device.platform == "Android"){
-           info_view += '<a href="untappd://?brewery='+ info.Brewer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Android Checkin on UNTAPPD</a>';
+           info_view += '<a href="#" onclick="untappdLaunch(46739)" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Android Checkin on UNTAPPD</a>';
 
        //    info_view += '<a href="#" ontouchend("untappdLaunch('+ info.Brewer.untappd_id + '')" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 			}

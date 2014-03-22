@@ -177,7 +177,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		
 			//if(device.platform == "iPhone" || device.platform == "iOS"){
 		
-	//	  info_view += '<a href="untappd:///?beer='+ info.Beer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+		  info_view += '<a href="untappd:///?beer='+ info.Beer.untappd_id +'" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 			//}
 			
 			

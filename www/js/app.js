@@ -77,7 +77,7 @@ $(document).on("pagebeforeshow", "#brewer-detail", function () {
 		    info_view += '<a href="#brewer-detail" data-role="button" data-mini="true" ontouchstart="untappdLaunch('+ info.Brewer.id +')">by ' + brewerName +'</a>';
 			}
 			if(device.platform == "iPhone" || device.platform == "iOS"){
-           info_view += '<a href="untappd://?brewery=74962" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
+           info_view += '<a href="untappd://?brewery=BrickhouseBrewing" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Checkin on UNTAPPD</a>';
 		
 			}
 		

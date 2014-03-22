@@ -172,7 +172,7 @@ $(document).on("pagebeforeshow", "#beer-detail", function () {
 		  if(info.Beer.untappd_id){
        // 	if(device.platform == "Android"){
 
-		    info_view += '<a href="#brewer-detail" data-role="button" data-mini="true" ontouchstart="untappdLaunchBeer('+ info.Beer.untappd_id +')">Untappd</a>';
+		//    info_view += '<a href="#brewer-detail" data-role="button" data-mini="true" ontouchstart="untappdLaunchBeer('+ info.Beer.untappd_id +')">Untappd</a>';
 		//	}		
 		
 			//if(device.platform == "iPhone" || device.platform == "iOS"){

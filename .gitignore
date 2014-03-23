@@ -7,3 +7,4 @@ plugins/android.json
 plugins/ios.json
 www/.DS_Store
 .DS_Store
+plugins

@@ -1,0 +1,26 @@
+<<<<<<< HEAD
+*.a
+*.class
+*.dll
+*.dylib
+*.exe
+*.o
+*.obj
+*.pyc
+*.pyo
+*.so
+*/.git/*
+=======
+>>>>>>> f76fda3d723b1c4421317f6da4b7c72b0735c8cf
+platforms
+*.a
+*.class
+*.dll
+*.dylib
+*.exe
+*.o
+*.obj
+*.pyc
+*.pyo
+*.so
+*/.git/*

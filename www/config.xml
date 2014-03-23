@@ -16,7 +16,7 @@
         The "device" permission is required for the 'deviceready' event.
     -->
     <gap:plugin name="org.apache.cordova.device" />
-    	
+    	<content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />

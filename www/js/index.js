@@ -212,9 +212,8 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         initPushwoosh();
-	    FastClick.attach(document.body);
-	    getBeers();
-	    getBrewers();        
+//	    getBeers();
+//	    getBrewers();        
 
 
 

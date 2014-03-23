@@ -1,346 +1,57 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Ionic Seed App</title>
 
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <!-- ionic css -->
+    <link href="lib/css/ionic.css" rel="stylesheet">
 
-	<title>Brewing Up A Cure</title>
-	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
-	<link rel="stylesheet" href="css/buac.min.css">
-	<link rel="stylesheet" href="css/buac-adjust.css">
-</head>
+    <!-- your app's css -->
+    <link href="css/app.css" rel="stylesheet">
 
-<body>
-	
+    <!-- ionic/angularjs scripts -->
+    <script src="lib/js/ionic.bundle.js"></script>
 
-	
-<!-----------------------HOME PAGE------------------------------->	
-<div data-role="page" id="home-page" data-theme="a"><!-- Home Page -->
-	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /></div><!-- /header -->
-	
-	<div role="main" class="ui-content" align="center">
-		<div class="detailBanner">
-		<h3>Welcome to the 8th Annual Brewing Up A Cure!</h3>
-		<p>Please enjoy the beer, food, and entertainment! All proceeds go towards the Cystic Fibrosis Foundation.</p>
-		
-		<h4>Presented by The Tree Rivers Underground Brewers (TRUB)</h4>
-		<img src="images/trub-logo.jpg">
-		<br />
-		<a href="http://www.showclix.com/event/Brewingupacure" target="_blank"  data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Purchase Tickets Here</a>		
-		<br />
-		
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
 
-		</div>
-	</div><!-- /content -->
-
-
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		  <ul>
-			<li><a href="#home-page" data-role='button' class="ui-btn-active ui-state-persist">Home</a></li>	
-			<li><a href="#info-page" data-role='button'>Brewers</a></li>		
-			<li><a href="#beerStyles" data-role='button'>Beers</a></li>
-			<li><a href="#event-details" data-role='button'>Details</a></li>		
-		  </ul>
-	  </div>		
-	</div><!-- /footer -->
-
-</div><!-- /Home page -->
-<!---------/HOME PAGE--------------------------------------------->	
-
-
-
-<!------------BREWER LIST-------------------------->	
-<div data-role="page" id="info-page" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
-	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-	</div><!-- /header -->
-		
-
-	<div role="main" class="ui-content">
-		<ul data-role="listview" data-inset="false" data-filter="false" data-input="#filter-for-listview" id="brewerList">
-		<!--List of brewers will be populated here -->
-		</ul>		
-	</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-    <div data-role="navbar">
-		<ul>
-			<li><a href="#home-page" data-role='button' >Home</a></li>		
-			<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
-			<li><a href="#beerStyles">Beers</a></li>
-			<li><a href="#event-details">Event Details</a></li>		
-		</ul>
-	 </div>
-   
-   </div><!-- /footer -->
-
-</div><!-- / page -->
-<!--------------/BREWER LIST---------------------------------------->	
-
-<!--------------BREWER DETAIL------------------------>	
-<div data-role="page" id="brewer-detail" data-theme="a"  data-add-back-btn="true"><!-- Home Page -->
-
-	<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-	</div><!-- /header -->
-		
-
-	<!--BREWER DETAIL CONTENT -->
-	 <div role="main" class="ui-content">
-	 <div id='brewerDetailDiv' align="center"></div>
-	 
-	<div data-role="collapsible-set" data-theme="c" data-inset="false"  data-content-theme="d">
-   
-    <div data-role="collapsible"  data-collapsed="true">
-        <h3>Beers</h3>
-        	
-		<ul data-role="listview" data-inset="false" id="brewerBeers">
-		<!--List of beers will be populated here -->
-		</ul>	        	
-    </div>
-    <div data-role="collapsible">
-        <h3>About</h3>
-        <div id='brewerStory'></div>
-    </div>
-    </div>
-	 </div>
-	<!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		<ul>
-			<li><a href="#home-page" data-role='button' >Home</a></li>		
-			<li><a href="#info-page"  class="ui-btn-active ui-state-persist">Brewers</a></li>		
-			<li><a href="#beerStyles">Beers</a></li>
-			<li><a href="#event-details">Event Details</a></li>		
-		</ul>
-	  </div>
-   
-   </div><!-- /footer -->
-
-</div><!-- /Home page -->
-<!-----------/BREWER DETAIL------------------------------------------->	
-
-
-
-<!--------------List of BEERS------------------------>	
-<div data-role="page" id="beerStyles" data-theme="a" data-add-back-btn="true">
-
-    <!-- /header -->
-    <div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" />
-		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-	</div>
-	<!-- /header -->
-		
-	<!--CONTENT--->	
-	<div role="main" class="ui-content">
-		<ul data-role="listview" data-inset="false" data-filter="false" data-input="#filter-for-listview"  id="beerList">
-		<!--List of beers will be populated here -->
-		</ul>		
-	</div>
-	<!-- /content -->
-
-	
-	<!--////////FOOTER//////////-->
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		<ul>
-			<li><a href="#home-page" data-role='button' >Home</a></li>		
-			<li><a href="#info-page">Brewers</a></li>		
-			<li><a href="#beerStyles"class="ui-btn-active ui-state-persist">Beers</a></li>
-			<li><a href="#event-details" >Event Details</a></li>		
-		</ul>
-		</div>
-	</div>
-	<!-- /footer -->
-
-</div>
-<!--------END LIST OF BEERS---------------------------------------------->	
-
-
-<!------------BEER---DETAILS PAGE ------------------------------->
-<div data-role="page" id="beer-detail" data-theme="a" data-add-back-btn="true"><!-- Detail Page --> 
-
-		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-		
-	</div><!-- /header -->
-	
-	
-	<div role="main" class="ui-content">
-			 <div data-role="content" id='beerDetailDiv' align="center"></div>
-			 
-			<!--Beer Details go here -->
-			
-
-
-<div data-role="popup" id="abvDescription">
-    <p>
-	<strong>Alcohol by volume</strong>, or <strong>ABV</strong>, is simply a measure of how much alcohol is in an alcoholic beverage and is expressed as a percentage. So, if a 12 ounce bottle of beer is 5% alcohol, that means that there is 0.6 ounces of pure alcohol in that beer. 
-	</p>
-</div>
-
-<div data-role="popup" id="ibuDescription">
-    <p>
-	<strong>IBU - International Bittering Units</strong></p>
-		<p>
-	This is a measure of the actual bitterness of a beer as contributed by the alpha acid from hops. Because the apparent bitterness of a beer is subjective to the taste of the drinker and the balancing malt sweetness of the beer this is not always an accurate measure of the "hoppiness" of a beer. But, generally speaking, beers with IBUs of less than 20 have little to no apparent hops presence. Beers with IBUs from 20 to 45 are the most common and have mild to pronounced hops presence. Beers with IBUs greater than 45 are heavily hopped and can be quite bitter. 
-	</p>
-</div>
-			
-<div data-role="popup" id="ogDescription">
-    <p>
-	<strong>OG - Original Gravity</strong> is a measure of the fermentable and unfermentable substances in the wort before fermentation. </p><p>OG gives the brewer an idea of the potential alcoholic strength of the final product.
-	</p>
-</div>			
-			</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		<ul>
-		<li><a href="#home-page" data-role='button' >Home</a></li>		
-		<li><a href="#info-page">Brewers</a></li>		
-		<li><a href="#beerStyles" class="ui-btn-active ui-state-persist">Beers</a></li>
-		<li><a href="#event-details">Event Details</a></li>		
-		</ul>
-		</div>	
-
-
-</div><!-- /footer -->
-</div><!-- /Detail page -->
-<!--------------- END BEER DETAILS PAGE ------------------------------->
-
-
-
-<!------------------------------------------------------>	
-<div data-role="page" id="event-details" data-theme="a" data-add-back-btn="true"><!-- Home Page -->
-
-		<div data-role="header" data-position="fixed" align="center"><img src="images/buac-minimal.png" /><!-- /header -->
-		<a href="#" data-rel="back" class="ui-btn-left" data-icon="back" data-iconpos="notext"  data-direction="reverse">Back</a>
-
-	</div><!-- /header -->
-		
-
-	<div role="main" class="ui-content">
-
-	 <div class='detailBanner' align="center">
-	<h3>Event Details</h3>
-	</div>
-		
-<div data-role="collapsible-set" data-inset="false">
-    <div data-role="collapsible">
-        <h3>Schedule of Events</h3>
-	<div align="center">
-		<p><strong>VIP Reception - 6pm to 7pm</strong></p>
-		<p>Sponsored by TBD and TRUB Brewers. Sample several unique beers. Sample several unique beers only served during this hour.</p>
-		<hr />
-		<p><strong>Main Event - 7pm to 10pm</strong></p>
-		<p>Sample TRUB's homebrewed beers, as well as many commecial beers. Enjoy a sampling of Pittsburgh's delicious food and desserts. Silent and basket auction open.</p>	
-		<hr />
-		<p><strong>7:45 pm</strong></p>
-		<p>Welcome by TRUB member TBD</p>	
-		<hr />
-		<p><strong>9:30 pm</strong></p>
-		<p>Silent and basket auction close</p>	
-		<hr />
-		<p><strong>10:00 pm</strong></p>
-		<p>Event ends. Silent and basket auction checkout. Please have a safe drive home!</p>
-		<p><strong>ENJOY THE EVENING!</strong></p>								
-	</div>   
-
-
-    </div>
-    <div data-role="collapsible">
-        <h3>Our Sponsors</h3>
- 
-	<div align="center">
-		<p><strong>Tasting Glass Sponsor</strong></p>
-		<p>TBD</p>
-		<p><strong>Print Sponsor</strong></p>
-		<p>TBD</p>	
-		<p><strong>T-shirt Sponsor</strong></p>
-		<p>TBD</p>				
-	</div>
-
-    </div>
-
-
+    <!-- your app's script -->
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
     
-    <div data-role="collapsible">
-        <h3>About Cystic Fibrosis</h3>
-	<p align="center">Cystic Fibrosis is an inherited chronic disease that affects the lungs and digestive system of about 30,000 children and adults
-		in the United States (70,000 worldwide). A defective gene and its protein product cause the body to produce unusually thick,
-		sticky mucus that:</p>
-		<ul>
-			<li>Clogs the lungs and leads to life-threatening lung infections</li>
-			<li>Obstructs the pancreas and stops natural enzymes from helping the body break down and absorb food</li>
-		</ul>    
-			 <div align="center">
-			 <a href="http://www.cff.org/chapters/wpa/" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Learn more about Cystic Fibrosis</a>
-   			</div>
-    </div>    
-    
-    <div data-role="collapsible">
-        <h3>About TRUB</h3>
-    
-		<p align="center">Three Rivers Underground Brewers (T.R.U.B.), is a Pittsburgh area homebrewing club dedicated to promoting and enjoying
-			 the joy of homebrewing. We are a small club, but are extremely active in the homebrewing community. You can find us 
-			 around town serving beer at a number of events annually, especially our club sponsored event 'Brewing up a Cure'. 
-			 If it has to do with beer, you can bet that we'll be there. We're always looking for new members who share our 
-			 passion, so feel free to stop out to a meeting and share some homebrews with us!</p>
-			 
-			 <div align="center">
-			 <a href="http://trubrewers.com" target="_blank" data-rel="popup" data-role="button" data-inline="true" data-mini="true" data-transition="pop">Learn more about TRUB</a>
-   			</div>
-    </div>    
-</div>
-		
-		
-		
-		
-		
-		
-		
-	</div><!-- /content -->
-
-	<div data-role="footer" data-position="fixed">
-	  <div data-role="navbar">
-		<ul>
-		<li><a href="#home-page" data-role='button' >Home</a></li>		
-		<li><a href="#info-page">Brewers</a></li>		
-		<li><a href="#beerStyles">Beers</a></li>
-		<li><a href="#event-details" class="ui-btn-active ui-state-persist">Event Details</a></li>		
-		</ul>
-		</div>
-
-</div><!-- /footer -->
-
-</div><!-- /Home page -->
-<!------------------------------------------------------>	
-
-
-
-
-	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/jquery.mobile-1.3.2.min.js"></script>
-	<script type='text/javascript' src='js/fastclick.js'></script>
-	
-	<script type="text/javascript" src="js/app.js"></script>
-	
     <script type="text/javascript" src="phonegap.js"></script>
 	<script type="text/javascript" src="PushNotification.js"></script> 
 	<script type="text/javascript" src="js/index.js"></script> 
 	
         <script type="text/javascript">
             app.initialize();
-        </script>
+        </script>    
+  </head>
 
+  <!-- 
+    'starter' is the name of this angular module (js/app.js)
+  -->
+  <body ng-app="starter" animation="slide-left-right-ios7">
 
-    	
-    </script> 
-</body>
+    <!-- 
+      The nav bar that will be updated as we navigate between views
+      Additional attributes set its look, ion-nav-bar animation and icons
+      Icons provided by Ionicons: http://ionicons.com/ 
+    -->
+    <ion-nav-bar type="bar-energized" 
+             animation="none" 
+             back-button-type="button-icon button-clear" 
+             back-button-icon="ion-ios7-arrow-back"></ion-nav-bar>
+
+    <!-- 
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+
+  </body>
 </html>
-
-

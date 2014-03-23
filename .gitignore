@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.a
 *.class
 *.dll
@@ -9,4 +10,6 @@
 *.pyo
 *.so
 */.git/*
+=======
+>>>>>>> f76fda3d723b1c4421317f6da4b7c72b0735c8cf
 platforms

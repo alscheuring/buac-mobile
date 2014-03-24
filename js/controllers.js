@@ -51,7 +51,7 @@ angular.module('starter.controllers', [])
 		console.log("android untappd launch");
 	window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
-      url: 'untappd:///?beer=74962' ,
+      url: 'untappd:///?beer=' + beerId ,
     },
     function() {},
     function() {

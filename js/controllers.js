@@ -83,7 +83,7 @@ angular.module('starter.controllers', [])
   $scope.abvDetail = function(){
 	$ionicPopup.alert({
 		title: 'Alcohol by Volume (ABV)',
-		content:'This is a measure of the actual bitterness of a beer as contributed by the alpha acid from hops. Because the apparent bitterness of a beer is subjective to the taste of the drinker and the balancing malt sweetness of the beer this is not always an accurate measure of the "hoppiness" of a beer. But, generally speaking, beers with IBUs of less than 20 have little to no apparent hops presence. Beers with IBUs from 20 to 45 are the most common and have mild to pronounced hops presence. Beers with IBUs greater than 45 are heavily hopped and can be quite bitter.',  // message
+		content:'A measure of how much alcohol is in an alcoholic beverage and is expressed as a percentage. So, if a 12 ounce bottle of beer is 5% alcohol, that means that there is 0.6 ounces of pure alcohol in that beer.',  // message
 		okText: 'Now I Know...',
 		okType: 'button-energized'
 	});

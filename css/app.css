@@ -12,8 +12,8 @@ background-image:url("img/buac-minimal.png");
 }
 
 .smallerButtons{
-	min-height:auto;
-	line-height:25px;
+	min-height:inherit;
+	line-height:inherit;
 }
 
 .beerDetail h3{

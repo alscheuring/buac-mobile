@@ -11,7 +11,7 @@
 
 
   <ion-content has-header="true" padding="true">
- 
+
    <div align="center">
    	    <h3>{{ beer.Beer.name }}</h3>
     <p>{{ beer.Beer.style }}</p>
@@ -37,14 +37,10 @@
 		
     <div align='center' ng-hide="beer.Beer.untappd_id == ''">   
 	
-	<a href="untappd://?beer={{beer.Beer.untappd_id}}" class="button button-clear button-energized">IOS Checkin on Untappd</a>
-	<a href="" ng-click="untappdLaunch({{beer.Beer.untappd_id}})" class="button button-clear button-energized">ANDROID Checkin on Untappd</a>
+	<a href="" ng-click="untappdLaunch({{beer.Beer.untappd_id}})" class="button button-clear button-energized">Checkin on Untappd</a>
 	
 	</div>		
 		
-
-
-
 
     <p>{{ beer.Beer.description }}</p>
 	

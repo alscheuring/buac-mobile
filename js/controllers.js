@@ -31,7 +31,21 @@ angular.module('starter.controllers', [])
   // "Pets" is a service returning mock data (services.js)
   $scope.beer = BeerService.get($stateParams.beerId);
   
+
   $scope.untappdLaunch = function(beerId){
+  var device = ionic.Platform.device();
+  console.log(device.platform);	
+  
+	//IOS launch
+    if(device.platform =='iPhone' || device.platform == 'iOS'){
+    	console.log("ios untappd launch");
+    	window.open("untappd://?beer=" + beerID +"");
+    }//end ios untappd Launch
+  
+  
+	//Android Launch
+	if(device.platform =='Android'){
+		console.log("android untappd launch");
 	window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
       url: 'untappd:///?beer=74962' ,
@@ -40,8 +54,12 @@ angular.module('starter.controllers', [])
     function() {
       alert('Failed to open URL via Android Intent.');
     }
-);  	
-  }
+	);
+	} //Android Launch 
+	
+
+		
+  }//End untappd launch
   
   
   $scope.ibuDetail = function(){
@@ -69,7 +87,10 @@ angular.module('starter.controllers', [])
 		okText: 'Now I Know...',
 		okType: 'button-energized'
 	});
-	}  
+	}
+	
+	
+
   
 });
 

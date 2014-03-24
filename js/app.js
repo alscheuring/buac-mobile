@@ -80,14 +80,6 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
 
 
-    .state('tab.adopt', {
-      url: '/adopt',
-      views: {
-        'adopt-tab': {
-          templateUrl: 'templates/adopt.html'
-        }
-      }
-    })
 
     .state('tab.about', {
       url: '/about',
@@ -96,7 +88,41 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
           templateUrl: 'templates/about.html'
         }
       }
-    });
+    })
+    .state('tab.schedule', {
+      url: '/schedule',
+      views: {
+        'about-tab': {
+          templateUrl: 'templates/schedule.html'
+        }
+      }
+    })    
+    
+    .state('tab.sponsors', {
+      url: '/sponsors',
+      views: {
+        'about-tab': {
+          templateUrl: 'templates/sponsors.html'
+        }
+      }
+    })    
+    .state('tab.trub', {
+      url: '/trub',
+      views: {
+        'about-tab': {
+          templateUrl: 'templates/trub.html'
+        }
+      }
+    })    
+    .state('tab.cysticfibrosis', {
+      url: '/cysticfibrosis',
+      views: {
+        'about-tab': {
+          templateUrl: 'templates/cysticfibrosis.html'
+        }
+      }
+    })                    
+    ;
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/home');

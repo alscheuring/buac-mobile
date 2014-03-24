@@ -28,5 +28,6 @@ background-image:url("img/buac-minimal.png");
 	margin-top:10px;
 }
 
-#brewerName{
+.welcomeScreen{
+	margin-top:10px;
 }

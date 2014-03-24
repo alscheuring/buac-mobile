@@ -4,7 +4,8 @@ function getBeers(){
     $.getJSON(buacurl, function(data){
     var beers = JSON.stringify(data);
     window.localStorage.setItem('beers', beers);
-
+	console.log('get beers called');
+	console.log(beers);
 
 });
 }
@@ -19,20 +20,6 @@ function getBrewers(){
 
 });
 }
-    /*
-	function untappdLaunchBeer(id){
-		console.log("untappdLaunch is a GO");
-window.plugins.webintent.startActivity({
-      action: window.plugins.webintent.ACTION_VIEW,
-      url: 'untappd:///?beer=74962' ,
-    },
-    function() {},
-    function() {
-      alert('Failed to open URL via Android Intent.');
-    }
-);
-		
-	}
 
 
-*/
+

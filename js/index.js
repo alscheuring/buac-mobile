@@ -211,9 +211,10 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+    	//console.log('device ready');
         initPushwoosh();
-//	    getBeers();
-//	    getBrewers();        
+	    //getBeers();
+	    //getBrewers();        
 
 
 

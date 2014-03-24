@@ -4,11 +4,86 @@
   The PetCtrl pulls data from the Pets service (service.js)
   The Pets service returns an array of pet data
 -->
-<ion-view title="{{beer.Beer.name}}">
+<div class="bar bar-header bar-energized">
+ <a class="button button-small icon ion-arrow-left-b" href="#/tab/beers"></a>
+ <h1 class="title"><img src="img/buac-minimal.png" /></h1>
+</div>
+
+
   <ion-content has-header="true" padding="true">
-    <h1>{{ beer.Beer.name }}</h1>
+ 
+   <div align="center">
+
+    <h3>{{ beer.Beer.name }}</h3>
+    <p>{{ beer.Beer.style }}</p>
+	<a href="#/tab/brewer/{{beer.Brewer.id}}" class="button button-clear button-energized">By: {{beer.Brewer.name}}</a>
+  
+  
+    <div align='center' ng-hide="beer.Beer.og == ''">   
+    <button class="button button-clear button-energized" onclick="ogDetail()">
+  		OG: {{ beer.Beer.og }}
+	</button>
+		
+    <button class="button button-clear button-energized">
+  		ABV: {{ beer.Beer.abv }}
+	</button>
+
+    <button class="button button-clear button-energized">
+  		IBU: {{ beer.Beer.ibu }}
+	</button>
+</div>
+
+    <div align='center' ng-hide="beer.Beer.untappd_id == ''">   
+	
+	<a href="untappd://?beer={{beer.Beer.untappd_id}}" class="button button-clear button-energized">IOS Checkin on Untappd</a>
+	<a href="" ontouchend="untappdLaunchBeer({{beer.Beer.untappd_id}})" class="button button-clear button-energized">ANDROID Checkin on Untappd</a>
+	
+	</div>
+
+
     <p>{{ beer.Beer.description }}</p>
+	</div>
     
-    <p><a class="button button-small icon ion-arrow-left-b" href="#/tab/beers"> All Beers</a></p>
   </ion-content>
 </ion-view>
+
+
+<script>
+
+function alertDismissed() {
+    // do something
+}
+
+function ibuDetail(){
+	navigator.notification.alert(
+    'This is a measure of the actual bitterness of a beer as contributed by the alpha acid from hops. Because the apparent bitterness of a beer is subjective to the taste of the drinker and the balancing malt sweetness of the beer this is not always an accurate measure of the "hoppiness" of a beer. But, generally speaking, beers with IBUs of less than 20 have little to no apparent hops presence. Beers with IBUs from 20 to 45 are the most common and have mild to pronounced hops presence. Beers with IBUs greater than 45 are heavily hopped and can be quite bitter.',  // message
+    alertDismissed,         // callback
+    'IBU - Int. Bitternet Units',            // title
+    'Now I Know'                  // buttonName
+);
+	
+}
+
+function ogDetail(){
+	navigator.notification.alert(
+    'A measure of the fermentable and unfermentable substances in the wort before fermentation. </p><p>OG gives the brewer an idea of the potential alcoholic strength of the final product.',  // message
+    alertDismissed,         // callback
+    'OG - Original Gravity',            // title
+    'Now I Know'                  // buttonName
+);
+	
+}
+
+function abvDetail(){
+	navigator.notification.alert(
+    'This is a measure of the actual bitterness of a beer as contributed by the alpha acid from hops. Because the apparent bitterness of a beer is subjective to the taste of the drinker and the balancing malt sweetness of the beer this is not always an accurate measure of the "hoppiness" of a beer. But, generally speaking, beers with IBUs of less than 20 have little to no apparent hops presence. Beers with IBUs from 20 to 45 are the most common and have mild to pronounced hops presence. Beers with IBUs greater than 45 are heavily hopped and can be quite bitter.',  // message
+    alertDismissed,         // callback
+    'ABV - Alcohol By Volume',            // title
+    'Now I Know'                  // buttonName
+);
+	
+}
+
+
+
+</script>

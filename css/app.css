@@ -6,3 +6,7 @@
   width: 96px;
   height: 96px;
 }
+
+.bar .title{
+background-image:url("img/buac-minimal.png");
+}

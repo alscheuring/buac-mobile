@@ -10,3 +10,23 @@
 .bar .title{
 background-image:url("img/buac-minimal.png");
 }
+
+.smallerButtons{
+	max-height:26px;
+	min-height:25px;
+	line-height:25px;
+}
+
+.beerDetail h3{
+	margin-bottom:0px;
+}
+.beerDetail p{
+	margin-bottom:0px;
+}
+
+.untappdDiv{
+	margin-top:10px;
+}
+
+#brewerName{
+}

@@ -18,8 +18,7 @@
    </div>
    
     <div align="center" id='brewerName'>
-    	<button class="button button-energized smallerButtons">By: {{beer.Brewer.name}}</button>
-	<!--<a href="#/tab/brewer/{{beer.Brewer.id}}" class="button button-clear button-energized smallerButtons">By: {{beer.Brewer.name}}</a>-->
+	<a href="#/tab/brewer/{{beer.Brewer.id}}" class="button button-clear button-energized smallerButtons">By: {{beer.Brewer.name}}</a>
 	</div>
 
     <div align='center' ng-hide="beer.Beer.og == ''">   

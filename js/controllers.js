@@ -27,10 +27,13 @@ angular.module('starter.controllers', [])
 
 
 // A simple controller that shows a tapped item's data
-.controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup) {
+.controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location) {
   // "Pets" is a service returning mock data (services.js)
   $scope.beer = BeerService.get($stateParams.beerId);
-  
+  $scope.go = function ( path ) {
+  	console.log(path);
+  $location.path( path );
+	};  
 
   $scope.untappdLaunch = function(beerId){
   var device = ionic.Platform.device();

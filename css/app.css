@@ -12,8 +12,7 @@ background-image:url("img/buac-minimal.png");
 }
 
 .smallerButtons{
-	max-height:26px;
-	min-height:25px;
+	min-height:auto;
 	line-height:25px;
 }
 

@@ -3,10 +3,9 @@ angular.module('starter.services', [])
 /**
  * A simple example service that returns some data.
  */
-.factory('BeerService', function($http) {
-var beers = $http.get('http://brewingupacure.org/Beers/index.json').success(successCallback);
-alert(beers);
-//var beers = $.parseJSON(window.localStorage.getItem('beers'));
+.factory('BeerService', function() {
+
+var beers = $.parseJSON(window.localStorage.getItem('beers'));
   return {
     all: function() {
       return beers;

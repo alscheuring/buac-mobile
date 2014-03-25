@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
 	//IOS launch
     if(device.platform =='iPhone' || device.platform == 'iOS'){
     	console.log("ios untappd launch");
-    	window.open("untappd://?beer=" + beerID);
+    	window.open("untappd:///?beer=" + beerID);
     }//end ios untappd Launch
   
   

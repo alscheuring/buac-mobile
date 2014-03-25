@@ -36,11 +36,14 @@ function registerPushwooshIOS() {
 									function(status) {
 										var deviceToken = status['deviceToken'];
 										console.warn('registerDevice: ' + deviceToken);
+										alert('registered');
 										onPushwooshiOSInitialized(deviceToken);
 									},
 									function(status) {
 										console.warn('failed to register : ' + JSON.stringify(status));
+										alert('failed to register');
 										navigator.notification.alert(JSON.stringify(['failed to register ', status]));
+										
 									});
 	
 	//reset badges on start
@@ -189,6 +192,7 @@ function onPushwooshAndroidInitialized(pushToken)
 
 	if(device.platform == "iPhone" || device.platform == "iOS")
 	{
+		alert('calling register ios');
 		registerPushwooshIOS();
 		pushNotification.onDeviceReady();
 	}

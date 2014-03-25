@@ -8,12 +8,12 @@ angular.module('starter.services', [])
       // when the response is available
       	var brewers = angular.toJson(data);
       	window.localStorage.setItem("brewers", brewers);
-		console.log(angular.fromJson(window.localStorage.getItem('brewers')));
+		//console.log(angular.fromJson(window.localStorage.getItem('brewers')));
       
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
-      console.log("didn't work");  
+    //  console.log("didn't work");  
       // or server returns response with an error status.
     });
     
@@ -23,12 +23,12 @@ angular.module('starter.services', [])
       // when the response is available
       	var beers = angular.toJson(data);
       	window.localStorage.setItem("beers", beers);
-		console.log(angular.fromJson(window.localStorage.getItem('beers')));
+	//	console.log(angular.fromJson(window.localStorage.getItem('beers')));
       
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
-      console.log("didn't work");  
+   //   console.log("didn't work");  
       // or server returns response with an error status.
     });    
 

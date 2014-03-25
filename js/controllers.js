@@ -2,9 +2,7 @@ angular.module('starter.controllers', [])
 
 
 .controller('HomeCtrl', function($scope, DataService) {
-	console.log("Home controller");
-
-    	
+	//console.log("Home controller");
 })
 
 
@@ -12,12 +10,6 @@ angular.module('starter.controllers', [])
 .controller('BrewerIndexCtrl', function($scope, BrewerService) {
   // "Pets" is a service returning mock data (services.js)
   //var beers = $http.get('http://brewingupacure.org/Beers/index.json').success(successCallback);
-	
-
-    
-    	
-	
-	
   $scope.brewers = BrewerService.all();
 })
 
@@ -28,7 +20,6 @@ angular.module('starter.controllers', [])
   $scope.brewer = BrewerService.get($stateParams.brewerId);
   $scope.beers = $scope.brewer.Beer;
 	//console.log($scope.beers);
-
   
 })
 

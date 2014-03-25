@@ -19,7 +19,7 @@
 
 function registerPushwooshIOS() {
  	var pushNotification = window.plugins.pushNotification;
-
+alert('registering now');
  	//push notifications handler
 	document.addEventListener('push-notification', function(event) {
 				var notification = event.notification;

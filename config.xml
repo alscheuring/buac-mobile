@@ -58,6 +58,11 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     
-    <gap:plugin name="org.apache.cordova.splashscreen" />
+<!-- Do not auto hide splash on iOS -->
+<preference name="AutoHideSplashScreen" value="false" />
+<!-- Do not auto hide splash on Android -->
+<preference name="SplashScreenDelay" value="10000"/>
+
+<gap:plugin name="org.apache.cordova.splashscreen" />
 
 </widget>

@@ -41,20 +41,19 @@ angular.module('starter.controllers', [])
   $location.path( path );
 	};  
 
+	$scope.iPhone = 'no';
+    if(device.platform =='iPhone' || device.platform == 'iOS'){
+	$scope.iPhone = 'yes';
+	}
+	
+	
+	
   $scope.untappdLaunch = function(beerId){
   var device = ionic.Platform.device();
-  console.log(device.platform);	
-  
-	//IOS launch
-    if(device.platform =='iPhone' || device.platform == 'iOS'){
-    	console.log("ios untappd launch");
-    	window.open("untappd:///?beer=" + beerID);
-    }//end ios untappd Launch
-  
   
 	//Android Launch
 	if(device.platform =='Android'){
-		console.log("android untappd launch");
+		//console.log("android untappd launch");
 	window.plugins.webintent.startActivity({
       action: window.plugins.webintent.ACTION_VIEW,
       url: 'untappd:///?beer=' + beerId ,

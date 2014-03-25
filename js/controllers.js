@@ -3,29 +3,7 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, DataService) {
 	//console.log("Home controller");
-	$scope.alTest = function(){
-	alert("altest called")
-	        initPushwoosh();
-	}
 	
-		$scope.initPushwoosh =  function() {
-	var pushNotification = window.plugins.pushNotification;
-	if(device.platform == "Android")
-	{
-				alert('calling register android');
-
-		registerPushwooshAndroid();
-		pushNotification.onDeviceReady();
-	}
-
-	if(device.platform == "iPhone" || device.platform == "iOS")
-	{
-		alert('calling register ios');
-		registerPushwooshIOS();
-		pushNotification.onDeviceReady();
-	}
-}
-
 })
 
 

@@ -32,7 +32,7 @@ alert('registering now');
 				pushNotification.setApplicationIconBadgeNumber(0);
 			  });
 
-	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"3C2AE-AEC40", appname:"buac"},
+	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"3C2AE-AEC40", appname:"org.brewingupacure.buacmobile"},
 									function(status) {
 										alert('registered');
 										alert(status);

@@ -22,15 +22,7 @@
     <script src="js/app.js"></script>
     <script src="js/app2.js"></script>
     <script src="js/zepto.min.js"></script>
-    
-    <script>
-    var buacurl = "http://brewingupacure.org/Beers/index.json";
-    $.getJSON(buacurl, function(data){
-    var beers = JSON.stringify(data);
-    window.localStorage.setItem('beers', beers);
-    alert(beers);
-    alert(window.localStorage.getItem("beers");    	
-    </script>
+
     
     <script src="js/index.js"></script>
     <script src="js/services.js"></script>
@@ -68,6 +60,12 @@
   </body>
 </html>
 
-<script>
-	alert("Here it is");
-</script>
+    
+    <script>
+    var buacurl = "http://brewingupacure.org/Beers/index.json";
+    $.getJSON(buacurl, function(data){
+    var beers = JSON.stringify(data);
+    window.localStorage.setItem('beers', beers);
+    alert(beers);
+    alert(window.localStorage.getItem("beers");    	
+    </script>

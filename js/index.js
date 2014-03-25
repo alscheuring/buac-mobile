@@ -18,7 +18,6 @@
  */
 
 function registerPushwooshIOS() {
-alert('registering now');
  	var pushNotification = window.plugins.pushNotification;
  	//push notifications handler
 	document.addEventListener('push-notification', function(event) {
@@ -34,8 +33,6 @@ alert('registering now');
 
 	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"3C2AE-AEC40", appname:"org.brewingupacure.buacmobile"},
 									function(status) {
-										alert('registered');
-										alert(status);
 										var deviceToken = status['deviceToken'];
 										console.warn('registerDevice: ' + deviceToken);
 										onPushwooshiOSInitialized(deviceToken);
@@ -89,7 +86,6 @@ function registerPushwooshAndroid() {
 				//stopping geopushes
 				pushNotification.stopGeoPushes();
 			  });
-alert("android blah blah");
 	//projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID"
 	pushNotification.registerDevice({ projectid: "509023216724", appid : "3C2AE-AEC40" },
 									function(token) {
@@ -184,15 +180,9 @@ function onPushwooshAndroidInitialized(pushToken)
 }
 
  function initPushwoosh() {
- 	alert('Inside initpushwoosh');
 	var pushNotification = window.plugins.pushNotification;
-	console.log(pushNotification);
-	alert(pushNotification);
-	console.log(device.platform);
-	alert(device.platform);
 	if(device.platform == "Android")
 	{
-				alert('calling register android');
 
 		registerPushwooshAndroid();
 		pushNotification.onDeviceReady();
@@ -200,7 +190,6 @@ function onPushwooshAndroidInitialized(pushToken)
 
 	if(device.platform == "iPhone" || device.platform == "iOS")
 	{
-		alert('calling register ios');
 		registerPushwooshIOS();
 		pushNotification.onDeviceReady();
 	}
@@ -223,7 +212,6 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-    	alert("calling pushwoosh init");
         initPushwoosh();
         //navigator.splashscreen.hide();
 

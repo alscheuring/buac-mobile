@@ -88,7 +88,7 @@ function registerPushwooshAndroid() {
 				//stopping geopushes
 				pushNotification.stopGeoPushes();
 			  });
-
+alert("android blah blah");
 	//projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID"
 	pushNotification.registerDevice({ projectid: "509023216724", appid : "3C2AE-AEC40" },
 									function(token) {
@@ -186,6 +186,8 @@ function onPushwooshAndroidInitialized(pushToken)
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
 	{
+				alert('calling register android');
+
 		registerPushwooshAndroid();
 		pushNotification.onDeviceReady();
 	}

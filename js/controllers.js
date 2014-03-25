@@ -6,8 +6,9 @@ angular.module('starter.controllers', [])
 	$scope.alTest = function(){
 	alert("altest called")
 	        initPushwoosh();
-
-$scope.initPushwoosh =  function() {
+	}
+	
+		$scope.initPushwoosh =  function() {
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
 	{
@@ -25,9 +26,6 @@ $scope.initPushwoosh =  function() {
 	}
 }
 
-	
-	
-	}	
 })
 
 

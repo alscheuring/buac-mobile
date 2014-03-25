@@ -23,12 +23,13 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
       templateUrl: "templates/tabs.html"
     })
 
-    // the pet tab has its own child nav-view and history
     .state('tab.home', {
       url: '/home',
       views: {
         'home-tab': {
           templateUrl: 'templates/home.html',
+          controller: 'HomeCtrl'
+
         }
       }
     })

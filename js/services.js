@@ -1,11 +1,44 @@
 angular.module('starter.services', [])
 
+.factory('DataService', function($http) {
+ //Go get that brewer info
+ $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/index.json'}).
+    success(function(data, status, headers, config) {
+      // this callback will be called asynchronously
+      // when the response is available
+      	var brewers = angular.toJson(data);
+      	window.localStorage.setItem("brewers", brewers);
+		console.log(angular.fromJson(window.localStorage.getItem('brewers')));
+      
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      console.log("didn't work");  
+      // or server returns response with an error status.
+    });
+    
+ $http({method: 'GET', url: 'http://brewingupacure.org/Beers/index.json'}).
+    success(function(data, status, headers, config) {
+      // this callback will be called asynchronously
+      // when the response is available
+      	var beers = angular.toJson(data);
+      	window.localStorage.setItem("beers", beers);
+		console.log(angular.fromJson(window.localStorage.getItem('beers')));
+      
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+      console.log("didn't work");  
+      // or server returns response with an error status.
+    });    
+
+})
 /**
  * A simple example service that returns some data.
  */
 .factory('BeerService', function() {
 
-var beers = $.parseJSON(window.localStorage.getItem('beers'));
+var beers = angular.fromJson(window.localStorage.getItem('beers'));
   return {
     all: function() {
       return beers;
@@ -28,7 +61,7 @@ var beers = $.parseJSON(window.localStorage.getItem('beers'));
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-	var brewers = $.parseJSON(window.localStorage.getItem('brewers'));
+	var brewers = angular.fromJson(window.localStorage.getItem('brewers'));
     
 
   return {

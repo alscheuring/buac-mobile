@@ -1,28 +1,24 @@
 angular.module('starter.controllers', [])
 
+
+.controller('HomeCtrl', function($scope, DataService) {
+	console.log("Home controller");
+
+    	
+})
+
+
 // A simple controller that fetches a list of data from a service
-.controller('BrewerIndexCtrl', function($scope, BrewerService, $http) {
+.controller('BrewerIndexCtrl', function($scope, BrewerService) {
   // "Pets" is a service returning mock data (services.js)
   //var beers = $http.get('http://brewingupacure.org/Beers/index.json').success(successCallback);
 	
- $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/index.json'}).
-    success(function(data, status, headers, config) {
-      // this callback will be called asynchronously
-      // when the response is available
-      	$scope.brewers = data;
-		console.log(brewers);
-      
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      console.log("didn't work");  
-      // or server returns response with an error status.
-    });
+
     
     	
 	
 	
-  //$scope.brewers = BrewerService.all();
+  $scope.brewers = BrewerService.all();
 })
 
 

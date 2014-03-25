@@ -28,7 +28,7 @@
     <preference name="detect-data-types" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="false" />
+    <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
@@ -58,12 +58,5 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     
-<!-- Do not auto hide splash on iOS -->
-<preference name="AutoHideSplashScreen" value="false" />
-<!-- Do not auto hide splash on Android -->
-<preference name="SplashScreenDelay" value="7000"/>
-
-<gap:plugin name="org.apache.cordova.splashscreen" />
-
 
 </widget>

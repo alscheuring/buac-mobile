@@ -218,7 +218,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         initPushwoosh();
-        navigator.splashscreen.hide();
+        //navigator.splashscreen.hide();
 
        
     },

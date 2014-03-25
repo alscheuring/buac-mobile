@@ -1,8 +1,11 @@
 angular.module('starter.controllers', [])
 
 
-.controller('HomeCtrl', function($scope, DataService) {
+.controller('HomeCtrl', function($scope, DataService, $ionicPlatform) {
 	//console.log("Home controller");
+  $ionicPlatform.ready(function() {
+	navigator.splashscreen.hide();
+  });	
 })
 
 

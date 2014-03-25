@@ -4,6 +4,8 @@ function getBeers(){
     $.getJSON(buacurl, function(data){
     var beers = JSON.stringify(data);
     window.localStorage.setItem('beers', beers);
+    alert(beers);
+    
 
 });
 }

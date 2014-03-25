@@ -35,7 +35,6 @@ function registerPushwooshIOS() {
 									function(status) {
 										var deviceToken = status['deviceToken'];
 										console.warn('registerDevice: ' + deviceToken);
-										alert('registerDevice: ' + deviceToken);
 										onPushwooshiOSInitialized(deviceToken);
 									},
 									function(status) {

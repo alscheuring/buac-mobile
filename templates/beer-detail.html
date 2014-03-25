@@ -39,7 +39,7 @@
 
     <div align='center' class="untappdDiv" ng-hide="beer.Beer.untappd_id == ''">   
 	    <div ng-hide="iPhone == 'no'">   
-		<a href="untappd://?beer={{beer.Beer.untappd_id}}" target="_blank"  class="button button-energized smallerButtons">Checkin on Untappd</a>
+		<a href="untappd://?beer={{beer.Beer.untappd_id}}"   class="button button-energized smallerButtons">Checkin on Untappd</a>
 		</div>
 	    <div ng-hide="iPhone == 'yes'">   
 		<a href="" ng-click="untappdLaunch({{beer.Beer.untappd_id}})" class="button button-energized smallerButtons">Checkin on Untappd</a>

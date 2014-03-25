@@ -32,7 +32,7 @@ function registerPushwooshIOS() {
 				pushNotification.setApplicationIconBadgeNumber(0);
 			  });
 
-	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"3C2AE-AEC40", appname:"web.org.brewingupacure.buacmobile"},
+	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"3C2AE-AEC40", appname:"buac"},
 									function(status) {
 										var deviceToken = status['deviceToken'];
 										console.warn('registerDevice: ' + deviceToken);

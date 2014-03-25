@@ -18,8 +18,8 @@
  */
 
 function registerPushwooshIOS() {
- 	var pushNotification = window.plugins.pushNotification;
 alert('registering now');
+ 	var pushNotification = window.plugins.pushNotification;
  	//push notifications handler
 	document.addEventListener('push-notification', function(event) {
 				var notification = event.notification;
@@ -182,7 +182,8 @@ function onPushwooshAndroidInitialized(pushToken)
 	pushNotification.startGeoPushes();
 }
 
- function inditPushwoosh() {
+ function initPushwoosh() {
+ 	alert('Inside initpushwoosh');
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
 	{
@@ -217,6 +218,7 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+    	alert("calling pushwoosh init");
         initPushwoosh();
         //navigator.splashscreen.hide();
 

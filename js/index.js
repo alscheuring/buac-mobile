@@ -182,7 +182,7 @@ function onPushwooshAndroidInitialized(pushToken)
 	pushNotification.startGeoPushes();
 }
 
- function initPushwoosh() {
+ function inditPushwoosh() {
 	var pushNotification = window.plugins.pushNotification;
 	if(device.platform == "Android")
 	{

@@ -3,7 +3,6 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, DataService) {
 	//console.log("Home controller");
-	 navigator.splashscreen.hide();
 })
 
 

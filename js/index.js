@@ -186,6 +186,10 @@ function onPushwooshAndroidInitialized(pushToken)
  function initPushwoosh() {
  	alert('Inside initpushwoosh');
 	var pushNotification = window.plugins.pushNotification;
+	console.log(pushNotification);
+	alert(pushNotification);
+	console.log(device.platform);
+	alert(device.platform);
 	if(device.platform == "Android")
 	{
 				alert('calling register android');

@@ -3,6 +3,13 @@ angular.module('starter.controllers', [])
 
 .controller('HomeCtrl', function($scope, DataService) {
 	//console.log("Home controller");
+	$scope.alTest = function(){
+	alert("altest called")
+	        initPushwoosh();
+
+	
+	
+	}	
 })
 
 

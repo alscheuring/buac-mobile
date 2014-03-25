@@ -34,9 +34,10 @@ alert('registering now');
 
 	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"3C2AE-AEC40", appname:"org.brewingupacure.buacmobile"},
 									function(status) {
+										alert('registered');
+										alert(status);
 										var deviceToken = status['deviceToken'];
 										console.warn('registerDevice: ' + deviceToken);
-										alert('registered');
 										onPushwooshiOSInitialized(deviceToken);
 									},
 									function(status) {

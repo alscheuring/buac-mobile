@@ -10,6 +10,7 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
 .config(function($stateProvider, $urlRouterProvider, $compileProvider) {
 
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|file|tel|untappd):/);
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

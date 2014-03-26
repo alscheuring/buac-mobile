@@ -51,6 +51,12 @@ angular.module('starter.controllers', [])
 	
   $scope.untappdLaunch = function(beerId){
   var device = ionic.Platform.device();
+
+	if(device.platform =='iPhone' || device.platform =='iOS'){
+		alert("Launching untappdd");
+	window.location.href = "untappd:///?beer" + beerId;
+	}
+
   
 	//Android Launch
 	if(device.platform =='Android'){

@@ -53,9 +53,7 @@ angular.module('starter.controllers', [])
   var device = ionic.Platform.device();
 
 	if(device.platform =='iPhone' || device.platform =='iOS'){
-		alert("Launching untappdd");
-		var thing = "untappd:///?beer" + beerId;
-		alert(thing);
+		var thing = "untappd:///?beer=" + beerId;
 	window.location.href = thing;
 	}
 

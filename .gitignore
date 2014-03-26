@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 90302122465ffbbf50f1d424ed22a7cfc25f4fe2
 *.a
 *.class
 *.dll
@@ -9,3 +13,23 @@
 *.pyo
 *.so
 */.git/*
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> f76fda3d723b1c4421317f6da4b7c72b0735c8cf
+platforms
+<<<<<<< HEAD
+*.a
+*.class
+*.dll
+*.dylib
+*.exe
+*.o
+*.obj
+*.pyc
+*.pyo
+*.so
+*/.git/*
+=======
+>>>>>>> a0446d5f30c558f83a5ea69d9db949749dd74dba
+>>>>>>> 90302122465ffbbf50f1d424ed22a7cfc25f4fe2

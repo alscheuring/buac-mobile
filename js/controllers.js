@@ -54,7 +54,9 @@ angular.module('starter.controllers', [])
 
 	if(device.platform =='iPhone' || device.platform =='iOS'){
 		alert("Launching untappdd");
-	window.location.href = "untappd:///?beer" + beerId;
+		var thing = "untappd:///?beer" + beerId;
+		alert(thing);
+	window.location.href = thing;
 	}
 
   

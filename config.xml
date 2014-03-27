@@ -16,7 +16,9 @@
         The "device" permission is required for the 'deviceready' event.
     -->
     <gap:plugin name="org.apache.cordova.device" />
-    	<content src="index.html" />
+    <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.0.6" />
+    
+    <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />

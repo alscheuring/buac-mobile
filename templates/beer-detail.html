@@ -1,0 +1,58 @@
+<!--
+  This template loads for the 'tab.pet-detail' state (app.js)
+  'pet' is a $scope variable created in the PetCtrl controller (controllers.js)
+  The PetCtrl pulls data from the Pets service (service.js)
+  The Pets service returns an array of pet data
+-->
+<div class="bar bar-header bar-energized">
+ <a class="button button-small icon ion-arrow-left-b" href="#/tab/beers"></a>
+ <h1 class="title"><img src="img/buac-minimal.png" /></h1>
+</div>
+
+
+  <ion-content has-header="true" padding="true">
+
+   <div align="center" class="beerDetail">
+   	<h3>{{ beer.Beer.name }}</h3>
+    <p>{{ beer.Beer.style }}</p>
+   </div>
+   
+    <div align="center" id='brewerName'>
+	<a href="#/tab/brewer/{{beer.Brewer.id}}" class="button button-clear button-energized smallerButtons">By: {{beer.Brewer.name}}</a>
+	</div>
+
+    <div align='center' ng-hide="beer.Beer.og == ''">   
+	<hr />    	
+    <button class="button button-energized smallerButtons" ng-click="ogDetail()">
+  		OG: {{ beer.Beer.og }}
+	</button>
+		
+    <button class="button button-energized smallerButtons" ng-click="abvDetail()">
+  		ABV: {{ beer.Beer.abv }}
+	</button>
+
+    <button class="button button-energized smallerButtons" ng-click="ibuDetail()">
+  		IBU: {{ beer.Beer.ibu }}
+	</button>
+	</div>
+	
+
+    <div align='center' class="untappdDiv" ng-hide="beer.Beer.untappd_id == ''">   
+	    <div ng-hide="iPhone == 'no'">   
+		<a href="" ng-click="untappdLaunch({{beer.Beer.untappd_id}})" class="button button-energized smallerButtons">Checkin on Untappd</a>
+		</div>
+	    <div ng-hide="iPhone == 'yes'">   
+		<a href="" ng-click="untappdLaunch({{beer.Beer.untappd_id}})" class="button button-energized smallerButtons">Checkin on Untappd</a>
+		</div>
+	</div>		
+	<hr />
+		
+	<div align='left'>
+	   <p>{{ beer.Beer.description }}</p>
+	</div>
+	
+   
+  </ion-content>
+</ion-view>
+
+

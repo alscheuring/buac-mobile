@@ -1,0 +1,32 @@
+<!-- 
+  This template gets placed in the Pet tab's <ion-nav-view> directive.
+  It was wired up in the app config (app.js) 
+  The 'pets' data comes from its $scope within PetIndexCtrl (controller.js)
+-->
+
+<div class="bar bar-header bar-energized">
+<a class="button button-small icon ion-home" href="#/tab/home"></a>
+	
+  <h1 class="title"><img src="img/buac-minimal.png" /></h1>
+</div>
+
+
+  <ion-content has-header="true" has-tabs="true" >
+
+<div class="list">
+
+	<div class="item item-divider"
+		ng-repeat-start="table in brewers">
+                    Table {{table.Brewer.table}} - {{table.Brewer.name}}
+ 	</div>
+
+    <ion-list>
+      <ion-item ng-repeat="beer in table.Beer" type="item-text-wrap" href="#/tab/beer/{{beer.id}}">
+       <h3>{{beer.name}} </h3> 
+      </ion-item> 
+      
+    </ion-list>
+	<div ng-repeat-end></div>
+</div>
+
+  </ion-content>

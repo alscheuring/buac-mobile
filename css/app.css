@@ -1,0 +1,29 @@
+/* Your app's CSS, go crazy, make it your own */
+
+.ionic-logo {
+  display: block;
+  margin: 15px auto;
+  width: 96px;
+  height: 96px;
+}
+
+
+.smallerButtons{
+	min-height:inherit;
+	line-height:inherit;
+}
+
+.beerDetail h3{
+	margin-bottom:0px;
+}
+.beerDetail p{
+	margin-bottom:0px;
+}
+
+.untappdDiv{
+	margin-top:10px;
+}
+
+.welcomeScreen{
+	margin-top:10px;
+}

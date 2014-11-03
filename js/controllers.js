@@ -94,7 +94,7 @@ console.log(device.uuid);
 	$scope.iPhone = 'yes';
 	}
         
- $scope.untappdLaunch = function(beerId){
+ $scope.untappdLaunch = function(brewerID){
   var device = ionic.Platform.device();
 
 	if(device.platform ==='iPhone' || device.platform ==='iOS'){

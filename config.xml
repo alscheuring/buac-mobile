@@ -68,10 +68,10 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     -->
-<!-- Do not auto hide splash on iOS 
+<!-- Do not auto hide splash on iOS -->
 <preference name="AutoHideSplashScreen" value="false" />
-<!-- Do not auto hide splash on Android
-<!-- <preference name="SplashScreenDelay" value="10000"/> -->
+<!-- Do not auto hide splash on Android -->
+ <preference name="SplashScreenDelay" value="10000"/>
 
 
 

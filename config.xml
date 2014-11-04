@@ -16,7 +16,7 @@
     <author href="http://phonegap.com" email="support@phonegap.com">
         Rivers3
     </author>
-<!-- <gap:plugin name="com.pushwoosh.plugins.pushwoosh" /> -->
+<gap:plugin name="com.pushwoosh.plugins.pushwoosh" /> 
 <gap:plugin name="net.tunts.webintent" version="0.2.1" />
 <gap:plugin name="org.apache.cordova.device" />
 <gap:plugin name="org.apache.cordova.splashscreen" />

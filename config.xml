@@ -23,7 +23,6 @@
 <gap:plugin name="org.apache.cordova.inappbrowser" />
 
     -->
- <preference name="phonegap-version"           value="3.6.6" />    
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />

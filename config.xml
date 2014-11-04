@@ -5,6 +5,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.phonegap.helloworld"
         versionCode = "500"
+        id        =  "org.brewingupacure.buacmobile"
         version   = "3.0.0">
 
     <name>Brewing Up A Cure</name>

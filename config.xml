@@ -22,6 +22,7 @@
 <gap:plugin name="org.apache.cordova.splashscreen" />
 <gap:plugin name="org.apache.cordova.inappbrowser" />
 
+    -->
  <preference name="phonegap-version"           value="3.5.0" />    
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />

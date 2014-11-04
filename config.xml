@@ -14,6 +14,8 @@
 <gap:plugin name="org.apache.cordova.device" />
 <gap:plugin name="org.apache.cordova.splashscreen" />
 <gap:plugin name="org.apache.cordova.inappbrowser" />
+
+<!--
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -62,6 +64,6 @@
     <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
     
-    -->
+    
 
 </widget>

@@ -8,18 +8,12 @@
         BUAC Team
     </author>
    <!-- <feature name="http://api.phonegap.com/1.0/device" /> -->
-	
+	<!--
 <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
 <gap:plugin name="net.tunts.webintent" version="0.2.1" />
 <gap:plugin name="org.apache.cordova.device" />
 <gap:plugin name="org.apache.cordova.splashscreen" />
 <gap:plugin name="org.apache.cordova.inappbrowser" />
-<!--
-<gap:plugin name="org.apache.cordova.device" version="0.2.8" />
-<gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" />
-<gap:plugin name="org.apache.cordova.inappbrowser" version="0.2.4" />
-
-    -->
     <content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
@@ -69,9 +63,5 @@
     <access origin="*" />
     
     
-<!-- Do not auto hide splash on iOS 
-<preference name="AutoHideSplashScreen" value="false" />
-<!-- Do not auto hide splash on Android 
- <!-- <preference name="SplashScreenDelay" value="10000"/>
 
 </widget>

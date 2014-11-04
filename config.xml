@@ -23,6 +23,7 @@
 
 <gap:plugin name="org.apache.cordova.inappbrowser" />
 
+<content src="index.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />

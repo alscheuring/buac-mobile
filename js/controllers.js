@@ -129,7 +129,7 @@ console.log(device.uuid);
 // A simple controller that shows a tapped item's data
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
   $scope.beer = BeerService.get($stateParams.beerId);
-  console.log($stateParams.beerId);
+  //console.log($stateParams.beerId);
   
  var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
 //console.log("Getting spigotVote right in the controller");

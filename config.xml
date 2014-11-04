@@ -17,8 +17,8 @@
         PhoneGap Team
     </author>
     <!--<gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
-<gap:plugin name="net.tunts.webintent" version="0.2.1" />
 -->
+<gap:plugin name="net.tunts.webintent" version="0.2.1" />
 <gap:plugin name="org.apache.cordova.device" />
 <gap:plugin name="org.apache.cordova.splashscreen" />
 

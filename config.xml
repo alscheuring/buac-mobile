@@ -20,6 +20,7 @@
 <gap:plugin name="net.tunts.webintent" version="0.2.1" />
 <gap:plugin name="org.apache.cordova.device" />
 <gap:plugin name="org.apache.cordova.splashscreen" />
+-->
 <gap:plugin name="org.apache.cordova.inappbrowser" />
 
     -->

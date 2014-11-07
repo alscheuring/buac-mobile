@@ -10,9 +10,11 @@ angular.module('starter.services', [])
     }).
     error(function(data, status, headers, config) {
     });
-    
+   
+  var device = ionic.Platform.device();
+  console.log(device.uuid);
  //Go get that vote info
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/C5642141-98C5-4443-B0E0-6966ED32BE2C.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
     success(function(data, status, headers, config) {
       	var spigotVote = angular.toJson(data);
       	window.localStorage.setItem("spigotVote", spigotVote);

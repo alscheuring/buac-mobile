@@ -137,6 +137,26 @@ console.log(device.uuid);
 
 ///NEED to use spigotVote here. localStorage needs to provide checkbox
    var device = ionic.Platform.device();
+   console.log("works here");
+   console.log(device.uuid);
+   
+ //Go get that vote info
+ $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
+    success(function(data, status, headers, config) { 
+      	var spigotVote = angular.toJson(data);
+      	window.localStorage.setItem("spigotVote", spigotVote);
+        console.log(spigotVote);
+
+        //This will get a specific record
+        //console.log(window.localStorage.getItem("spigotVote"));
+        //console.log("HI THERE YO");
+        //var json = JSON.parse(spigotVote);
+        //console.log(json.vote.Vote['id']);
+      //  console.log(spigotVote);
+    }).
+    error(function(data, status, headers, config) {
+    });
+       
   if (spigotVote.vote.Vote.beer_id === $stateParams.beerId){
         // console.log("we got a match yo");
          $scope.beerVote = true;

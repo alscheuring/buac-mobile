@@ -12,7 +12,19 @@ angular.module('starter.services', [])
     });
    
   var device = ionic.Platform.device();
-  console.log(device.uuid);
+  console.log(device); 
+  
+//    var device = ionic.Platform.device();
+//    var phoneID = device.uuid;    
+//   //Get Device ID for spigotVote
+// // var device = ionic.Platform.device();
+// console.log("looking for device");
+//  console.log(device);
+//    
+//    console.log("looking for phone ID");
+//  console.log(phoneID);
+//  
+  
  //Go get that vote info
  $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
     success(function(data, status, headers, config) {

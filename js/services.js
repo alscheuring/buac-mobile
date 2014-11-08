@@ -10,7 +10,8 @@ angular.module('starter.services', [])
     }).
     error(function(data, status, headers, config) {
     });
-   
+  
+    /*
   var device = ionic.Platform.device();
   console.log(device); 
   
@@ -41,7 +42,7 @@ angular.module('starter.services', [])
     }).
     error(function(data, status, headers, config) {
     });
-        
+        */
     
 
  //Go get that monetary sponsor info

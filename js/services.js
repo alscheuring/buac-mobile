@@ -87,13 +87,20 @@ angular.module('starter.services', [])
     success(function(data, status, headers, config) {
       var device = ionic.Platform.device();
       var deviceID = device.uuid; 
-      var myVote = [];
+      
+     //Initialize empty vote so we don't get errors everywhere else.
+    var myVote =  { Vote: 
+   { id: '',
+     beer_id: '',
+     } };        
+        
     angular.forEach(data, function(vote) {
       if (vote.id == deviceID) myVote = vote;
     });
       myVote2 = angular.toJson(myVote);
       	window.localStorage.setItem("myVote", myVote2);
-      
+      console.log('my vote');
+      console.log(myVote2);
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs

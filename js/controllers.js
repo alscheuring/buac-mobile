@@ -130,16 +130,20 @@ console.log(device.uuid);
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
   $scope.beer = BeerService.get($stateParams.beerId);
   //console.log($stateParams.beerId);
-  console.log(window.localStorage.getItem("myVote"));
-  console.log("yo");
+  //console.log(window.localStorage.getItem("myVote"));
+  //console.log("yo");
  var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
 //console.log("Getting spigotVote right in the controller");
 //console.log(spigotVote.vote.Vote.beer_id);
-
-       
-  if (spigotVote.Vote.beer_id === $stateParams.beerId){
-        // console.log("we got a match yo");
+console.log(spigotVote.length);
+console.log("spigot vote");
+console.log(spigotVote);
+console.log("stateparams beerID");
+console.log($stateParams.beerId);
+   if (spigotVote.Vote.beer_id === $stateParams.beerId){
+        console.log("we got a match yo");
          $scope.beerVote = true;
+         
      
   }else{ $scope.beerVote = false }
   
@@ -151,23 +155,19 @@ console.log(device.uuid);
 
 //VOTING FUNCTION
   $scope.vote = function() {
-    //Need to unset the localStorage variable so checkboxes don't show on multiple beers.
-    //console.log("Getting BeerID during the vote from localStorage");
-    var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-    //console.log(spigotVote.vote.Vote.beer_id);
-
-    //console.log("Setting the beerID to current ID");
-    spigotVote.Vote.beer_id = $stateParams.beerId; 
-    //console.log(spigotVote.vote.Vote.beer_id);
-
-    //console.log("setting new localStorage");
-    var newSpigotVote = angular.toJson(spigotVote);
-    window.localStorage.setItem("myVote", newSpigotVote);
+    var device = ionic.Platform.device();
  
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
   $http.post('http://brewingupacure.org/Votes/add.json',{id:device.uuid, beer_id:$stateParams.beerId }).then(function(resp) {
-  //  console.log('Success', resp); 
-    // For JSON responses, resp.data contains the result
+    //Set the localstorage variable
+    var newSpigotVote =  { Vote: 
+   { id: device.uuid,
+     beer_id: $stateParams.beerId
+     } };
+    window.localStorage.setItem("myVote", angular.toJson(newSpigotVote));
+    
+    
+    
   }, function(err) {
     //console.error('ERR', err);
     // err.status will contain the status code

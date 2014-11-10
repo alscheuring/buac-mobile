@@ -130,34 +130,14 @@ console.log(device.uuid);
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
   $scope.beer = BeerService.get($stateParams.beerId);
   //console.log($stateParams.beerId);
-  
- var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
+  console.log(window.localStorage.getItem("myVote"));
+  console.log("yo");
+ var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
 //console.log("Getting spigotVote right in the controller");
 //console.log(spigotVote.vote.Vote.beer_id);
 
-///NEED to use spigotVote here. localStorage needs to provide checkbox
-   var device = ionic.Platform.device();
-   console.log("works here");
-   console.log(device.uuid);
-   
- //Go get that vote info
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
-    success(function(data, status, headers, config) { 
-      	var spigotVote = angular.toJson(data);
-      	window.localStorage.setItem("spigotVote", spigotVote);
-        console.log(spigotVote);
-
-        //This will get a specific record
-        //console.log(window.localStorage.getItem("spigotVote"));
-        //console.log("HI THERE YO");
-        //var json = JSON.parse(spigotVote);
-        //console.log(json.vote.Vote['id']);
-      //  console.log(spigotVote);
-    }).
-    error(function(data, status, headers, config) {
-    });
        
-  if (spigotVote.vote.Vote.beer_id === $stateParams.beerId){
+  if (spigotVote.Vote.beer_id === $stateParams.beerId){
         // console.log("we got a match yo");
          $scope.beerVote = true;
      
@@ -169,26 +149,21 @@ console.log(device.uuid);
 	};  
 
 
-	
+//VOTING FUNCTION
   $scope.vote = function() {
-      
-      //Need to unset the localStorage variable so checkboxes don't show on multiple beers.
-      //
-      //This will probably all work but a damn empty record is getting created for some reason.
-//console.log("Getting BeerID during the vote from localStorage");
-var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
-//console.log(spigotVote.vote.Vote.beer_id);
+    //Need to unset the localStorage variable so checkboxes don't show on multiple beers.
+    //console.log("Getting BeerID during the vote from localStorage");
+    var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
+    //console.log(spigotVote.vote.Vote.beer_id);
 
-//console.log("Setting the beerID to current ID");
-spigotVote.vote.Vote.beer_id = $stateParams.beerId; 
-//console.log(spigotVote.vote.Vote.beer_id);
+    //console.log("Setting the beerID to current ID");
+    spigotVote.Vote.beer_id = $stateParams.beerId; 
+    //console.log(spigotVote.vote.Vote.beer_id);
 
-//console.log("setting new localStorage");
-      	var newSpigotVote = angular.toJson(spigotVote);
-      	window.localStorage.setItem("spigotVote", newSpigotVote);
+    //console.log("setting new localStorage");
+    var newSpigotVote = angular.toJson(spigotVote);
+    window.localStorage.setItem("myVote", newSpigotVote);
  
- //       console.log(spigotVote3);
-        
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
   $http.post('http://brewingupacure.org/Votes/add.json',{id:device.uuid, beer_id:$stateParams.beerId }).then(function(resp) {
   //  console.log('Success', resp); 
@@ -200,7 +175,8 @@ spigotVote.vote.Vote.beer_id = $stateParams.beerId;
   
      
   }; 	
-	
+    
+    var device = ionic.Platform.device();
 	$scope.iPhone = 'no';
     if(device.platform ==='iPhone' || device.platform === 'iOS'){
 	$scope.iPhone = 'yes';

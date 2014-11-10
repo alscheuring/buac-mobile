@@ -82,7 +82,27 @@ angular.module('starter.services', [])
     error(function(data, status, headers, config) {
     });    
 
- //Go get that brewer info
+ //Go get that vote info
+ $http({method: 'GET', url: 'http://brewingupacure.org/Votes/index.json'}).
+    success(function(data, status, headers, config) {
+      var device = ionic.Platform.device();
+      var deviceID = device.uuid; 
+      var myVote = [];
+    angular.forEach(data, function(vote) {
+      if (vote.id == deviceID) myVote = vote;
+    });
+      myVote2 = angular.toJson(myVote);
+      	window.localStorage.setItem("myVote", myVote2);
+      
+    }).
+    error(function(data, status, headers, config) {
+      // called asynchronously if an error occurs
+    //  console.log("didn't work");  
+      // or server returns response with an error status.
+    });
+    
+    
+    //Go get that brewer info
  $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/index.json'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously

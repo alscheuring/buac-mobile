@@ -77,7 +77,12 @@ console.log(device.uuid);
 // A simple controller that fetches a list of data from a service
 .controller('BrewerIndexCtrl', function($scope, BrewerService) {
   $scope.brewers = BrewerService.all();
-         
+
+    //Get the votes so we can show a checkbox on the list
+     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
+$scope.beerVote = spigotVote;
+console.log($scope.beerVote); 
+console.log($scope.beerVote.Vote.beer_id);
 })
 
 
@@ -135,13 +140,13 @@ console.log(device.uuid);
  var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
 //console.log("Getting spigotVote right in the controller");
 //console.log(spigotVote.vote.Vote.beer_id);
-console.log(spigotVote.length);
-console.log("spigot vote");
-console.log(spigotVote);
-console.log("stateparams beerID");
-console.log($stateParams.beerId);
+//console.log(spigotVote.length);
+//console.log("spigot vote");
+//console.log(spigotVote);
+//console.log("stateparams beerID");
+//console.log($stateParams.beerId);
    if (spigotVote.Vote.beer_id === $stateParams.beerId){
-        console.log("we got a match yo");
+//        console.log("we got a match yo");
          $scope.beerVote = true;
          
      

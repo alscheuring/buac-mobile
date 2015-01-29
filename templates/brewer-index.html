@@ -12,7 +12,7 @@
 
   <ion-content has-header="true" has-tabs="true" >
 
-<div class="list">
+<div class="list"> 
 
 	<div class="item item-divider"
 		ng-repeat-start="table in brewers">
@@ -21,7 +21,8 @@
 
     <ion-list>
       <ion-item ng-repeat="beer in table.Beer" type="item-text-wrap" href="#/tab/beer/{{beer.id}}">
-       <h3>{{beer.name}} </h3> 
+          <h3>{{beer.id}}  {{beer.name}} <span ng-show="beer.id == beerVote.Vote.beer_id"><i class="ion-heart"></i></span></h3>
+       
       </ion-item> 
       
     </ion-list>

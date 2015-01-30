@@ -1,17 +1,20 @@
 angular.module('starter.controllers', [])
 
-    .controller('VoteCtrl', ['$scope', function($scope, $http) {
+/*
+ * 
+ Not sure if this is used anymore.
+ */
+.controller('VoteCtrl', ['$scope', function($scope, $http) {
       $scope.master = {};
-
       $scope.update = function(user) {
         $scope.master = angular.copy(user);
-        
-        
       };
-
-
-  
     }])
+
+/*
+ * 
+ Not sure if this is used anymore
+ */
 .controller('VoteCtrl2', function($scope, $http) {
   $scope.vote = function() {
 console.log($scope.isChecked);
@@ -24,33 +27,42 @@ console.log(device.uuid);
     console.error('ERR', err);
     // err.status will contain the status code
   });  
-  
-     
   }; 
-
 })
 
-
-
-
-
+/*
+ * 
+//Home controller which uses the DataService. Dataservice pulls all the server info
+//and puts it into localstorage
+ * 
+ */
 .controller('HomeCtrl', function($scope, DataService) {
-	//console.log("Home controller");
 	ionic.Platform.ready(function(){
          navigator.splashscreen.hide();
-    
-            //$scope.beerVote = true;
-  //$scope.beerVote = VoteService();
-  //$scope.beerVote = true;
-//$scope.beerVote = VoteService();   
-//console.log($scope.beerVote);
-//    $scope.beerVote = true;
-
 });
-	
 })
 
+/*
+ * 
+ Brewer Index controller which lists all the brewers and their beers.
+ Uses the BrewerService which pulls data from localStorage so as not to constantly be pinging the server.
+ * 
+ */
 
+.controller('BrewerIndexCtrl', function($scope, BrewerService) {
+    $scope.brewers = BrewerService.all();
+    //Get the votes so we can show a checkbox on the list
+    var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
+    $scope.beerVote = spigotVote;
+    console.log("Beer Vote in index ctnrl");
+    console.log(spigotVote); 
+    console.log($scope.beerVote.Vote.beer_id);
+})
+
+/*
+ * 
+About Controller which shows all the general information.
+ */
 .controller('AboutCtrl', function($scope, SponsorService, EventService) {
 	//console.log("About controller");
 	
@@ -73,19 +85,10 @@ console.log(device.uuid);
 })
 
 
-
-// A simple controller that fetches a list of data from a service
-.controller('BrewerIndexCtrl', function($scope, BrewerService) {
-  $scope.brewers = BrewerService.all();
-
-    //Get the votes so we can show a checkbox on the list
-     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-$scope.beerVote = spigotVote;
-console.log("Beer Vote in index ctnrl");
-console.log(spigotVote); 
-console.log($scope.beerVote.Vote.beer_id);
-})
-
+/*
+ * 
+ * BrewerDetail handles showing the Brewer Information
+ */
 
 // A simple controller that shows a tapped item's data
 .controller('BrewerDetailCtrl', function($scope, $stateParams, BrewerService) {
@@ -130,22 +133,13 @@ console.log($scope.beerVote.Vote.beer_id);
 })
 
 
-
-
-// A simple controller that shows a tapped item's data
+/*
+ * 
+ * Beer Detail handles showing the Beer information
+ */
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
   $scope.beer = BeerService.get($stateParams.beerId);
-  //console.log($stateParams.beerId);
-  //console.log(window.localStorage.getItem("myVote"));
-  //console.log("yo");
- var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-//console.log("Getting spigotVote right in the controller");
-//console.log(spigotVote.vote.Vote.beer_id);
-//console.log(spigotVote.length);
-//console.log("spigot vote");
-//console.log(spigotVote);
-//console.log("stateparams beerID");
-//console.log($stateParams.beerId);
+  var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
    if (spigotVote.Vote.beer_id === $stateParams.beerId){
 //        console.log("we got a match yo");
          $scope.beerVote = true;
@@ -247,5 +241,3 @@ console.log($scope.beerVote.Vote.beer_id);
 
   
 });
-
-

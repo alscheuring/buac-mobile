@@ -11,40 +11,6 @@ angular.module('starter.services', [])
     error(function(data, status, headers, config) {
     });
   
-    /*
-  var device = ionic.Platform.device();
-  console.log(device); 
-  
-//    var device = ionic.Platform.device();
-//    var phoneID = device.uuid;    
-//   //Get Device ID for spigotVote
-// // var device = ionic.Platform.device();
-// console.log("looking for device");
-//  console.log(device);
-//    
-//    console.log("looking for phone ID");
-//  console.log(phoneID);
-//  
-  
- //Go get that vote info
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
-    success(function(data, status, headers, config) {
-      	var spigotVote = angular.toJson(data);
-      	window.localStorage.setItem("spigotVote", spigotVote);
-
-
-        //This will get a specific record
-        //console.log(window.localStorage.getItem("spigotVote"));
-        //console.log("HI THERE YO");
-        //var json = JSON.parse(spigotVote);
-        //console.log(json.vote.Vote['id']);
-      //  console.log(spigotVote);
-    }).
-    error(function(data, status, headers, config) {
-    });
-        */
-    
-
  //Go get that monetary sponsor info
  $http({method: 'GET', url: 'http://brewingupacure.org/Information/onlySponsors.json?type=all'}).
     success(function(data, status, headers, config) {

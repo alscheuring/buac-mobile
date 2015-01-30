@@ -3,9 +3,9 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        versionCode = "504"
+        versionCode = "505"
         id        =  "org.brewingupacure.buacmobile"
-        version   = "3.0.4">
+        version   = "3.0.5">
 
     <name>Brewing Up A Cure</name>
 

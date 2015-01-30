@@ -59,7 +59,7 @@ angular.module('starter.services', [])
    { id: '',
      beer_id: '',
      } };        
-        
+         
     angular.forEach(data, function(vote) {
       if (vote.id == deviceID) myVote = vote;
     });

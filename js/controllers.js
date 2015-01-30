@@ -54,9 +54,10 @@ console.log(device.uuid);
     //Get the votes so we can show a checkbox on the list
     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
     $scope.beerVote = spigotVote;
-    console.log("Beer Vote in index ctnrl");
-    console.log(spigotVote); 
-    console.log($scope.beerVote.Vote.beer_id);
+//    console.log("Beer Vote in index ctnrl");
+//    console.log(spigotVote); 
+//    console.log($scope.beerVote.Vote.beer_id);
+
 })
 
 /*
@@ -140,8 +141,7 @@ About Controller which shows all the general information.
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
   $scope.beer = BeerService.get($stateParams.beerId);
   var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-   if (spigotVote.Vote.beer_id === $stateParams.beerId){
-//        console.log("we got a match yo");
+   if (spigotVote.Vote.beer_id === $stateParams.beerId){        console.log("we got a match yo");
          $scope.beerVote = true;
          
      

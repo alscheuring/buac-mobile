@@ -81,7 +81,8 @@ console.log(device.uuid);
     //Get the votes so we can show a checkbox on the list
      var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
 $scope.beerVote = spigotVote;
-console.log($scope.beerVote); 
+console.log("Beer Vote in index ctnrl");
+console.log(spigotVote); 
 console.log($scope.beerVote.Vote.beer_id);
 })
 

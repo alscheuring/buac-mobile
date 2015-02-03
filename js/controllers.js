@@ -54,10 +54,7 @@ console.log(device.uuid);
      var deviceID = device.uuid;
      $scope.brewers = BrewerService.all();
     //Get the votes so we can show a checkbox on the list
-    var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-    console.log("spigot vote in brewerindexcntrtl");
-    console.log(spigotVote);
-    $scope.beerVote = spigotVote; 
+     $scope.beerVote = JSON.parse(window.localStorage.getItem("myVote"));
     
     var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
     //convert triedBeers to array
@@ -148,18 +145,34 @@ About Controller which shows all the general information.
  * Beer Detail handles showing the Beer information
  */
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
-  $scope.beer = BeerService.get($stateParams.beerId);
-  var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-   if (spigotVote.Vote.beer_id === $stateParams.beerId){        console.log("we got a match yo");
-         $scope.beerVote = true;
-         
+     var device = ionic.Platform.device();
+     var deviceID = device.uuid;
      
-  }else{ $scope.beerVote = false }
-  
+    $scope.beer = BeerService.get($stateParams.beerId);
+  var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
+   if (spigotVote.Vote.beer_id === $stateParams.beerId){        
+         $scope.beerVote = true;
+        }else{ $scope.beerVote = false }
+    
+    
+    var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
+// 
+      
+    //convert triedBeers to array
+    var triedBeer = '';
+    angular.forEach(triedBeers, function(tried) {
+       if(tried.Tried.device_id === deviceID && tried.Tried.beer_id == $stateParams.beerId) triedBeer = tried.Tried.beer_id;
+    });
+//  var triedIt = JSON.parse(window.localStorage.getItem("myVote"));
+   if (triedBeer === $stateParams.beerId){        
+         $scope.triedIt = true;
+        }else{ $scope.triedIt = false }
+    
+    
+    
     $scope.go = function ( path ) {
-  	//console.log(path);
-  $location.path( path );
-	};  
+    $location.path( path );
+   };  
 
 
 //VOTING FUNCTION
@@ -180,7 +193,41 @@ About Controller which shows all the general information.
   }, function(err) {
     //console.error('ERR', err);
     // err.status will contain the status code
-  });  
+  });
+  }; 
+  //TRIED THIS BEER function
+  $scope.triedThisBeer = function() { 
+    var device = ionic.Platform.device();
+ 
+  //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
+  $http.post('http://brewingupacure.org/Tried/add.json',{device_id:device.uuid, beer_id:$stateParams.beerId }).then(function(resp) {
+    //Set the localstorage variable
+    
+    $scope.triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
+//      console.log("tried beers");
+//      console.log(triedBeers);
+      
+  var newTriedBeer =  { Tried: 
+   { device_id: device.uuid,
+     beer_id: $stateParams.beerId,
+     } };
+     
+     console.log(newTriedBeer);
+     $scope.triedBeers.push(newTriedBeer);
+     
+    //var triedBeersUpdate = triedBeers.Tried.push({ device_id: device.uuid,
+    // beer_id: $stateParams.beerId
+    // });
+//    console.log('tried beers update');
+//    console.log($scope.triedBeers); 
+    window.localStorage.setItem("triedBeers", angular.toJson($scope.triedBeers));
+    
+    
+    
+  }, function(err) {
+    //console.error('ERR', err);
+    // err.status will contain the status code
+  });   
   
      
   }; 	

@@ -65,8 +65,6 @@ angular.module('starter.services', [])
     });
       myVote2 = angular.toJson(myVote);
       	window.localStorage.setItem("myVote", myVote2);
-      console.log('my vote');
-      console.log(myVote2);
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs

@@ -248,11 +248,10 @@ console.log(eventData);
 
 .factory('BrewerService', function() {
   // Might use a resource here that returns a JSON array
-
   // Some fake testing data
 	var brewers = angular.fromJson(window.localStorage.getItem('brewers'));
-    
-
+        console.log('brewers in brewerservice');
+        console.log(brewers);
   return {
     all: function() {
       return brewers;

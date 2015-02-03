@@ -55,6 +55,8 @@ console.log(device.uuid);
      $scope.brewers = BrewerService.all();
     //Get the votes so we can show a checkbox on the list
     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
+    console.log("spigot vote in brewerindexcntrtl");
+    console.log(spigotVote);
     $scope.beerVote = spigotVote;
     
     var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));

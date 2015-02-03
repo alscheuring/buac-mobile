@@ -57,7 +57,7 @@ console.log(device.uuid);
     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
     console.log("spigot vote in brewerindexcntrtl");
     console.log(spigotVote);
-    $scope.beerVote = spigotVote;
+    $scope.beerVote = spigotVote; 
     
     var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
     //convert triedBeers to array

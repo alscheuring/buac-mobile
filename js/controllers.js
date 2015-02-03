@@ -50,13 +50,20 @@ console.log(device.uuid);
  */
 
 .controller('BrewerIndexCtrl', function($scope, BrewerService) {
-    $scope.brewers = BrewerService.all();
+     var device = ionic.Platform.device();
+     var deviceID = device.uuid;
+     $scope.brewers = BrewerService.all();
     //Get the votes so we can show a checkbox on the list
     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
     $scope.beerVote = spigotVote;
-//    console.log("Beer Vote in index ctnrl");
-//    console.log(spigotVote); 
-//    console.log($scope.beerVote.Vote.beer_id);
+    
+    var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
+    //convert triedBeers to array
+    var array = [];
+    angular.forEach(triedBeers, function(tried) {
+       if(tried.Tried.device_id === deviceID) array.push(tried.Tried.beer_id);
+    });
+    $scope.triedBeers = array;
 
 })
 

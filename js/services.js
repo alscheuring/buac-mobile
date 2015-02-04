@@ -101,7 +101,7 @@ angular.module('starter.services', [])
       // or server returns response with an error status.
     });
     
- $http({method: 'GET', url: 'http://brewingupacure.org/Beers/index.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/beers.json'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously
       // when the response is available

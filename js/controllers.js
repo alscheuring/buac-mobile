@@ -64,6 +64,7 @@ console.log(device.uuid);
     });
     $scope.triedBeers = array;
 
+console.log($scope.triedBeers);
 })
 
 /*
@@ -187,16 +188,14 @@ About Controller which shows all the general information.
      beer_id: $stateParams.beerId
      } };
     window.localStorage.setItem("myVote", angular.toJson(newSpigotVote));
-    
-    
-    
   }, function(err) {
     //console.error('ERR', err);
     // err.status will contain the status code
   });
   }; 
   //TRIED THIS BEER function
-  $scope.triedThisBeer = function() { 
+  $scope.triedThisBeer = function(triedIt) { 
+      console.log(triedIt);
     var device = ionic.Platform.device();
  
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
@@ -212,24 +211,13 @@ About Controller which shows all the general information.
      beer_id: $stateParams.beerId,
      } };
      
-     console.log(newTriedBeer);
      $scope.triedBeers.push(newTriedBeer);
-     
-    //var triedBeersUpdate = triedBeers.Tried.push({ device_id: device.uuid,
-    // beer_id: $stateParams.beerId
-    // });
-//    console.log('tried beers update');
-//    console.log($scope.triedBeers); 
     window.localStorage.setItem("triedBeers", angular.toJson($scope.triedBeers));
-    
-    
     
   }, function(err) {
     //console.error('ERR', err);
     // err.status will contain the status code
   });   
-  
-     
   }; 	
     
     var device = ionic.Platform.device();

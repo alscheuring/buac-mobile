@@ -115,18 +115,18 @@ angular.module('starter.services', [])
    //   console.log("didn't work");  
       // or server returns response with an error status.
     });    
-
+return 'pants';
 })
 
-//VoteService will unset the existing favorite and set the current favorite locally
-.factory('VoteService', function() {
-    //This will get a specific record
-        console.log("HI THERE YO");
-        var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
-          //  console.log(spigotVote);
-        return spigotVote;
-  
-})
+////VoteService will unset the existing favorite and set the current favorite locally
+//.factory('VoteService', function() {
+//    //This will get a specific record
+//        console.log("HI THERE YO");
+//        var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
+//          //  console.log(spigotVote);
+//        return spigotVote;
+//  
+//})
 
 //SponsorService gets all the sponsor types and puts the into local storage.
 .factory('SponsorService', function() {

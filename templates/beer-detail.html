@@ -47,11 +47,10 @@
 	</div>	
       <br />
 <div ng-controller="BeerDetailCtrl">
-<ion-checkbox class="item-input-inset" ng-model="beerVote" ng-click="vote()">Best of Show!</ion-checkbox>
+<ion-toggle ng-model="beerVote" ng-click="vote()"  toggle-class="toggle-calm">Best of Show!</ion-toggle>
 </div>  
       
 <div ng-controller="BeerDetailCtrl">
-<ion-checkbox class="item-input-inset" ng-model="triedIt" ng-checked="!triedIt.deleted" ng-change="triedThisBeer(triedIt)" ng-true-value="YES" ng-false-value="NO">Tried It!</ion-checkbox>
 <ion-toggle ng-model="triedIt" ng-change="triedThisBeer(triedIt)"  toggle-class="toggle-calm">Tried It!</ion-toggle>
 </div>  
       

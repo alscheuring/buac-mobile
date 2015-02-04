@@ -179,7 +179,7 @@ About Controller which shows all the general information.
 //VOTING FUNCTION
   $scope.vote = function() {
     var device = ionic.Platform.device();
- console.log('vote called');
+ 
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
   $http.post('http://brewingupacure.org/Votes/add.json',{id:device.uuid, beer_id:$stateParams.beerId }).then(function(resp) {
     //Set the localstorage variable
@@ -187,7 +187,6 @@ About Controller which shows all the general information.
    { id: device.uuid,
      beer_id: $stateParams.beerId
      } };
-     $scope.beerVote = newSpigotVote;
     window.localStorage.setItem("myVote", angular.toJson(newSpigotVote));
   }, function(err) {
     //console.error('ERR', err);

@@ -8,13 +8,15 @@
 angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
 .run(function($ionicPlatform, $rootScope) {
+        $rootScope.DEVICEID = 'C5642141-98C5-4443-B0E0-6966ED32BE2C';
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
       var device = ionic.Platform.device();
       var deviceID = device.uuid;  
-               alert('device Ready!!!');
-alert(deviceID);
+      //Note to self. This wont work when testing locally. Only a phonegap.build will work. 
+      //This is because the cordova plugins aren't locally loaded for fucks sake.
       $rootScope.DEVICEID = deviceID;
          
     if (window.cordova && window.cordova.plugins.Keyboard) {

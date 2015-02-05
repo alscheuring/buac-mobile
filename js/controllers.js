@@ -51,7 +51,8 @@ console.log(device.uuid);
  * 
  */
 
-.controller('BrewerIndexCtrl', function($scope, BrewerService) {
+.controller('BrewerIndexCtrl', function($scope, BrewerService,$rootScope) {
+    console.log("good day fucker " + $rootScope.DEVICEID);
      var device = ionic.Platform.device();
      var deviceID = device.uuid;
      $scope.brewers = BrewerService.all();

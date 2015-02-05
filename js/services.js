@@ -1,7 +1,7 @@
 angular.module('starter.services', [])
 
 //DATAService gets all the JSON data from the server on startup and puts it into localStorage
-.factory('DataService', function($http) {
+.factory('DataService', function($http, $rootScope) {
  //Go get that event info
  $http({method: 'GET', url: 'http://brewingupacure.org/Information/eventData.json'}).
     success(function(data, status, headers, config) {
@@ -84,13 +84,14 @@ angular.module('starter.services', [])
       // or server returns response with an error status.
     });    
     
-        
     //Go get that brewer info
- $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/index.json'}).
+// $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/mobileindex.json?deviceID=C5642141-98C5-4443-B0E0-6966ED32BE2C'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously
       // when the response is available
       	var brewers = angular.toJson(data);
+        console.log(data);
       	window.localStorage.setItem("brewers", brewers);
 		//console.log(angular.fromJson(window.localStorage.getItem('brewers')));
       
@@ -249,7 +250,7 @@ console.log(eventData);
   // Some fake testing data
 	var brewers = angular.fromJson(window.localStorage.getItem('brewers'));
         console.log('brewers in brewerservice');
-        console.log(brewers);
+    //    console.log(brewers);
   return {
     all: function() {
       return brewers;

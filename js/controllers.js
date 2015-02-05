@@ -158,24 +158,48 @@ console.log($scope.beerVote.Vote.beer_id);
 	};  
 
 
-//VOTING FUNCTION
+
+
+//VOTING FUNCTION for BEST OF SHOW///////////////////
+//*************************************************//
   $scope.vote = function() {
     var device = ionic.Platform.device();
- 
-  //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
-  $http.post('http://brewingupacure.org/Votes/add.json',{id:$rootScope.DEVICEID, beer_id:$stateParams.beerId }).then(function(resp) {
+    console.log('vote called for ' + $stateParams.beerId);
+    console.log("scope.beerVote is now " + $scope.beerVote);
+    var beerVoteTest = false;
+    if($scope.beerVote === true){ beerVoteTest = 'true';};
+    if($scope.beerVote === false){ beerVoteTest = 'false';};
+  //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.
+  //If $scope.beerVote is false, the backend server will delete the beer_id from the record, if true it will  the record.
+  $http.post('http://brewingupacure.org/Votes/add.json',{id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: beerVoteTest }).then(function(resp) {
     //Set the localstorage variable
-    var newSpigotVote =  { Vote: 
+  
+  //If $scope.beerVote is true, set the localStorage variable
+   if($scope.beerVote == true){
+   var newSpigotVote =  { Vote: 
    { id: device.uuid,
      beer_id: $stateParams.beerId
      } };
+   }
+   if($scope.beerVote == false){
+   var newSpigotVote =  { Vote: 
+   { id: device.uuid,
+     beer_id: ''
+     } };       
+   }
+    //Set localstorage to whatever the newSpigotVote became
     window.localStorage.setItem("myVote", angular.toJson(newSpigotVote));
+    
+    console.log("saved myVote is now");
+    console.log(angular.toJson(newSpigotVote));
   }, function(err) {
     //console.error('ERR', err);
     // err.status will contain the status code
-  });  
-  }; 	
-    ///////////END VOTING//////////////////
+  });
+  }; 
+//END VOTING FUNCTION for BEST OF SHOW///////////////////
+//*************************************************// 
+//
     var device = ionic.Platform.device();
 	$scope.iPhone = 'no';
     if(device.platform ==='iPhone' || device.platform === 'iOS'){

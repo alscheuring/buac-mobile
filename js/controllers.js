@@ -52,20 +52,20 @@ console.log(device.uuid);
  */
 
 .controller('BrewerIndexCtrl', function($scope, BrewerService,$rootScope) {
-    console.log("good day fucker " + $rootScope.DEVICEID);
-     var device = ionic.Platform.device();
-     var deviceID = device.uuid;
+//    console.log("good day fucker " + $rootScope.DEVICEID);
+//     var device = ionic.Platform.device();
+//     var deviceID = device.uuid;
      $scope.brewers = BrewerService.all();
     //Get the votes so we can show a checkbox on the list
-     $scope.beerVote = JSON.parse(window.localStorage.getItem("myVote"));
-    
-    var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
-    //convert triedBeers to array
-    var array = [];
-    angular.forEach(triedBeers, function(tried) {
-       if(tried.Tried.device_id === deviceID) array.push(tried.Tried.beer_id);
-    });
-    $scope.triedBeers = array;
+   //  $scope.beerVote = JSON.parse(window.localStorage.getItem("myVote"));
+//    
+//    var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
+//    //convert triedBeers to array
+//    var array = [];
+//    angular.forEach(triedBeers, function(tried) {
+//       if(tried.Tried.device_id === deviceID) array.push(tried.Tried.beer_id);
+//    });
+//    $scope.triedBeers = array;
 
 //arrayconsole.log($scope.triedBeers);
 })

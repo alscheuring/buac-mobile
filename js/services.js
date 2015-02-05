@@ -25,12 +25,12 @@ angular.module('starter.services', [])
 //    console.log("looking for phone ID");
 //  console.log(phoneID);
 //  
-  
+  */
  //Go get that vote info
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + $rootScope.DEVICEID +'.json'}).
     success(function(data, status, headers, config) {
       	var spigotVote = angular.toJson(data);
-      	window.localStorage.setItem("spigotVote", spigotVote);
+      	window.localStorage.setItem("myVote", spigotVote);
 
 
         //This will get a specific record
@@ -42,7 +42,7 @@ angular.module('starter.services', [])
     }).
     error(function(data, status, headers, config) {
     });
-        */
+        
     
 
  //Go get that monetary sponsor info

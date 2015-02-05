@@ -1,55 +1,11 @@
 angular.module('starter.controllers', [])
 
-    .controller('VoteCtrl', ['$scope', function($scope, $http) {
-      $scope.master = {};
-
-      $scope.update = function(user) {
-        $scope.master = angular.copy(user);
-        
-        
-      };
-
-
-  
-    }])
-.controller('VoteCtrl2', function($scope, $http) {
-  $scope.vote = function() {
-console.log($scope.isChecked);
-console.log(device.uuid);
- $http.post('http://brewingupacure.org/Votes/add.json',{id:device.uuid, beer_id:'83' }).then(function(resp) {
-    console.log('Success', resp); 
-    // For JSON responses, resp.data contains the result
-    
-  }, function(err) {
-    console.error('ERR', err);
-    // err.status will contain the status code
-  });  
-  
-     
-  }; 
-
-})
-
-
-
-
-
 .controller('HomeCtrl', function($scope, DataService) {
 	//console.log("Home controller");
 	ionic.Platform.ready(function(){
          navigator.splashscreen.hide();
-    
-            //$scope.beerVote = true;
-  //$scope.beerVote = VoteService();
-  //$scope.beerVote = true;
-//$scope.beerVote = VoteService();   
-//console.log($scope.beerVote);
-//    $scope.beerVote = true;
-
 });
-	
 })
-
 
 .controller('AboutCtrl', function($scope, SponsorService, EventService) {
 	//console.log("About controller");
@@ -72,8 +28,6 @@ console.log(device.uuid);
   
 })
  
-
-
 // A simple controller that fetches a list of data from a service
 .controller('BrewerIndexCtrl', function($scope, BrewerService) {
   $scope.brewers = BrewerService.all();
@@ -81,8 +35,8 @@ console.log(device.uuid);
     //Get the votes so we can show a checkbox on the list
      var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
 $scope.beerVote = spigotVote;
-console.log($scope.beerVote); 
-console.log($scope.beerVote.Vote.beer_id);
+//console.log($scope.beerVote); 
+//console.log($scope.beerVote.Vote.beer_id);
 })
 
 
@@ -134,17 +88,7 @@ console.log($scope.beerVote.Vote.beer_id);
 // A simple controller that shows a tapped item's data
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http,$rootScope) {
   $scope.beer = BeerService.get($stateParams.beerId);
-  //console.log($stateParams.beerId);
-  //console.log(window.localStorage.getItem("myVote"));
-  //console.log("yo");
  var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-//console.log("Getting spigotVote right in the controller");
-//console.log(spigotVote.vote.Vote.beer_id);
-//console.log(spigotVote.length);
-//console.log("spigot vote");
-//console.log(spigotVote);
-//console.log("stateparams beerID");
-//console.log($stateParams.beerId);
    if (spigotVote.Vote.beer_id === $stateParams.beerId){
 //        console.log("we got a match yo");
          $scope.beerVote = true;

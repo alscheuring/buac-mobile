@@ -39,6 +39,8 @@ console.log(device.uuid);
 .controller('HomeCtrl', function($scope, DataService) {
 	ionic.Platform.ready(function(){
          navigator.splashscreen.hide(); 
+
+         
 });
 })
 

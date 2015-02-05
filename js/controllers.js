@@ -71,7 +71,7 @@ console.log(device.uuid);
   $scope.sponsor = SponsorService.get($stateParams.sponsorId);
   
 })
-
+ 
 
 
 // A simple controller that fetches a list of data from a service
@@ -132,7 +132,7 @@ console.log($scope.beerVote.Vote.beer_id);
 
 
 // A simple controller that shows a tapped item's data
-.controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http) {
+.controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http,$rootScope) {
   $scope.beer = BeerService.get($stateParams.beerId);
   //console.log($stateParams.beerId);
   //console.log(window.localStorage.getItem("myVote"));
@@ -163,24 +163,19 @@ console.log($scope.beerVote.Vote.beer_id);
     var device = ionic.Platform.device();
  
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.   
-  $http.post('http://brewingupacure.org/Votes/add.json',{id:device.uuid, beer_id:$stateParams.beerId }).then(function(resp) {
+  $http.post('http://brewingupacure.org/Votes/add.json',{id:$rootScope.DEVICEID, beer_id:$stateParams.beerId }).then(function(resp) {
     //Set the localstorage variable
     var newSpigotVote =  { Vote: 
    { id: device.uuid,
      beer_id: $stateParams.beerId
      } };
     window.localStorage.setItem("myVote", angular.toJson(newSpigotVote));
-    
-    
-    
   }, function(err) {
     //console.error('ERR', err);
     // err.status will contain the status code
   });  
-  
-     
   }; 	
-    
+    ///////////END VOTING//////////////////
     var device = ionic.Platform.device();
 	$scope.iPhone = 'no';
     if(device.platform ==='iPhone' || device.platform === 'iOS'){

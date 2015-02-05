@@ -1,7 +1,7 @@
 angular.module('starter.services', [])
 
 //DATAService gets all the JSON data from the server on startup and puts it into localStorage
-.factory('DataService', function($http, $rootScope) {
+.factory('DataService', function($http) {
  //Go get that event info
  $http({method: 'GET', url: 'http://brewingupacure.org/Information/eventData.json'}).
     success(function(data, status, headers, config) {
@@ -11,6 +11,40 @@ angular.module('starter.services', [])
     error(function(data, status, headers, config) {
     });
   
+    /*
+  var device = ionic.Platform.device();
+  console.log(device); 
+  
+//    var device = ionic.Platform.device();
+//    var phoneID = device.uuid;    
+//   //Get Device ID for spigotVote
+// // var device = ionic.Platform.device();
+// console.log("looking for device");
+//  console.log(device);
+//    
+//    console.log("looking for phone ID");
+//  console.log(phoneID);
+//  
+  
+ //Go get that vote info
+ $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + device.uuid +'.json'}).
+    success(function(data, status, headers, config) {
+      	var spigotVote = angular.toJson(data);
+      	window.localStorage.setItem("spigotVote", spigotVote);
+
+
+        //This will get a specific record
+        //console.log(window.localStorage.getItem("spigotVote"));
+        //console.log("HI THERE YO");
+        //var json = JSON.parse(spigotVote);
+        //console.log(json.vote.Vote['id']);
+      //  console.log(spigotVote);
+    }).
+    error(function(data, status, headers, config) {
+    });
+        */
+    
+
  //Go get that monetary sponsor info
  $http({method: 'GET', url: 'http://brewingupacure.org/Information/onlySponsors.json?type=all'}).
     success(function(data, status, headers, config) {
@@ -59,12 +93,14 @@ angular.module('starter.services', [])
    { id: '',
      beer_id: '',
      } };        
-         
+        
     angular.forEach(data, function(vote) {
       if (vote.id == deviceID) myVote = vote;
     });
       myVote2 = angular.toJson(myVote);
       	window.localStorage.setItem("myVote", myVote2);
+      console.log('my vote');
+      console.log(myVote2);
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
@@ -72,26 +108,13 @@ angular.module('starter.services', [])
       // or server returns response with an error status.
     });
     
- //Go get that tried Beer info
- $http({method: 'GET', url: 'http://brewingupacure.org/Tried/index.json'}).
-    success(function(data, status, headers, config) {
-         
-      	window.localStorage.setItem("triedBeers", angular.toJson(data));
-    }).
-    error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-    //  console.log("didn't work");  
-      // or server returns response with an error status.
-    });    
     
     //Go get that brewer info
-// $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
- $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/mobileindex.json?deviceID=C5642141-98C5-4443-B0E0-6966ED32BE2C'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/index.json'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously
       // when the response is available
       	var brewers = angular.toJson(data);
-        console.log(data);
       	window.localStorage.setItem("brewers", brewers);
 		//console.log(angular.fromJson(window.localStorage.getItem('brewers')));
       
@@ -102,7 +125,7 @@ angular.module('starter.services', [])
       // or server returns response with an error status.
     });
     
- $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/beers.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Beers/index.json'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously
       // when the response is available
@@ -116,18 +139,18 @@ angular.module('starter.services', [])
    //   console.log("didn't work");  
       // or server returns response with an error status.
     });    
-return 'pants';
+
 })
 
-////VoteService will unset the existing favorite and set the current favorite locally
-//.factory('VoteService', function() {
-//    //This will get a specific record
-//        console.log("HI THERE YO");
-//        var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
-//          //  console.log(spigotVote);
-//        return spigotVote;
-//  
-//})
+//VoteService will unset the existing favorite and set the current favorite locally
+.factory('VoteService', function() {
+    //This will get a specific record
+        console.log("HI THERE YO");
+        var spigotVote = JSON.parse(window.localStorage.getItem("spigotVote"));
+          //  console.log(spigotVote);
+        return spigotVote;
+  
+})
 
 //SponsorService gets all the sponsor types and puts the into local storage.
 .factory('SponsorService', function() {
@@ -247,10 +270,11 @@ console.log(eventData);
 
 .factory('BrewerService', function() {
   // Might use a resource here that returns a JSON array
+
   // Some fake testing data
 	var brewers = angular.fromJson(window.localStorage.getItem('brewers'));
-        console.log('brewers in brewerservice');
-    //    console.log(brewers);
+    
+
   return {
     all: function() {
       return brewers;

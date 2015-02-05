@@ -74,12 +74,7 @@ $scope.beerVote = spigotVote;
     }
 	);
 	} //Android Launch 
-	
-
-		
   };//End untappd launch
-          
-	//console.log($scope.beers);
 })
 
 
@@ -100,8 +95,6 @@ $scope.beerVote = spigotVote;
   	//console.log(path);
   $location.path( path );
 	};  
-
-
 
 
 //VOTING FUNCTION for BEST OF SHOW///////////////////

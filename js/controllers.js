@@ -34,8 +34,8 @@ angular.module('starter.controllers', [])
 
     //Get the votes so we can show a checkbox on the list
      var myVote = JSON.parse(window.localStorage.getItem("myVote"));
-     $scope.beerVote = myVote;
-     console.log(myVote);
+//     $scope.beerVote = myVote;
+//     console.log(myVote);
 //console.log($scope.beerVote.Vote.beer_id);
 })
 

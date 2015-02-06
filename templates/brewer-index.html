@@ -21,7 +21,7 @@
 
     <ion-list>
       <ion-item ng-repeat="beer in table.Beer" type="item-text-wrap" href="#/tab/beer/{{beer.id}}">
-          <h3>{{beerVote['id']}} {{beer.id}}  {{beer.name}} <span ng-show="beer.id == myVote.Vote.beer_id"><i class="ion-heart"></i></span></h3>
+          <h3> {{beer.id}}  {{beer.name}} <span ng-show="beer.id == myVote.Vote.beer_id"><i class="ion-heart"></i></span></h3>
        
       </ion-item> 
       

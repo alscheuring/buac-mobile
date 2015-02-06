@@ -20,7 +20,7 @@ angular.module('starter.controllers', [])
 	$scope.auctionCloseText = EventService.auctionCloseText();
 	$scope.endEventText = EventService.endEventText();
 	$scope.year = EventService.year();
-})
+}) 
 // A simple controller that shows a tapped item's data
 .controller('SponsorDetailCtrl', function($scope, $stateParams, SponsorService) {
   // "Pets" is a service returning mock data (services.js)
@@ -34,8 +34,8 @@ angular.module('starter.controllers', [])
 
     //Get the votes so we can show a checkbox on the list
      var myVote = JSON.parse(window.localStorage.getItem("myVote"));
-//     $scope.beerVote = myVote;
-//     console.log(myVote);
+     $scope.myVote = myVote;
+     console.log(myVote);
 //console.log($scope.beerVote.Vote.beer_id);
 })
 

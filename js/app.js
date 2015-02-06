@@ -13,6 +13,8 @@ angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+    console.log("HERES THE Ready time");
+
       var device = ionic.Platform.device();
       var deviceID = device.uuid;  
       //Note to self. This wont work when testing locally. Only a phonegap.build will work. 

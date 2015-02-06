@@ -7,20 +7,24 @@ angular.module('starter.services', [])
     success(function(data, status, headers, config) {
       	var eventData = angular.toJson(data);
       	window.localStorage.setItem("eventData", eventData);
+//        console.log("HERE IS THE EVENT DATA ");
+//        console.log(eventData);
+        return eventData;
     }).
     error(function(data, status, headers, config) {
     });
   
- //Go get that vote info
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + $rootScope.DEVICEID +'.json'}).
-    success(function(data, status, headers, config) {
-      	var spigotVote = angular.toJson(data);
-      	window.localStorage.setItem("myVote", spigotVote);
-
-    }).
-    error(function(data, status, headers, config) {
-    });
-        
+// //Go get that vote info
+// $http({method: 'GET', url: 'http://brewingupacure.org/Votes/view/' + $rootScope.DEVICEID +'.json'}).
+//    success(function(data, status, headers, config) {
+//      	var spigotVote = angular.toJson(data);
+//      	window.localStorage.setItem("myVote", spigotVote);
+//        return spigotVote;
+//
+//    }).
+//    error(function(data, status, headers, config) {
+//    });
+//        
     
 
  //Go get that monetary sponsor info
@@ -28,6 +32,7 @@ angular.module('starter.services', [])
     success(function(data, status, headers, config) {
       	var allSponsors = angular.toJson(data);
       	window.localStorage.setItem("allSponsors", allSponsors);
+        return allSponsors;
     }).
     error(function(data, status, headers, config) {
     });
@@ -37,6 +42,7 @@ angular.module('starter.services', [])
     success(function(data, status, headers, config) {
       	var monetarySponsors = angular.toJson(data);
       	window.localStorage.setItem("monetarySponsors", monetarySponsors);
+        return monetarySponsors
     }).
     error(function(data, status, headers, config) {
     });
@@ -46,6 +52,7 @@ angular.module('starter.services', [])
     success(function(data, status, headers, config) {
       	var commercialBeer = angular.toJson(data);
       	window.localStorage.setItem("commercialBeerSponsors", commercialBeer);
+        return commercialBeer;
     }).
     error(function(data, status, headers, config) {
     });    
@@ -56,45 +63,38 @@ angular.module('starter.services', [])
     success(function(data, status, headers, config) {
       	var food = angular.toJson(data);
       	window.localStorage.setItem("foodSponsors", food);
+        console.log("FOOD DATA");
+        return food;
     }).
-    error(function(data, status, headers, config) {
+    error(function(data, status, headers, config) { 
     });    
 
- //Go get that vote info
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/index.json'}).
-    success(function(data, status, headers, config) {
-      var device = ionic.Platform.device();
-      var deviceID = device.uuid; 
-      
-     //Initialize empty vote so we don't get errors everywhere else.
-    var myVote =  { Vote: 
-   { id: '',
-     beer_id: '',
-     } };        
-        
-    angular.forEach(data, function(vote) {
-      if (vote.id == deviceID) myVote = vote;
-    });
-      myVote2 = angular.toJson(myVote);
-      	window.localStorage.setItem("myVote", myVote2);
+ //Go get that vote info  and store it
+ $http({method: 'GET', url: 'http://brewingupacure.org/Votes/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
+    success(function(data, status, headers, config)  {
+        console.log("EXTERNAL MYVOTE HAS BEEN LOADED");
+      window.localStorage.setItem("myVote", angular.toJson(data));
       console.log('my vote');
-      console.log(myVote2);
+      console.log(data);
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
     //  console.log("didn't work");  
       // or server returns response with an error status.
-    });
+    }); 
     
  //Go get that tried Beer info
- $http({method: 'GET', url: 'http://brewingupacure.org/Tried/index.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/Tried/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
     success(function(data, status, headers, config) {
-         
+                         console.log("HERE IS THE TRIED DATA ");
+
       	window.localStorage.setItem("triedBeers", angular.toJson(data));
+        return data;
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
-    //  console.log("didn't work");  
+      
+      console.log("didn't work");  
       // or server returns response with an error status.
     });    
     
@@ -106,8 +106,9 @@ angular.module('starter.services', [])
       // when the response is available
       	var brewers = angular.toJson(data);
       	window.localStorage.setItem("brewers", brewers);
+        console.log('BREWERS HAS BEEN CALLED');
 		//console.log(angular.fromJson(window.localStorage.getItem('brewers')));
-      
+       return brewers;
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
@@ -121,15 +122,15 @@ angular.module('starter.services', [])
       // when the response is available
       	var beers = angular.toJson(data);
       	window.localStorage.setItem("beers", beers);
-	//	console.log(angular.fromJson(window.localStorage.getItem('beers')));
-      
+	//	co nsole.log(angular.fromJson(window.localStorage.getItem('beers')));
+      return beers;
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
    //   console.log("didn't work");  
       // or server returns response with an error status.
-    });    
-
+    });   
+return null;  
 })
 
 //VoteService will unset the existing favorite and set the current favorite locally

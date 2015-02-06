@@ -33,9 +33,9 @@ angular.module('starter.controllers', [])
   $scope.brewers = BrewerService.all();
 
     //Get the votes so we can show a checkbox on the list
-     var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-$scope.beerVote = spigotVote;
-//console.log($scope.beerVote); 
+     var myVote = JSON.parse(window.localStorage.getItem("myVote"));
+     $scope.beerVote = myVote;
+     console.log(myVote);
 //console.log($scope.beerVote.Vote.beer_id);
 })
 

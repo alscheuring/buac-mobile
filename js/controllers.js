@@ -156,14 +156,7 @@ $scope.tried = function(beerID){
       }
       
       if($scope.triedIt === false){
-      
-      
-      
-      
-//      var thisTriedBeer;
-  //    console.log(triedBeers);
       angular.forEach($scope.triedBeers, function(tried, index) {
-    //      console.log(tried);
        if (tried.Tried.beer_id == beerID){
           console.log("TRIED IS ");
           console.log(tried.Tried);
@@ -178,7 +171,7 @@ $scope.tried = function(beerID){
       }
       
       //Set the localstorage variable
-  
+      window.localStorage.setItem('triedBeers', angular.toJson($scope.triedBeers));
   
   
 //  //If $scope.beerVote is true, set the localStorage variable

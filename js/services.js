@@ -86,15 +86,12 @@ angular.module('starter.services', [])
  //Go get that tried Beer info
  $http({method: 'GET', url: 'http://brewingupacure.org/Tried/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
     success(function(data, status, headers, config) {
-                         console.log("HERE IS THE TRIED DATA ");
 
       	window.localStorage.setItem("triedBeers", angular.toJson(data));
-        return data;
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
       
-      console.log("didn't work");  
       // or server returns response with an error status.
     });    
     

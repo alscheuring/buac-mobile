@@ -33,9 +33,14 @@ angular.module('starter.controllers', [])
   $scope.brewers = BrewerService.all();
 
     //Get the votes so we can show a checkbox on the list
-     var myVote = JSON.parse(window.localStorage.getItem("myVote"));
+     var myVote = angular.fromJson(window.localStorage.getItem("myVote"));
      $scope.myVote = myVote;
      console.log(myVote);
+
+    var triedBeers = angular.fromJson(window.localStorage.getItem("triedBeers"));
+    console.log('TRIED BEERS');
+    console.log(triedBeers);
+    $scope.triedBeers = triedBeers;
 //console.log($scope.beerVote.Vote.beer_id);
 })
 

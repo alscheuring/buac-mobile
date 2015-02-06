@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
 
 
 // A simple controller that shows a tapped item's data
-.controller('BrewerDetailCtrl', function($scope, $stateParams, BrewerService) {
+.controller('BrewerDetailCtrl', function($scope, $stateParams, BrewerService,$rootScope) {
   // "Pets" is a service returning mock data (services.js)
   $scope.brewer = BrewerService.get($stateParams.brewerId);
   $scope.beers = $scope.brewer.Beer;
@@ -88,20 +88,134 @@ angular.module('starter.controllers', [])
 // A simple controller that shows a tapped item's data
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http,$rootScope) {
   $scope.beer = BeerService.get($stateParams.beerId);
- var spigotVote = JSON.parse(window.localStorage.getItem("myVote"));
-   if (spigotVote.Vote.beer_id === $stateParams.beerId){
+    
+  //The specific beerID
+  $scope.beerID = $stateParams.beerId;
+  
+////SET THE VOTE CHECKBOX  
+   var myVote = JSON.parse(window.localStorage.getItem("myVote"));
+   if (myVote.Vote.beer_id === $stateParams.beerId){
 //        console.log("we got a match yo");
          $scope.beerVote = true;
-         
-     
-  }else{ $scope.beerVote = false }
+          }else{ $scope.beerVote = false }
+/////////////////////
+///////SET the TRIED IT CHECKBOX///////
+    var triedBeers = JSON.parse(window.localStorage.getItem("triedBeers"));
+    $scope.triedIt = false;
+      angular.forEach(triedBeers, function(tried, index) {
+          console.log(tried.Tried.beer_id);
+       if (tried.Tried.beer_id == $scope.beerID){
+          console.log("TRIED IS ");
+          console.log(tried);
+          $scope.triedIt = true;
+       }
+
+
+    });
+//    if(savedBeer.Tried.beer_id = $scope.beerID){
+//        $scope.triedIt = true;
+//    }else{ $scope.triedIt = false;}
+//       console.log("SAVED BEER IS");
+//           console.log(savedBeer);    
+///////////////////////////////
+      
+
   
     $scope.go = function ( path ) {
   	//console.log(path);
   $location.path( path );
 	};  
 
+//TRIED THIS BEER FUNCTION///////
+//
+//
 
+$scope.tried = function(beerID){
+  console.log('DEVICE ID'); 
+  console.log($rootScope.DEVICEID);
+  
+    var triedItTest = false;
+    if($scope.triedIt === true){ triedItTest = 'true';};
+    if($scope.triedIt === false){ triedItTest = 'false';};
+  //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.
+  //If $scope.beerVote is false, the backend server will delete the beer_id from the record, if true it will  the record.
+  $http.post('http://brewingupacure.org/Tried/add.json',{device_id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: triedItTest }).then(function(resp) {
+  
+      //Get the localStorage Variable
+      $scope.triedBeers = angular.fromJson(window.localStorage.getItem('triedBeers'));
+//   
+//   
+      //If they are checking the box, save the new record in the localStorage array.
+      if($scope.triedIt === true){
+            var newTriedBeer =  { Tried: 
+            { device_id: $rootScope.DEVICEID,
+              beer_id: $stateParams.beerId
+              } };
+        $scope.triedBeers.push(newTriedBeer);
+        window.localStorage.setItem('triedBeers', angular.toJson($scope.triedBeers));
+      }
+      
+      if($scope.triedIt === false){
+      
+      
+      
+      
+//      var thisTriedBeer;
+  //    console.log(triedBeers);
+      angular.forEach($scope.triedBeers, function(tried, index) {
+    //      console.log(tried);
+       if (tried.Tried.beer_id == beerID){
+          console.log("TRIED IS ");
+          console.log(tried.Tried);
+              
+              console.log("INDEX IS ");
+          console.log(index);
+               $scope.triedBeers.splice(index, 1);
+       }
+    });
+    console.log($scope.triedBeers);
+
+      }
+      
+      //Set the localstorage variable
+  
+  
+  
+//  //If $scope.beerVote is true, set the localStorage variable
+//   if($scope.beerVote == true){
+//   var newSpigotVote =  { Vote: 
+//   { id: device.uuid,
+//     beer_id: $stateParams.beerId
+//     } };
+//   }
+//   if($scope.beerVote == false){
+//   var newSpigotVote =  { Vote: 
+//   { id: device.uuid,
+//     beer_id: ''
+//     } };       
+//   }
+    //Set localstorage to whatever the newSpigotVote became
+    //window.localStorage.setItem("triedBeers", angular.toJson(newSpigotVote));
+    
+//    console.log("saved myVote is now");
+//    console.log(angular.toJson(newSpigotVote));
+  }, function(err) {
+    //console.error('ERR', err);
+    // err.status will contain the status code
+  });
+  }; 
+
+
+
+//
+//
+//
+//
+//
+//
+//END TRIED THIS BEER
+//
+//
 //VOTING FUNCTION for BEST OF SHOW///////////////////
 //*************************************************//
   $scope.vote = function() {

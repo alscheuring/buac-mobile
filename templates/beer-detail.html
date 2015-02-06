@@ -4,6 +4,8 @@
   The PetCtrl pulls data from the Pets service (service.js)
   The Pets service returns an array of pet data
 -->
+<ion-nav-view cache-view='false'>
+
 <div class="bar bar-header bar-energized">
  <a class="button button-small icon ion-arrow-left-b" href="#/tab/brewers">Beers</a>
  <h1 class="title"><img src="img/buac-minimal.png" /></h1>
@@ -51,7 +53,7 @@
 </div>  
       
 <div ng-controller="BeerDetailCtrl">
-<ion-checkbox class="item-input-inset" ng-model="triedIt" ng-click="tried()">Tried It!</ion-checkbox>
+<ion-checkbox class="item-input-inset" ng-model="triedIt" ng-click="tried(beerID)">Tried It!</ion-checkbox>
 </div>  
       
 	<hr />

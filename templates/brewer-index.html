@@ -24,7 +24,7 @@
           <h3> {{beer.name}} <span ng-show="beer.id == myVote.Vote.beer_id"><i class="ion-heart"></i></span>
            
               <span ng-repeat-start="tried in triedBeers"> 
-                  <span class='step size-32'  ng-show="beer.id == tried.beer_id"><i class="ion-checkmark-round"></i></span>
+                  <span ng-show="beer.id == tried.Tried.beer_id"><i class="ion-checkmark-round"></i></span>
               </span>
               <span ng-repeat-end></span>
               

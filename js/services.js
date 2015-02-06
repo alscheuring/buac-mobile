@@ -140,6 +140,26 @@ return null;
   
 })
 
+        .factory('TriedBeerService', function() { 
+        var triedBeers = angular.fromJson(window.localStorage.getItem('triedBeers'));
+            
+          return {
+              all: function(){
+                  return triedBeers;
+              }
+          }      
+        })
+        
+        .factory('MyVoteService', function() { 
+        var myVote = angular.fromJson(window.localStorage.getItem('myVote'));
+            
+          return {
+              get: function(){
+                  return myVote;
+              }
+          }      
+        })        
+
 //SponsorService gets all the sponsor types and puts the into local storage.
 .factory('SponsorService', function() {
       var allSponsors = angular.fromJson(window.localStorage.getItem('allSponsors'));

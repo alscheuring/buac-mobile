@@ -139,7 +139,7 @@ $scope.tried = function(beerID){
     if($scope.triedIt === false){ triedItTest = 'false';};
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.
   //If $scope.beerVote is false, the backend server will delete the beer_id from the record, if true it will  the record.
-  $http.post('http://brewingupacure.org/Tried/add.json',{device_id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: triedItTest }).then(function(resp) {
+  $http.post('http://brewingupacure.org/administrationTried/add.json',{device_id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: triedItTest }).then(function(resp) {
   
       //Get the localStorage Variable
       $scope.triedBeers = angular.fromJson(window.localStorage.getItem('triedBeers'));
@@ -220,7 +220,7 @@ $scope.tried = function(beerID){
     if($scope.beerVote === false){ beerVoteTest = 'false';};
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.
   //If $scope.beerVote is false, the backend server will delete the beer_id from the record, if true it will  the record.
-  $http.post('http://brewingupacure.org/Votes/add.json',{id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: beerVoteTest }).then(function(resp) {
+  $http.post('http://brewingupacure.org/administration/Votes/add.json',{id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: beerVoteTest }).then(function(resp) {
     //Set the localstorage variable
   
   //If $scope.beerVote is true, set the localStorage variable

@@ -3,7 +3,7 @@ angular.module('starter.services', [])
 //DATAService gets all the JSON data from the server on startup and puts it into localStorage
 .factory('DataService', function($http,$rootScope) {
  //Go get that event info
- $http({method: 'GET', url: 'http://brewingupacure.org/Information/eventData.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Information/eventData.json'}).
     success(function(data, status, headers, config) {
       	var eventData = angular.toJson(data);
       	window.localStorage.setItem("eventData", eventData);
@@ -28,7 +28,7 @@ angular.module('starter.services', [])
     
 
  //Go get that monetary sponsor info
- $http({method: 'GET', url: 'http://brewingupacure.org/Information/onlySponsors.json?type=all'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Information/onlySponsors.json?type=all'}).
     success(function(data, status, headers, config) {
       	var allSponsors = angular.toJson(data);
       	window.localStorage.setItem("allSponsors", allSponsors);
@@ -38,7 +38,7 @@ angular.module('starter.services', [])
     });
     
 
- $http({method: 'GET', url: 'http://brewingupacure.org/Information/onlySponsors.json?type=monetary'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Information/onlySponsors.json?type=monetary'}).
     success(function(data, status, headers, config) {
       	var monetarySponsors = angular.toJson(data);
       	window.localStorage.setItem("monetarySponsors", monetarySponsors);
@@ -48,7 +48,7 @@ angular.module('starter.services', [])
     });
     
  //Go get that commercial beer sponsor info
- $http({method: 'GET', url: 'http://brewingupacure.org/Information/onlySponsors.json?type=commercialBeer'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Information/onlySponsors.json?type=commercialBeer'}).
     success(function(data, status, headers, config) {
       	var commercialBeer = angular.toJson(data);
       	window.localStorage.setItem("commercialBeerSponsors", commercialBeer);
@@ -59,7 +59,7 @@ angular.module('starter.services', [])
 
 
  //Go get that commercial beer sponsor info
- $http({method: 'GET', url: 'http://brewingupacure.org/Information/onlySponsors.json?type=food'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Information/onlySponsors.json?type=food'}).
     success(function(data, status, headers, config) {
       	var food = angular.toJson(data);
       	window.localStorage.setItem("foodSponsors", food);
@@ -70,7 +70,7 @@ angular.module('starter.services', [])
     });    
 
  //Go get that vote info  and store it
- $http({method: 'GET', url: 'http://brewingupacure.org/Votes/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Votes/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
     success(function(data, status, headers, config)  {
         console.log("EXTERNAL MYVOTE HAS BEEN LOADED");
       window.localStorage.setItem("myVote", angular.toJson(data));
@@ -84,7 +84,7 @@ angular.module('starter.services', [])
     }); 
     
  //Go get that tried Beer info
- $http({method: 'GET', url: 'http://brewingupacure.org/Tried/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Tried/mobileindex.json?deviceID='+ $rootScope.DEVICEID}).
     success(function(data, status, headers, config) {
 
       	window.localStorage.setItem("triedBeers", angular.toJson(data));
@@ -97,7 +97,7 @@ angular.module('starter.services', [])
     
     
     //Go get that brewer info
- $http({method: 'GET', url: 'http://brewingupacure.org/Brewers/index.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Brewers/index.json'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously
       // when the response is available
@@ -113,7 +113,7 @@ angular.module('starter.services', [])
       // or server returns response with an error status.
     });
     
- $http({method: 'GET', url: 'http://brewingupacure.org/Beers/index.json'}).
+ $http({method: 'GET', url: 'http://brewingupacure.org/administration/Beers/index.json'}).
     success(function(data, status, headers, config) {
       // this callback will be called asynchronously
       // when the response is available

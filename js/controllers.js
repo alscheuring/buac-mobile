@@ -88,7 +88,7 @@ angular.module('starter.controllers', [])
 // A simple controller that shows a tapped item's data
 .controller('BeerDetailCtrl', function($scope, $stateParams, BeerService, $ionicPopup, $location, $http,$rootScope) {
   $scope.beer = BeerService.get($stateParams.beerId);
-    
+    console.log('BEER DETAIL Called');
   //The specific beerID
   $scope.beerID = $stateParams.beerId;
   
@@ -105,25 +105,18 @@ angular.module('starter.controllers', [])
       angular.forEach(triedBeers, function(tried, index) {
           console.log(tried.Tried.beer_id);
        if (tried.Tried.beer_id == $scope.beerID){
-          console.log("TRIED IS ");
-          console.log(tried);
+//          console.log("TRIED IS ");
+//          console.log(tried);
           $scope.triedIt = true;
        }
 
 
     });
-//    if(savedBeer.Tried.beer_id = $scope.beerID){
-//        $scope.triedIt = true;
-//    }else{ $scope.triedIt = false;}
-//       console.log("SAVED BEER IS");
-//           console.log(savedBeer);    
-///////////////////////////////
-      
+    //    
 
   
     $scope.go = function ( path ) {
-  	//console.log(path);
-  $location.path( path );
+    $location.path( path );
 	};  
 
 //TRIED THIS BEER FUNCTION///////
@@ -131,15 +124,15 @@ angular.module('starter.controllers', [])
 //
 
 $scope.tried = function(beerID){
-  console.log('DEVICE ID'); 
-  console.log($rootScope.DEVICEID);
+//  console.log('DEVICE ID'); 
+//  console.log($rootScope.DEVICEID);
   
     var triedItTest = false;
     if($scope.triedIt === true){ triedItTest = 'true';};
     if($scope.triedIt === false){ triedItTest = 'false';};
   //Set the current beer as the favorite for the night. This updates Mysql on the backend but not localStorage.
   //If $scope.beerVote is false, the backend server will delete the beer_id from the record, if true it will  the record.
-  $http.post('http://brewingupacure.org/administrationTried/add.json',{device_id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: triedItTest }).then(function(resp) {
+  $http.post('http://brewingupacure.org/administration/Tried/add.json',{device_id:$rootScope.DEVICEID, beer_id:$stateParams.beerId, insertRecord: triedItTest }).then(function(resp) {
   
       //Get the localStorage Variable
       $scope.triedBeers = angular.fromJson(window.localStorage.getItem('triedBeers'));
@@ -151,7 +144,7 @@ $scope.tried = function(beerID){
             { device_id: $rootScope.DEVICEID,
               beer_id: $stateParams.beerId
               } };
-        $scope.triedBeers.push(newTriedBeer);
+//        $scope.triedBeers.push(newTriedBeer);
         window.localStorage.setItem('triedBeers', angular.toJson($scope.triedBeers));
       }
       
@@ -163,10 +156,10 @@ $scope.tried = function(beerID){
               
               console.log("INDEX IS ");
           console.log(index);
-               $scope.triedBeers.splice(index, 1);
+//               $scope.triedBeers.splice(index, 1);
        }
     });
-    console.log($scope.triedBeers);
+//    console.log($scope.triedBeers);
 
       }
       

@@ -8,7 +8,7 @@
 angular.module('starter', ['ionic', 'starter.services', 'starter.controllers'])
 
 .run(function($ionicPlatform, $rootScope) {
-        $rootScope.DEVICEID = 'C5642141-98C5-4443-B0E0-6966ED32BE2C';
+       // $rootScope.DEVICEID = 'C5642141-98C5-4443-B0E0-6966ED32BE2C';
 
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
